@@ -1,0 +1,47 @@
+﻿@model hr_201_file.Models.UploadedFileForConfirmation
+
+@{
+    ViewBag.Title = "Confirmation";
+}
+
+
+<h2 class="u-mb-medium">Confirmation</h2>
+<div class="container w-75 mx-auto">
+    <div class="row bg-dark p-5 mb-5">
+        <div class="col-lg-6 text-white">
+            <div class="mb-4">
+                <div class="text-warning">Employee Name</div>
+                <h6>@Model.Fullname</h6>
+            </div>
+            <div class="mb-5">
+                <div class="text-warning">Folder</div>
+                <h6>@Model.Folder</h6>
+            </div>
+            <div>
+                <h6 class="text-success">@Model.Files.Count() Files Selected</h6>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card mx-auto" style="width: 18rem;">
+                <div class="card-header">
+                    UPLOADED FILES
+                </div>
+                <ul class="list-group list-group-flush">
+                    @foreach (var file in Model.Filenames(Model.Files))
+                    {
+                        <li class="list-group-item">@file</li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-lg-12">
+            <div class="mt-4 text-center">
+                @Html.ActionLink("Continue", "Add_Files", "Upload", null, new { @class = "c_btn c_btn--white" })
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

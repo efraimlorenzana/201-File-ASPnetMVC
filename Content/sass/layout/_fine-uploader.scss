@@ -1,0 +1,42 @@
+.qq-uploader {
+    // position: relative;
+
+    // .qq-upload-drop-area {
+    //     display: block !important;
+    //     position: none !important;
+    // }
+
+    .qq-upload-button {
+        min-width: 100px !important;
+        margin: 20px auto !important;
+        border-radius: 100px;
+        background-color: rgba(0, 0, 0, 0.33);
+        width: 150px;
+        padding: 10px;
+
+        &:hover {
+            background-color: black;
+        }
+
+        & div,
+        & input {
+            cursor: pointer;
+            // z-index: -1000;
+        }
+
+        & [name="file"] {
+            cursor: pointer;
+            outline: none;
+        }
+    }
+
+    & .qq-upload-list > .qq-upload-success {
+        border: 1px solid;
+        background-color: #2dea2ddb !important;
+    }
+
+    & .qq-upload-list > .qq-upload-fail {
+        border: 1px solid;
+        background-color: #ef4735db !important;
+    }
+}

@@ -1,0 +1,160 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<hr_201_file.Models.Employee>
+
+@{
+    ViewBag.Title = "File | New Record";
+}
+
+@* Script for Fine Uploader *@
+
+<link href="~/Content/FineUploader/fineuploader.css" rel="stylesheet" />
+
+<script type="text/javascript">
+
+    function createUploader(id) {
+        var uploader = new qq.FineUploader({
+            element: document.getElementById('fine-uploader' + id),
+            debug: true,
+            request: {
+                endpoint: '@Url.Action("UploadFile", "Upload")'
+            },
+            multiple: true,
+            validation: {
+                allowedExtensions: ['jpeg', 'jpg', 'png', 'gif', 'tiff'],
+                sizeLimit: 2097152 // 50 kB = 50 * 1024 bytes
+            },
+            callbacks: {
+                onComplete: function (id, fileName, responseJSON) {
+                    if (responseJSON.FilePath != '') {
+                        //do something
+                    }
+                }
+            }
+        });
+    }
+
+    // window.onload = createUploader;
+</script>
+<section class="section__new-record">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- <h2>New Record</h2> -->
+                <h4>
+                    <i class="fas fa-folder text-success"></i>
+                    @ViewBag.Folder
+                </h4>
+            </div>
+            <div class="col-lg-4">
+                <div class="input-group mb-3">
+                    <!-- Search Field -->
+                    @using (Html.BeginForm("New_Record", "File", FormMethod.Get))
+                    {
+                        <div class="search">
+                            <div class="search__bar">
+                                <span class="search__bar--icon">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                                <input name="search" type="text" class="search__bar--text" placeholder="Search EmpNo / Name">
+                            </div>
+                        </div>
+                        
+                         string folder_id = Request.QueryString["folder_id"];
+                         
+                        <input name="folder_id" type="text" value="@(folder_id)" hidden/>
+
+                        <div class="submit">
+                            <input type="submit" class="submit-button" hidden>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-hover header-fixed">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().EmpNo)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.First().FullName)
+                </th>
+
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="text-center">
+                        @Html.DisplayFor(modelItem => item.EmpNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td class="text-center">
+                        <button type="button"
+                                class="btn btn-primary"
+                                data-toggle="modal"
+                                data-target="#upload-modal@(item.EmpNo)"
+                                onclick="createUploader(@(item.EmpNo))">
+                            <i class="fas fa-upload"></i>
+                            Upload Files
+                        </button>
+                    </td>
+                </tr>
+
+                <!-- Upload Modal -->
+                <div class="modal fade" id="upload-modal@(item.EmpNo)" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title">
+                                    <i class="fas fa-user-tie text-success"></i>
+                                    @item.FullName
+                                </h6>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="fine__uploader">
+                                    <div id="fine-uploader@(item.EmpNo)"></div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                @using (Html.BeginForm("Confirm_Upload", "Upload", FormMethod.Post))
+                                {
+                                    <input type="text" name="FullName" value="@(item.FullName)" hidden>
+                                    <input type="text" name="EmpNo" value="@(item.EmpNo)" hidden>
+                                    <input type="text" name="Folder" value="@(ViewBag.Folder)" hidden>
+                                    
+                                    <button type="submit" class="c_btn c_btn--green">
+                                        Save
+                                    </button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of Modal -->
+            }
+        </tbody>
+
+    </table>
+</section>
+<div class="flex-center">
+    @Html.PagedListPager(Model, page => @Url.Action("New_Record",
+    new
+    {
+        page,
+        search = Request["search"],
+        folder_id = Request["folder_id"]
+    }))
+</div>

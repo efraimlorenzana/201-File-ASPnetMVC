@@ -1,0 +1,20 @@
+.search {
+    display: inline-block;
+    margin: 0 auto;
+    &__bar {
+        border: 2px solid black;
+        border-radius: 100px;
+        padding: 5px 15px;
+
+        &--icon {
+            margin: 15px;
+        }
+
+        &--text {
+            margin-right: 15px;
+            padding: 5px 10px;
+            outline: none;
+            border: none;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+.header {
+    height: 90vh;
+    background-image: linear-gradient(to right bottom,
+    rgba($color-green-2,.5), 
+    rgba($color-green-3, .5)),
+    url(../../Images/file.jpg); 
+    background-size: cover;
+    background-position: top;
+    -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 100%, 76% 83%, 43% 99%, 0 100%, 0 0);
+    --clip-path: polygon(50% 0%, 100% 0, 100% 100%, 76% 83%, 43% 99%, 0 100%, 0 0);
+    clip-path: polygon(50% 0%, 100% 0, 100% 100%, 76% 83%, 43% 99%, 0 100%, 0 0);
+    position: relative;
+
+    &__image-box {
+        position: absolute;
+        top: 40px;
+        left: 40px;
+    }
+    
+    &__image-box &__logo {
+        height: 200px;
+    }
+    
+    &__primary {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}

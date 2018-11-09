@@ -39,11 +39,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -109,30 +120,114 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Areas\Administrator\Models\" />
+    <Folder Include="Areas\Administrator\Views\File\" />
+    <Folder Include="Areas\Administrator\Views\Home\" />
+    <Folder Include="Areas\Administrator\Views\Shared\" />
+    <Folder Include="Employee_Data\EMPLOYEE_INFORMATION\" />
+    <Folder Include="Employee_Data\EMPLOYMENT_RECORDS\" />
+    <Folder Include="Employee_Data\MEDICAL_RECORDS\" />
+    <Folder Include="Employee_Data\MEMO_NOTICES\" />
+    <Folder Include="Employee_Data\OTHERS\" />
+    <Folder Include="Employee_Data\TRAINING_HISTORY\" />
+    <Folder Include="Employee_Data\UPLOADED\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
+    <Compile Include="Areas\Administrator\Controllers\FileController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\HomeController.cs" />
+    <Compile Include="Common\Constant.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\FineUpload.cs" />
+    <Compile Include="Infrastructure\FineUploadResult.cs" />
+    <Compile Include="Models\Employee.cs">
+      <DependentUpon>FileDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FileCategory.cs">
+      <DependentUpon>FileDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FileContentModel.cs" />
+    <Compile Include="Models\FileContents.cs">
+      <DependentUpon>FileDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FileDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FileDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FileDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FileDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FileManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\FineUploader\fineuploader.css" />
+    <Content Include="Content\FineUploader\loading.gif" />
+    <Content Include="Content\FineUploader\processing.gif" />
+    <Content Include="Content\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\file.jpg" />
+    <Content Include="Images\logo-2018.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Infrastructure\readme.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Administrator\Views\web.config" />
+    <EntityDeploy Include="Models\FileDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>FileDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\FileDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FileDataModel.edmx</DependentUpon>
+      <LastGenOutput>FileDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\FileDataModel.edmx.diagram">
+      <DependentUpon>FileDataModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\FileDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FileDataModel.edmx</DependentUpon>
+      <LastGenOutput>FileDataModel.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Custom.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery.fineuploader-3.1.js" />
+    <Content Include="Scripts\jquery.fineuploader-3.1.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -152,8 +247,14 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\_landing.cshtml" />
+    <Content Include="Views\File\FileManager.cshtml" />
+    <Content Include="Views\File\New_Record.cshtml" />
+    <Content Include="Views\Upload\Confirm_Upload.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

@@ -24,3 +24,9 @@ D:\WORK PROJECT\hr-201-file\hr-201-file\bin\Antlr3.Runtime.pdb
 D:\WORK PROJECT\hr-201-file\hr-201-file\obj\Debug\hr-201-file.csprojResolveAssemblyReference.cache
 D:\WORK PROJECT\hr-201-file\hr-201-file\obj\Debug\hr-201-file.dll
 D:\WORK PROJECT\hr-201-file\hr-201-file\obj\Debug\hr-201-file.pdb
+D:\WORK PROJECT\hr-201-file\hr-201-file\bin\EntityFramework.dll
+D:\WORK PROJECT\hr-201-file\hr-201-file\bin\EntityFramework.xml
+D:\WORK PROJECT\hr-201-file\hr-201-file\bin\PagedList.dll
+D:\WORK PROJECT\hr-201-file\hr-201-file\bin\PagedList.Mvc.dll
+D:\WORK PROJECT\hr-201-file\hr-201-file\bin\PagedList.xml
+D:\WORK PROJECT\hr-201-file\hr-201-file\bin\PagedList.Mvc.xml

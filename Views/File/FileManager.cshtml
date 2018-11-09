@@ -1,0 +1,31 @@
+﻿@model IEnumerable<hr_201_file.Models.Folder>
+
+@{
+    ViewBag.Title = "File Manager | DDTKI";
+}
+
+<section class="section__file">
+    <h1 class="u-mb-medium">File Manager</h1>
+
+    <table class="table table-hover table-dark">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="ls-1">
+                    <i class="fas fa-folder text-success fa-2x"></i>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a name="btn_link" href="/File/New_Record?folder_id=@(item.Code)" class="mr-4">
+                        <i class="fas fa-file-medical fa-2x"></i>
+                    </a>
+                    <a name="btn_link" href="#">
+                        <i class="fas fa-sign-in-alt fa-2x text-warning"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </table>
+</section>
+

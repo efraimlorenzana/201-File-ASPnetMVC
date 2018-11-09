@@ -1,0 +1,21 @@
+.section__file {
+    min-height: 60vh;
+    background-color: $color-white-2;
+    padding: 20px;
+
+    table td {
+        padding-left: 30px !important;
+
+        &:hover {
+            color: $color-green-3;
+        }
+        &:not(:hover) {
+            // color:blue;
+        }
+    }
+}
+
+.section__new-record table > tbody > tr > th {
+    text-align: center;
+    text-transform: uppercase;
+}

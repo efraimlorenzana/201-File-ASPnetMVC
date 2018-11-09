@@ -1,0 +1,40 @@
+.files__gallery {
+    height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+    &-item {
+        cursor: pointer;
+        position: relative;
+        margin: 25px;
+        
+        &--title {
+            background-image: linear-gradient(to right, $color-green-2, $color-green-3);
+            font-size: 20px;
+            -webkit-background-clip: text;
+            color: transparent;
+            // width: 280px;
+        }
+    }
+    
+    &-icon {
+        // position: absolute;
+        // transition: opacity .5s;
+        &--close {
+            opacity: 1;
+            z-index: 1;
+            
+            &:hover {
+                opacity: 0;
+            }
+        }
+        &--close:hover ~&--open {
+            opacity: 1;
+        }
+        
+        &--open {
+            opacity: 0;
+        }
+    }
+}
