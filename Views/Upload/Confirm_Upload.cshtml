@@ -37,7 +37,9 @@
 
         <div class="col-lg-12">
             <div class="mt-4 text-center">
-                @Html.ActionLink("Continue", "Add_Files", "Upload", null, new { @class = "c_btn c_btn--white" })
+                @Html.ActionLink("Continue", "New_Record", "File", 
+                new { folder_id = @ViewBag.folder_id }, 
+                new { @class = "c_btn c_btn--white" })
             </div>
         </div>
     </div>

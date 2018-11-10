@@ -60,6 +60,10 @@ h6 {
     display: block;
     animation: moveInRight 3s ease-out; }
 
+.header-text {
+  text-transform: uppercase;
+  letter-spacing: 2px; }
+
 .u-mb-big {
   margin-bottom: 100px !important; }
 
@@ -68,6 +72,31 @@ h6 {
 
 .ls-1 {
   letter-spacing: 3px; }
+
+.icon-size--big {
+  font-size: 50px !important; }
+
+.icon-size--medium {
+  font-size: 30px !important; }
+
+.icon-color--green {
+  color: #15ffa0 !important; }
+
+.text--green {
+  color: #15ffa0 !important; }
+
+.text--medium {
+  font-size: 25px; }
+
+.card-header {
+  padding: 1px !important; }
+  .card-header h5 > .btn-link {
+    width: 100%;
+    text-decoration: none; }
+
+.card-body {
+  padding: 0 !important;
+  min-height: 5px !important; }
 
 .btn_link, .btn_link:hover {
   text-decoration: none !important;
@@ -375,6 +404,47 @@ h6 {
 .section__new-record table > tbody > tr > th {
   text-align: center;
   text-transform: uppercase; }
+
+.c_display-ib {
+  display: inline !important; }
+
+#btnBack {
+  border-radius: 50%;
+  padding: 5px 11px; }
+
+.setting__navigation--list {
+  margin: 0 !important; }
+
+.setting__navigation--item {
+  list-style: none; }
+
+.setting__navigation--link {
+  text-decoration: none;
+  color: black;
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 3px 5px 3px 20px; }
+  .setting__navigation--link:hover {
+    text-decoration: none;
+    background-color: black;
+    color: #15ffa0; }
+
+.setting__content {
+  min-height: 80vh;
+  max-height: 80vh;
+  overflow-y: scroll;
+  background-color: #f6f6f6; }
+
+.setting__icon--setting {
+  color: #15ffa0;
+  margin-right: 10px; }
+
+.setting__icon--text {
+  font-size: 15px;
+  color: #15ffa0;
+  text-transform: uppercase;
+  letter-spacing: 2px; }
 
 body {
   padding-top: 50px;

@@ -17,7 +17,7 @@ namespace hr_201_file.Areas.Administrator
             context.MapRoute(
                 "Administrator_default",
                 "Administrator/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { controller="Setting", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

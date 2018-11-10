@@ -1,0 +1,48 @@
+.setting {
+    &__navigation {
+        &--list {
+            margin: 0 !important;
+        }
+
+        &--item {
+            list-style: none;
+        }
+        
+        &--link {
+            text-decoration: none;
+            color: black;
+            display: block;
+            height: 100%;
+            width: 100%;
+            padding: 3px 5px 3px 20px;
+            
+            &:hover {
+                text-decoration: none;
+                background-color: black;
+                color: $color-green-2;
+            }
+        }
+    }
+
+    &__content {
+        min-height: 80vh;
+        max-height: 80vh;
+        overflow-y: scroll;
+        background-color: $color-white-2;
+    }
+
+    &__icon {
+
+        &--setting {
+            color: $color-green-2;
+            margin-right: 10px;
+        }
+        
+        &--text {
+            font-size: 15px;
+            color: $color-green-2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    }
+}

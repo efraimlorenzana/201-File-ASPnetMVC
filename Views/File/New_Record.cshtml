@@ -42,7 +42,11 @@
         <div class="row">
             <div class="col-lg-8">
                 <!-- <h2>New Record</h2> -->
-                <h4>
+                <a id="btnBack" href="@Url.Action("FileManager", "File")" 
+                class="c_btn c_btn--green mr-2">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <h4 class="c_display-ib">
                     <i class="fas fa-folder text-success"></i>
                     @ViewBag.Folder
                 </h4>
@@ -129,7 +133,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                @using (Html.BeginForm("Confirm_Upload", "Upload", FormMethod.Post))
+                                @using (Html.BeginForm("Add_Files", "Upload", FormMethod.Post))
                                 {
                                     <input type="text" name="FullName" value="@(item.FullName)" hidden>
                                     <input type="text" name="EmpNo" value="@(item.EmpNo)" hidden>

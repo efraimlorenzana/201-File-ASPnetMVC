@@ -7,6 +7,7 @@
 @import "base/typography";
 @import "base/utilities";
 
+@import "components/bootstrap-overide";
 @import "components/btn_link";
 @import "components/button";
 @import "components/header-fix";
@@ -20,5 +21,6 @@
 
 @import "pages/file";
 @import "pages/home";
+@import "pages/setting";
 
 @import "default.scss";

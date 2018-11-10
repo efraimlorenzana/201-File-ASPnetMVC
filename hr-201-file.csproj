@@ -121,9 +121,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administrator\Models\" />
-    <Folder Include="Areas\Administrator\Views\File\" />
     <Folder Include="Areas\Administrator\Views\Home\" />
-    <Folder Include="Areas\Administrator\Views\Shared\" />
     <Folder Include="Employee_Data\EMPLOYEE_INFORMATION\" />
     <Folder Include="Employee_Data\EMPLOYMENT_RECORDS\" />
     <Folder Include="Employee_Data\MEDICAL_RECORDS\" />
@@ -137,12 +135,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
-    <Compile Include="Areas\Administrator\Controllers\FileController.cs" />
     <Compile Include="Areas\Administrator\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Administrator\Controllers\SettingController.cs" />
     <Compile Include="Common\Constant.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
+    <Compile Include="Custom_Function\CF.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -180,6 +179,8 @@
     <Content Include="Content\FineUploader\fineuploader.css" />
     <Content Include="Content\FineUploader\loading.gif" />
     <Content Include="Content\FineUploader\processing.gif" />
+    <Content Include="Content\fonts\linea-basic-10.svg" />
+    <Content Include="Content\icons-reference.html" />
     <Content Include="Content\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Content\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
     <Content Include="Content\images\ui-bg_glass_100_f6f6f6_1x400.png" />
@@ -194,6 +195,7 @@
     <Content Include="Content\images\ui-icons_ffd27a_256x240.png" />
     <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -222,6 +224,12 @@
       <DependentUpon>FileDataModel.edmx</DependentUpon>
       <LastGenOutput>FileDataModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Content\fonts\linea-basic-10.eot" />
+    <Content Include="Content\fonts\linea-basic-10.ttf" />
+    <Content Include="Content\fonts\linea-basic-10.woff" />
+    <Content Include="Areas\Administrator\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Administrator\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Administrator\Views\Setting\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -242,7 +250,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Administrator\Views\Shared\_Setting.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -251,6 +259,7 @@
     <Content Include="Views\File\FileManager.cshtml" />
     <Content Include="Views\File\New_Record.cshtml" />
     <Content Include="Views\Upload\Confirm_Upload.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

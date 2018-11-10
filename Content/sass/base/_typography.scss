@@ -2,7 +2,7 @@
     color: $color-white-1;
     text-transform: uppercase;
     letter-spacing: 3px;
-
+    
     &--main {
         font-size: 60px;
         display: block;
@@ -15,5 +15,12 @@
         display: block;
         animation: moveInRight 3s ease-out;
     }
+    
+}
 
+.header {
+    &-text {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
 }

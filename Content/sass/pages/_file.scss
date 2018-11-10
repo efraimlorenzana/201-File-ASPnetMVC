@@ -2,10 +2,10 @@
     min-height: 60vh;
     background-color: $color-white-2;
     padding: 20px;
-
+    
     table td {
         padding-left: 30px !important;
-
+        
         &:hover {
             color: $color-green-3;
         }
@@ -18,4 +18,13 @@
 .section__new-record table > tbody > tr > th {
     text-align: center;
     text-transform: uppercase;
+}
+
+.c_display-ib {
+    display: inline !important;
+}
+
+#btnBack {
+    border-radius: 50%;
+    padding: 5px 11px;
 }

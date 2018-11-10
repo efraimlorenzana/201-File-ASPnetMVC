@@ -7,3 +7,31 @@
     letter-spacing: 3px;
 }
 
+.icon {
+    &-size {
+        &--big {
+            font-size: 50px !important;
+        }
+
+        &--medium {
+            font-size: 30px !important;
+        }
+    }
+
+    &-color {
+        &--green {
+            color: $color-green-2 !important;
+        }
+    }
+}
+
+.text {
+    &--green {
+        color: $color-green-2 !important;
+    }
+
+    &--medium {
+        font-size: 25px;
+    }
+}
+

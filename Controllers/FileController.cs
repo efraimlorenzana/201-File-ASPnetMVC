@@ -6,10 +6,12 @@ using System.Web.Mvc;
 using hr_201_file.Models;
 using PagedList;
 using PagedList.Mvc;
+using System.IO;
+using hr_201_file.Common;
 
 namespace hr_201_file.Controllers
 {
-    
+
     public class FileController : Controller
     {
         DatabaseContext db = new DatabaseContext();
@@ -17,6 +19,18 @@ namespace hr_201_file.Controllers
         // GET: /File/
         public ActionResult FileManager()
         {
+            /// Empty UPLOADED Folder
+            string pending_file_path = Server.MapPath(Constant.UPLOADED_FILES_DIRECTORY);
+            string[] Files = Directory.GetFiles(pending_file_path);
+
+            if (Files.Count() > 0)
+            {
+                foreach (string file in Files)
+                {
+                    System.IO.File.Delete(file);
+                }
+            }
+
             List<Folder> folders = new List<Folder>();
             foreach (FileCategory fileCategory in db.FileCategories.ToList())
             {
@@ -30,7 +44,7 @@ namespace hr_201_file.Controllers
             return View(folders);
         }
 
-        public ActionResult New_Record(string search, int? page,int folder_id)
+        public ActionResult New_Record(string search, int? page, int folder_id)
         {
             //Populate Employees List
             var employees = db.Employees.AsQueryable();
@@ -53,6 +67,7 @@ namespace hr_201_file.Controllers
             return View(employees.ToPagedList(page ?? 1, 100));
         }
 
+
         public JsonResult AutoComplete(string term)
         {
             List<string> Names = db.Employees.Where(emp => emp.FullName.Contains(term))
@@ -61,8 +76,7 @@ namespace hr_201_file.Controllers
 
             return Json(Names, JsonRequestBehavior.AllowGet);
         }
-	}
+    }
 
 
 }
-    
