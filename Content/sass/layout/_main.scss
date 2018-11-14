@@ -1,0 +1,53 @@
+.main-nav {
+    text-align: center;
+    padding: 5px;
+    background-color: $color-white-2;
+    min-height: 100%;
+    &__list {
+        padding: 0 !important;
+    }
+    
+    &__item {
+        list-style: none;
+        cursor: pointer;
+        padding: 10px 5px;
+        
+        &:hover {
+            background-color: black;
+        }
+    }
+    
+    &__link {
+        display: block;
+        height: 100%;
+        width: 100%;
+        &:hover {
+            color: $color-green-2;
+        }
+    }
+}
+
+.navbar-primary {
+    @include respond(bigScreen) {
+        display: none;
+    }
+
+    @include respond(tabport) {
+        display: block;
+    }
+}
+
+.navbar-secondary {
+    @include respond(bigScreen) {
+        display: block;
+    }
+
+    @include respond(tabport) {
+        display: none;
+    }
+}
+
+#sideNav {
+    margin: 0 !important;
+    padding: 0 !important;
+}

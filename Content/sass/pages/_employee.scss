@@ -1,0 +1,65 @@
+.profile {
+    position: relative;
+    margin-bottom: 20px;
+    &__name {
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 40px;
+        display: inline-block;
+        margin: 10px;
+    }
+
+    &__position {
+        margin-left: 20px;
+        font-size: 30px;
+        letter-spacing: 3px;
+    }
+    
+    &__jobcategory {
+        margin-left: 20px;
+        font-size: 20px;
+        letter-spacing: 3px;
+        font-weight: 400;
+    }
+
+    &__details {
+        &--doj {
+            margin-left: 10px;
+            color: orangered;
+        }
+    }
+
+    &__picture {
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        width: 200px;
+        
+        &-data {
+            border-radius: 50%;
+            width: 100%;
+        }
+    }
+
+    &__content {
+        min-height: 45vh;
+        max-height: 45vh;
+        background-color: $color-white-2;
+        overflow-y: scroll;
+    }
+}
+
+.active {
+    background-color: $color-white-2 !important;
+}
+
+.employee-nav {
+    @include respond(bigScreen) {
+        // display: block;
+    }
+
+    @include respond(tabport) {
+        display: block;
+    }
+}

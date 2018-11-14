@@ -2,9 +2,11 @@
     &-header {
         padding: 1px !important;
 
-        & h5 > .btn-link {
+        & h6 > .btn-link {
             width: 100%;
             text-decoration: none;
+            font-size: 12px;
+            margin-bottom: 0 !important;
         }
     }
     

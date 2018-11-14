@@ -13,6 +13,8 @@
 
 <script type="text/javascript">
 
+    var ext_arr = @Html.Raw(Json.Encode(@ViewBag.extensions))
+
     function createUploader(id) {
         var uploader = new qq.FineUploader({
             element: document.getElementById('fine-uploader' + id),
@@ -22,8 +24,8 @@
             },
             multiple: true,
             validation: {
-                allowedExtensions: ['jpeg', 'jpg', 'png', 'gif', 'tiff'],
-                sizeLimit: 2097152 // 50 kB = 50 * 1024 bytes
+                allowedExtensions: ext_arr, //['jpeg', 'jpg', 'png', 'gif', 'tiff'],
+                sizeLimit: 10097152 // 50 kB = 50 * 1024 bytes
             },
             callbacks: {
                 onComplete: function (id, fileName, responseJSON) {
@@ -46,8 +48,9 @@
                 class="c_btn c_btn--green mr-2">
                     <i class="fas fa-arrow-left"></i>
                 </a>
-                <h4 class="c_display-ib">
-                    <i class="fas fa-folder text-success"></i>
+                <h4 class="c_display-ib d-flex align-items-center">
+                    <!-- <i class="fas fa-folder text-success"></i> -->
+                    <i class="icon icon-basic-folder icon-size--medium mr-1 ml-2 text-success"></i>
                     @ViewBag.Folder
                 </h4>
             </div>
@@ -60,6 +63,7 @@
                             <div class="search__bar">
                                 <span class="search__bar--icon">
                                     <i class="fas fa-search"></i>
+                                    <!-- <i class="icon-basic-magnifier icon-size--small mt-2"></i> -->
                                 </span>
                                 <input name="search" type="text" class="search__bar--text" placeholder="Search EmpNo / Name">
                             </div>

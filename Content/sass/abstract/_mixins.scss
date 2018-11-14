@@ -4,3 +4,34 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+// GRID
+// Target Device Resolution
+// Phone           600px >
+// Tab-portraite   900px >
+// Tab-Landscape  1200px >
+// Big Desktop    1800px <
+
+// Options
+// phone
+// tabport
+// tab-land
+// bigScreen
+
+@mixin respond($device) {
+    @if $device == phone {
+        @media(max-width: 600px) {@content};
+    }
+
+    @if $device == tabport {
+        @media (max-width: 900px) {@content};
+    }
+
+    @if $device == tabland {
+        @media (max-width: 1200px) {@content};
+    }
+
+    @if $device == bigScreen {
+        @media (max-width: 1800px) {@content};
+    }
+}

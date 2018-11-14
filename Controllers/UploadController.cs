@@ -57,7 +57,15 @@ namespace FineUploader
 
             foreach (string file_path in filenames)
             {
-                filename = Path.GetFileName(file_path);
+                filename = EmpNo.ToString() + "-" + DateTime.Now.ToShortDateString()
+                                                    .Replace("/", "") + "-" + 
+                                                    DateTime.Now.ToLongTimeString()
+                                                    .Replace("-", "")
+                                                    .Replace(":", "")
+                                                    .Replace(" ", "")
+                                         + "-" + Path.GetFileName(file_path);
+
+
                 try
                 {
                     destination = Path.Combine(Server.MapPath(category.location), filename);
@@ -67,17 +75,19 @@ namespace FineUploader
                     FileContents new_file = new FileContents();
 
                     new_file.employee_number = EmpNo;
-                    new_file.employee_name = FullName;
+                    new_file.employee_name = FullName.ToUpper();
                     new_file.File201_FileCategory_id = category.id;
-                    new_file.file_name = filename;
-                    new_file.file_path = file_path;
+                    new_file.file_name = filename
+                                        .Substring(filename.LastIndexOf("-") + 1, (filename.LastIndexOf(".") - filename.LastIndexOf("-")) - 1)
+                                        .Replace("%20", " ").ToUpper();
+                    new_file.file_path = destination.ToUpper();
                     new_file.timestamp = DateTime.Now;
 
                     db.FileContents.Add(new_file);
                 }
-                catch
+                catch(Exception e)
                 {
-                    Response.Write(CF.Alert(filename + " is already Exist in this location. try renaming the file"));
+                    Response.Write(CF.Alert(e.Message));
                 }
             }
 

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<hr_201_file.Models.FileExtension>
+
+@{
+    ViewBag.Title = "File Extensions";
+}
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.File_Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.File_Extns)
+        </th>
+        <th class="text-center">
+            @Html.DisplayNameFor(model => model.isAccepted)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.File_Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.File_Extns)
+        </td>
+        <td class="text-center">
+            @Html.CheckBoxFor(modelItem => item.isAccepted, new { onclick="include("+item.id+", event)" })
+        </td>
+        @*<td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>*@
+    </tr>
+}
+
+</table>

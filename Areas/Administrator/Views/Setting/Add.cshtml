@@ -1,0 +1,47 @@
+﻿@model hr_201_file.Models.FileExtension
+
+@{
+    ViewBag.Title = "Add";
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>New File Extension</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.File_Type, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.File_Type)
+                @Html.ValidationMessageFor(model => model.File_Type)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.File_Extns, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.File_Extns)
+                @Html.ValidationMessageFor(model => model.File_Extns)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.isAccepted, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.isAccepted)
+                @Html.ValidationMessageFor(model => model.isAccepted)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+

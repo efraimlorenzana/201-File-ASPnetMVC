@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    
+    @Styles.Render("~/Content/imported")
+    @Styles.Render("~/Content/bootstrapCDN")
+    @Styles.Render("~/Content/font-awesomeCDN")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <!-- <nav class="navigation">
+        <input id="nav-menu" type="checkbox" class="navigation__checkbox">
+        <label for="nav-menu" class="navigation__button">
+            <span class="navigation__icon"></span>
+        </label>
+        
+        <div class="navigation__background"></div>
+        
+        <div class="navigation__nav">
+            <ul class="navigation__list">
+                <li class="navigation__item">
+                    @Html.ActionLink("File Manager", "FileManager", null, new { @class="navigation__link" })
+                </li>
+                <li class="navigation__item">
+                    @Html.ActionLink("Setting", "Index","Setting", new { Area = "Administrator" }, new { @class = "navigation__link" })
+                </li>
+            </ul>
+        </div>
+    </nav> -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto navbar-primary">
+                <li class="main-nav__item">
+                    <a href="#" class="main-nav__link">
+                        <i class="fas fa-home"></i>
+                    </a>
+                </li>
+                <li class="main-nav__item">
+                    <a href="#" class="main-nav__link">
+                        <i class="fas fa-address-card"></i>
+                    </a>
+                </li>
+                <li class="main-nav__item">
+                    <a href="#" class="main-nav__link">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </a>
+                </li>
+                <li class="main-nav__item">
+                    <a href="#" class="main-nav__link">
+                        <i class="fas fa-cog"></i>
+                    </a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    
+    <div class="container-fluid body-content">
+        <div class="row">
+            <div id="sideNav" class="col-lg-1">
+                <div class="main-nav d-flex align-items-center justify-content-center">
+                    <ul class="main-nav__list navbar-secondary">
+                        <li class="main-nav__item">
+                            <a href="#" class="main-nav__link">
+                                <i class="fas fa-home fa-3x"></i>
+                            </a>
+                        </li>
+                        <li class="main-nav__item">
+                            <a href="#" class="main-nav__link">
+                                <i class="fas fa-address-card fa-3x"></i>
+                            </a>
+                        </li>
+                        <li class="main-nav__item">
+                            <a href="#" class="main-nav__link">
+                                <i class="fas fa-cloud-upload-alt fa-3x"></i>
+                            </a>
+                        </li>
+                        <li class="main-nav__item">
+                            <a href="#" class="main-nav__link">
+                                <i class="fas fa-cog fa-3x"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-11">@RenderBody()</div>
+        </div>
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - DDT KONSTRACT, INC.</p>
+        </footer>
+    </div>
+    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    
+    @* Bootstrap Script from CDN *@
+    @Scripts.Render("~/bundles/jquery331CDN")
+    @Scripts.Render("~/bundles/popperCDN")
+    @Scripts.Render("~/bundles/bootstrapCDN")
+    
+    @* Import Fine Uploader Script *@
+    @Scripts.Render("~/bundles/fineUploader")
+    
+    @* Import Custom Script *@
+    @Scripts.Render("~/bundles/custom")
+    
+    @RenderSection("scripts", required: false)
+</body>
+</html>

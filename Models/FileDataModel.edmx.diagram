@@ -9,6 +9,10 @@
         <EntityTypeShape EntityType="Models.FileCategory" Width="1.5" PointX="0.5" PointY="0.5" IsExpanded="true" />
         <AssociationConnector Association="Models.FK__File201_C__File2__2BD46C74" ManuallyRouted="false" />
         <EntityTypeShape EntityType="Models.Employee" Width="1.5" PointX="4.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Models.FileExtension" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="Models.Position" Width="1.5" PointX="2.125" PointY="10.25" />
+        <AssociationConnector Association="Models.FK_Employees_JobPositions" />
+        <EntityTypeShape EntityType="Models.JobCategory" Width="1.5" PointX="6.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

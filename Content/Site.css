@@ -33,10 +33,6 @@
   margin: 0;
   box-sizing: border-box; }
 
-body {
-  padding: 20px !important;
-  font-size: 16px !important; }
-
 h1,
 h2,
 h3,
@@ -70,6 +66,9 @@ h6 {
 .u-mb-medium {
   margin-bottom: 50px !important; }
 
+.u-mb-small {
+  margin-bottom: 20px !important; }
+
 .ls-1 {
   letter-spacing: 3px; }
 
@@ -78,6 +77,9 @@ h6 {
 
 .icon-size--medium {
   font-size: 30px !important; }
+
+.icon-size--small {
+  font-size: 20px !important; }
 
 .icon-color--green {
   color: #15ffa0 !important; }
@@ -88,11 +90,16 @@ h6 {
 .text--medium {
   font-size: 25px; }
 
+.no-margin {
+  margin: 0 !important; }
+
 .card-header {
   padding: 1px !important; }
-  .card-header h5 > .btn-link {
+  .card-header h6 > .btn-link {
     width: 100%;
-    text-decoration: none; }
+    text-decoration: none;
+    font-size: 12px;
+    margin-bottom: 0 !important; }
 
 .card-body {
   padding: 0 !important;
@@ -274,6 +281,46 @@ h6 {
     transform: translate(-50%, -50%);
     text-align: center; }
 
+.main-nav {
+  text-align: center;
+  padding: 5px;
+  background-color: #f6f6f6;
+  min-height: 100%; }
+  .main-nav__list {
+    padding: 0 !important; }
+  .main-nav__item {
+    list-style: none;
+    cursor: pointer;
+    padding: 10px 5px; }
+    .main-nav__item:hover {
+      background-color: black; }
+  .main-nav__link {
+    display: block;
+    height: 100%;
+    width: 100%; }
+    .main-nav__link:hover {
+      color: #15ffa0; }
+
+@media (max-width: 1800px) {
+  .navbar-primary {
+    display: none; } }
+
+@media (max-width: 900px) {
+  .navbar-primary {
+    display: block; } }
+
+@media (max-width: 1800px) {
+  .navbar-secondary {
+    display: block; } }
+
+@media (max-width: 900px) {
+  .navbar-secondary {
+    display: none; } }
+
+#sideNav {
+  margin: 0 !important;
+  padding: 0 !important; }
+
 .navigation__checkbox {
   display: none; }
 
@@ -392,6 +439,49 @@ h6 {
       outline: none;
       border: none; }
 
+.profile {
+  position: relative;
+  margin-bottom: 20px; }
+  .profile__name {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 40px;
+    display: inline-block;
+    margin: 10px; }
+  .profile__position {
+    margin-left: 20px;
+    font-size: 30px;
+    letter-spacing: 3px; }
+  .profile__jobcategory {
+    margin-left: 20px;
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-weight: 400; }
+  .profile__details--doj {
+    margin-left: 10px;
+    color: orangered; }
+  .profile__picture {
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    width: 200px; }
+    .profile__picture-data {
+      border-radius: 50%;
+      width: 100%; }
+  .profile__content {
+    min-height: 45vh;
+    max-height: 45vh;
+    background-color: #f6f6f6;
+    overflow-y: scroll; }
+
+.active {
+  background-color: #f6f6f6 !important; }
+
+@media (max-width: 900px) {
+  .employee-nav {
+    display: block; } }
+
 .section__file {
   min-height: 60vh;
   background-color: #f6f6f6;
@@ -446,15 +536,7 @@ h6 {
   text-transform: uppercase;
   letter-spacing: 2px; }
 
-body {
-  padding-top: 50px;
-  padding-bottom: 20px; }
-
 /* Set padding to keep content from hitting the edges */
-.body-content {
-  padding-left: 15px;
-  padding-right: 15px; }
-
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,

@@ -138,6 +138,7 @@
     <Compile Include="Areas\Administrator\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administrator\Controllers\SettingController.cs" />
     <Compile Include="Common\Constant.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UploadController.cs" />
@@ -172,13 +173,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FileDataModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\FileExtension.cs">
+      <DependentUpon>FileDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FileExtensionModel.cs" />
     <Compile Include="Models\FileManager.cs" />
+    <Compile Include="Models\JobCategory.cs">
+      <DependentUpon>FileDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Position.cs">
+      <DependentUpon>FileDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\arrow-set.css" />
+    <Content Include="Content\arrow-set.html" />
     <Content Include="Content\FineUploader\fineuploader.css" />
     <Content Include="Content\FineUploader\loading.gif" />
     <Content Include="Content\FineUploader\processing.gif" />
+    <Content Include="Content\fonts\linea-arrows-10.svg" />
     <Content Include="Content\fonts\linea-basic-10.svg" />
     <Content Include="Content\icons-reference.html" />
     <Content Include="Content\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
@@ -200,9 +214,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\female.png" />
     <Content Include="Images\file.jpg" />
     <Content Include="Images\logo-2018.png" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\male.png" />
     <Content Include="Infrastructure\readme.txt" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -230,6 +246,11 @@
     <Content Include="Areas\Administrator\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Administrator\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Administrator\Views\Setting\Index.cshtml" />
+    <Content Include="Content\fonts\linea-arrows-10.eot" />
+    <Content Include="Content\fonts\linea-arrows-10.ttf" />
+    <Content Include="Content\fonts\linea-arrows-10.woff" />
+    <Content Include="Areas\Administrator\Views\Setting\view_extension.cshtml" />
+    <Content Include="Areas\Administrator\Views\Setting\Add.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -260,6 +281,8 @@
     <Content Include="Views\File\New_Record.cshtml" />
     <Content Include="Views\Upload\Confirm_Upload.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Main.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

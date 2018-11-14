@@ -28,5 +28,8 @@ namespace hr_201_file.Models
         public DbSet<FileContents> FileContents { get; set; }
         public DbSet<FileCategory> FileCategories { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<FileExtension> FileExtensions { get; set; }
+        public DbSet<Position> Positions { get; set; }
+        public DbSet<JobCategory> JobCategories { get; set; }
     }
 }

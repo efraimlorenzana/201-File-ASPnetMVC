@@ -130,6 +130,37 @@
     <Property Name="category_name" Type="varchar" MaxLength="255" />
     <Property Name="location" Type="varchar" MaxLength="255" />
   </EntityType>
+  <EntityType Name="File201_FileExtension">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="File_Type" Type="varchar" MaxLength="255" />
+    <Property Name="File_Extns" Type="varchar" MaxLength="255" />
+    <Property Name="isAccepted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JobCategories">
+    <Key>
+      <PropertyRef Name="JobCategoryId" />
+    </Key>
+    <Property Name="JobCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="UserTrailTrack" Type="varchar" MaxLength="50" />
+    <Property Name="UserLogStamp" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="JobPositions">
+    <Key>
+      <PropertyRef Name="JobPositionId" />
+    </Key>
+    <Property Name="JobPositionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="UserTrailTrack" Type="varchar" MaxLength="50" />
+    <Property Name="UserLogStamp" Type="varchar" MaxLength="50" />
+  </EntityType>
   <Association Name="FK__File201_C__File2__2BD46C74">
     <End Role="File201_FileCategory" Type="Self.File201_FileCategory" Multiplicity="0..1" />
     <End Role="File201_Contents" Type="Self.File201_Contents" Multiplicity="*" />
@@ -142,13 +173,34 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Employees_JobPositions">
+    <End Role="JobPositions" Type="Self.JobPositions" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobPositions">
+        <PropertyRef Name="JobPositionId" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="JobPositionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="ModelsStoreContainer">
     <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="File201_Contents" EntityType="Self.File201_Contents" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="File201_FileCategory" EntityType="Self.File201_FileCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="File201_FileExtension" EntityType="Self.File201_FileExtension" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobCategories" EntityType="Self.JobCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobPositions" EntityType="Self.JobPositions" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__File201_C__File2__2BD46C74" Association="Self.FK__File201_C__File2__2BD46C74">
       <End Role="File201_FileCategory" EntitySet="File201_FileCategory" />
       <End Role="File201_Contents" EntitySet="File201_Contents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_JobPositions" Association="Self.FK_Employees_JobPositions">
+      <End Role="JobPositions" EntitySet="JobPositions" />
+      <End Role="Employees" EntitySet="Employees" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

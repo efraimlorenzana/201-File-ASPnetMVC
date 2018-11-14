@@ -6,9 +6,11 @@
     }
     
     <section class="section__file">
-        <div class="u-mb-medium d-flex align-items-center d-inline-block">
+        <div class="u-mb-small d-flex align-items-center d-inline-block">
             <i class="d-inline-block icon-basic-archive-full icon-size--big icon-color--green mr-3"></i>
-            <span class="header-text d-inline-block text--green text--medium">File Manager</span>
+            <span class="header-text d-inline-block text--green text--medium">
+                File Manager
+            </span>
         </div>
         
         <table class="table table-hover">
@@ -21,12 +23,13 @@
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
                     <td>
-                        <a name="btn_link" href="/File/New_Record?folder_id=@(item.Code)" class="mr-4">
+                        <a name="btn_link" href="/Employee/Index" class="c_btn c_btn--green">
+                            View
+                        </a>
+
+                        <!-- <a name="btn_link" href="/File/New_Record?folder_id=@(item.Code)" class="mr-4 c_btn c_btn--green">
                             Insert
-                        </a>
-                        <a name="btn_link" href="#">
-                            <i class="fas fa-sign-in-alt fa-2x text-warning"></i>
-                        </a>
+                        </a> -->
                     </td>
                 </tr>
             }

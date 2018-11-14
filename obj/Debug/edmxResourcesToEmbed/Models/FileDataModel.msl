@@ -134,5 +134,39 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="FileExtensions">
+      <EntityTypeMapping TypeName="Models.FileExtension">
+        <MappingFragment StoreEntitySet="File201_FileExtension">
+          <ScalarProperty Name="isAccepted" ColumnName="isAccepted" />
+          <ScalarProperty Name="File_Extns" ColumnName="File_Extns" />
+          <ScalarProperty Name="File_Type" ColumnName="File_Type" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Positions">
+      <EntityTypeMapping TypeName="Models.Position">
+        <MappingFragment StoreEntitySet="JobPositions">
+          <ScalarProperty Name="UserLogStamp" ColumnName="UserLogStamp" />
+          <ScalarProperty Name="UserTrailTrack" ColumnName="UserTrailTrack" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="JobPositionId" ColumnName="JobPositionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JobCategories">
+      <EntityTypeMapping TypeName="Models.JobCategory">
+        <MappingFragment StoreEntitySet="JobCategories">
+          <ScalarProperty Name="UserLogStamp" ColumnName="UserLogStamp" />
+          <ScalarProperty Name="UserTrailTrack" ColumnName="UserTrailTrack" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="JobCategoryId" ColumnName="JobCategoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

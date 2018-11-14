@@ -135,6 +135,37 @@
           <Property Name="category_name" Type="varchar" MaxLength="255" />
           <Property Name="location" Type="varchar" MaxLength="255" />
         </EntityType>
+        <EntityType Name="File201_FileExtension">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="File_Type" Type="varchar" MaxLength="255" />
+          <Property Name="File_Extns" Type="varchar" MaxLength="255" />
+          <Property Name="isAccepted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JobCategories">
+          <Key>
+            <PropertyRef Name="JobCategoryId" />
+          </Key>
+          <Property Name="JobCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="20" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="UserTrailTrack" Type="varchar" MaxLength="50" />
+          <Property Name="UserLogStamp" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="JobPositions">
+          <Key>
+            <PropertyRef Name="JobPositionId" />
+          </Key>
+          <Property Name="JobPositionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="20" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="UserTrailTrack" Type="varchar" MaxLength="50" />
+          <Property Name="UserLogStamp" Type="varchar" MaxLength="50" />
+        </EntityType>
         <Association Name="FK__File201_C__File2__2BD46C74">
           <End Role="File201_FileCategory" Type="Self.File201_FileCategory" Multiplicity="0..1" />
           <End Role="File201_Contents" Type="Self.File201_Contents" Multiplicity="*" />
@@ -147,13 +178,34 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Employees_JobPositions">
+          <End Role="JobPositions" Type="Self.JobPositions" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobPositions">
+              <PropertyRef Name="JobPositionId" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="JobPositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ModelsStoreContainer">
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="File201_Contents" EntityType="Self.File201_Contents" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="File201_FileCategory" EntityType="Self.File201_FileCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="File201_FileExtension" EntityType="Self.File201_FileExtension" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobCategories" EntityType="Self.JobCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobPositions" EntityType="Self.JobPositions" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__File201_C__File2__2BD46C74" Association="Self.FK__File201_C__File2__2BD46C74">
             <End Role="File201_FileCategory" EntitySet="File201_FileCategory" />
             <End Role="File201_Contents" EntitySet="File201_Contents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_JobPositions" Association="Self.FK_Employees_JobPositions">
+            <End Role="JobPositions" EntitySet="JobPositions" />
+            <End Role="Employees" EntitySet="Employees" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -202,6 +254,13 @@
             <End Role="File201_Contents" EntitySet="FileContents" />
           </AssociationSet>
           <EntitySet Name="Employees" EntityType="Models.Employee" />
+          <EntitySet Name="FileExtensions" EntityType="Models.FileExtension" />
+          <EntitySet Name="Positions" EntityType="Models.Position" />
+          <AssociationSet Name="FK_Employees_JobPositions" Association="Models.FK_Employees_JobPositions">
+            <End Role="JobPosition" EntitySet="Positions" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <EntitySet Name="JobCategories" EntityType="Models.JobCategory" />
         </EntityContainer>
         <EntityType Name="Employee">
           <Key>
@@ -309,6 +368,53 @@
           <Property Name="MedicalStatus" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Name="EmploymentStatusId" Type="Int32" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="UserTrailTrack" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserLogStamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="JobPosition" Relationship="Models.FK_Employees_JobPositions" FromRole="Employee" ToRole="JobPosition" />
+        </EntityType>
+        <EntityType Name="FileExtension">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="File_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="File_Extns" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="isAccepted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="JobPositionId" />
+          </Key>
+          <Property Name="JobPositionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="UserTrailTrack" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserLogStamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employees" Relationship="Models.FK_Employees_JobPositions" FromRole="JobPosition" ToRole="Employee" />
+        </EntityType>
+        <Association Name="FK_Employees_JobPositions">
+          <End Type="Models.Position" Role="JobPosition" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Models.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobPosition">
+              <PropertyRef Name="JobPositionId" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="JobPositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="JobCategory">
+          <Key>
+            <PropertyRef Name="JobCategoryId" />
+          </Key>
+          <Property Name="JobCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Active" Type="Boolean" />
           <Property Name="UserTrailTrack" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UserLogStamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -449,6 +555,40 @@
                 <ScalarProperty Name="DeptId" ColumnName="DeptId" />
                 <ScalarProperty Name="EmpNo" ColumnName="EmpNo" />
                 <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileExtensions">
+            <EntityTypeMapping TypeName="Models.FileExtension">
+              <MappingFragment StoreEntitySet="File201_FileExtension">
+                <ScalarProperty Name="isAccepted" ColumnName="isAccepted" />
+                <ScalarProperty Name="File_Extns" ColumnName="File_Extns" />
+                <ScalarProperty Name="File_Type" ColumnName="File_Type" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="Models.Position">
+              <MappingFragment StoreEntitySet="JobPositions">
+                <ScalarProperty Name="UserLogStamp" ColumnName="UserLogStamp" />
+                <ScalarProperty Name="UserTrailTrack" ColumnName="UserTrailTrack" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="JobPositionId" ColumnName="JobPositionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobCategories">
+            <EntityTypeMapping TypeName="Models.JobCategory">
+              <MappingFragment StoreEntitySet="JobCategories">
+                <ScalarProperty Name="UserLogStamp" ColumnName="UserLogStamp" />
+                <ScalarProperty Name="UserTrailTrack" ColumnName="UserTrailTrack" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="JobCategoryId" ColumnName="JobCategoryId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

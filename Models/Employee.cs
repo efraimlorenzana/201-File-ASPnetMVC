@@ -119,5 +119,7 @@ namespace hr_201_file.Models
         public Nullable<bool> Active { get; set; }
         public string UserTrailTrack { get; set; }
         public string UserLogStamp { get; set; }
+    
+        public virtual Position JobPosition { get; set; }
     }
 }

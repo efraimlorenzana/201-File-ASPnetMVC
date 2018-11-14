@@ -64,9 +64,13 @@ namespace hr_201_file.Controllers
 
             ViewBag.Folder = db.FileCategories.Single(x => x.id == folder_id).category_name;
 
+            string[] extensions = db.FileExtensions.Where(e => e.isAccepted == true)
+                                        .Select(x => x.File_Extns).ToArray();
+
+            ViewBag.extensions = extensions;
+
             return View(employees.ToPagedList(page ?? 1, 100));
         }
-
 
         public JsonResult AutoComplete(string term)
         {
