@@ -1,19 +1,24 @@
+.bg-light {
+    background-color: $color-white-1 !important;
+}
+
 .main-nav {
     text-align: center;
-    padding: 5px;
-    background-color: $color-white-2;
+    padding: 5px 0;
+    background-color: $color-white-1;
     min-height: 100%;
     &__list {
         padding: 0 !important;
+        width: 100%;
     }
     
     &__item {
         list-style: none;
         cursor: pointer;
-        padding: 10px 5px;
         
         &:hover {
-            background-color: black;
+            background-color: #1e3030;
+            animation: toggleLeft .3s ease-out forwards;
         }
     }
     
@@ -21,8 +26,11 @@
         display: block;
         height: 100%;
         width: 100%;
+        padding: 10px 5px;
+        color: $color-green-2;
+
         &:hover {
-            color: $color-green-2;
+            color: $color-white-2;
         }
     }
 }
@@ -50,4 +58,38 @@
 #sideNav {
     margin: 0 !important;
     padding: 0 !important;
+}
+
+.main-logo {
+    height: 80px;
+
+    @include respond(phone) {
+        height: 60px;
+    }
+
+    @include respond(smallphone) {
+        height: 40px;
+    }
+}
+
+.Main-Content {
+    background-image: linear-gradient(to bottom right, $color-white-2, $color-green-2, $color-green-3);
+    overflow-y: scroll;
+    max-height: 70vh;
+    padding: 20px 15px;
+
+    @include respond(phone) {
+        min-height: 100vh;
+    }
+}
+
+.navbar {
+    @include respond(smallphone) {
+        padding: 4px 8px !important;
+    }
+}
+
+.active-nav {
+    background-color: #000000;
+    color: $color-green-2;
 }

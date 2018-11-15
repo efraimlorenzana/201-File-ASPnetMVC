@@ -36,3 +36,13 @@
       transform: translate(0);
    }
 }
+
+@keyframes toggleLeft {
+   0% {
+      transform: translateX(0);
+   }
+
+   100%{
+      transform: scale(1.1);
+   }
+}

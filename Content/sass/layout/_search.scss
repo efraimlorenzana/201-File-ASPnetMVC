@@ -1,13 +1,25 @@
 .search {
     display: inline-block;
     margin: 0 auto;
+    position: relative;
+
     &__bar {
-        border: 2px solid black;
+        border: 2px solid $color-green-2;
         border-radius: 100px;
         padding: 5px 15px;
+        width: 600px;
+
+        @include respond(phone) {
+            width: 350px;
+        }
+
+        @include respond(smallphone) {
+            width: 300px;
+        }
 
         &--icon {
             margin: 15px;
+            color: $color-green-2;
         }
 
         &--text {
@@ -15,6 +27,56 @@
             padding: 5px 10px;
             outline: none;
             border: none;
+            width: 500px !important;
+
+            @include respond(phone) {
+                width: 230px !important;
+            }
+
+            @include respond(smallphone) {
+                width: 190px !important;
+            }
+        }
+    }
+
+    &__suggestion {
+        position: absolute;
+        border: 1px solid $color-green-2;
+        width: 555px;
+        left: 24px;
+        z-index: 1000;
+        background-color: $color-white-1;
+        max-height: 200px;
+        overflow-y: hidden;
+
+        @include respond(phone) {
+            width: 350px;
+        }
+
+        @include respond(smallphone) {
+            width: 300px;
+        }
+
+        &--list {
+            padding: 0;
+            margin: 0;
+        }
+
+        &--item {
+            list-style: none;
+            padding: 5px 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #000000;
+                color: $color-green-2;
+            }
         }
     }
 }
+
+// .search__bar--text:not(:placeholder-shown) {
+//     background-color: red;
+// }

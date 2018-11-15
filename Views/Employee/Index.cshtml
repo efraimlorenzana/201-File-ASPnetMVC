@@ -4,11 +4,17 @@
     ViewBag.Title = "Profile";
 }
 
+@section scripts {
+    <script type="text/javascript">
+        loadEmployeeDetails();
+    </script>
+}
+
 <div class="profile">
     <span class="profile__name">
         @Model.FullName
     </span>
-    <span class="profile_details">
+    <span class="profile__details">
         Joined:
         <span class="profile__details--doj">@Model.JoiningDate</span>
     </span>
@@ -20,38 +26,15 @@
 </div>
 
 <div class="sub__nav">
-    <ul class="nav nav-tabs employee-nav">
-        <li class="nav-item">
-            <a class="nav-link active sub-nav-link" onclick="subNav(event)" href="#">
-                Employee Info
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link sub-nav-link" onclick="subNav(event)"  href="#">
-                Employment Records
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link sub-nav-link" onclick="subNav(event)" href="#">
-                Medical Records
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link sub-nav-link" onclick="subNav(event)" href="#">
-                Memo / Notices
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link sub-nav-link" onclick="subNav(event)" href="#">
-                Training History
-            </a>
-        </li>
-        
-        <li class="nav-item">
-            <a class="nav-link sub-nav-link" onclick="subNav(event)" href="#">
-                Others
-            </a>
-        </li>
+    <ul class="nav nav-pills employee-nav">
+        @foreach (var folder in ViewBag.fileCategory)
+        {
+            <li class="nav-item">
+                <a class="nav-link sub-nav-link" onclick="subNav(event, @folder.id, @Model.EmpNo)" href="#">
+                    @folder.category_name
+                </a>
+            </li>
+        }
     </ul>
 </div>
 

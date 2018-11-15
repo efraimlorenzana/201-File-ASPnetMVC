@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title</title>
-    
+
     @Styles.Render("~/Content/imported")
     @Styles.Render("~/Content/bootstrapCDN")
     @Styles.Render("~/Content/font-awesomeCDN")
@@ -12,111 +12,119 @@
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
-    <!-- <nav class="navigation">
-        <input id="nav-menu" type="checkbox" class="navigation__checkbox">
-        <label for="nav-menu" class="navigation__button">
-            <span class="navigation__icon"></span>
-        </label>
-        
-        <div class="navigation__background"></div>
-        
-        <div class="navigation__nav">
-            <ul class="navigation__list">
-                <li class="navigation__item">
-                    @Html.ActionLink("File Manager", "FileManager", null, new { @class="navigation__link" })
-                </li>
-                <li class="navigation__item">
-                    @Html.ActionLink("Setting", "Index","Setting", new { Area = "Administrator" }, new { @class = "navigation__link" })
-                </li>
-            </ul>
-        </div>
-    </nav> -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">
+            <img class="main-logo img-fluid" src="~/Images/ddtkilogo.jpg" alt="DDTKI Logo">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto navbar-primary">
+            <ul class="navbar-nav mr-auto"></ul>
+            <ul class="navbar-nav mr-auto navbar-primary text-center">
                 <li class="main-nav__item">
                     <a href="#" class="main-nav__link">
-                        <i class="fas fa-home"></i>
+                        <!-- <i class="fas fa-home"></i> -->
+                        HOME
                     </a>
                 </li>
                 <li class="main-nav__item">
                     <a href="#" class="main-nav__link">
-                        <i class="fas fa-address-card"></i>
+                        <!-- <i class="fas fa-address-card"></i> -->
+                        EMPLOYEE DETAILS
                     </a>
                 </li>
                 <li class="main-nav__item">
                     <a href="#" class="main-nav__link">
-                        <i class="fas fa-cloud-upload-alt"></i>
+                        <!-- <i class="fas fa-cloud-upload-alt"></i> -->
+                        UPLOAD FILE
                     </a>
                 </li>
                 <li class="main-nav__item">
                     <a href="#" class="main-nav__link">
-                        <i class="fas fa-cog"></i>
+                        <!-- <i class="fas fa-cog"></i> -->
+                        SETTING / PERMISSION
                     </a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <!-- Search Field -->
+            @using (Html.BeginForm("New_Record", "File", FormMethod.Get, new { @class = "form-inline my-2 my-lg-0", id="searchBox" }))
+            {
+                <div class="search">
+                    <div class="search__bar">
+                        <span class="search__bar--icon">
+                            <i class="fas fa-search"></i>
+                            <!-- <i class="icon-basic-magnifier icon-size--small mt-2"></i> -->
+                        </span>
+                        <input name="search" type="text" class="search__bar--text" placeholder="Search Employee Name or Employee Number" autocomplete="off" oninput="showSuggestion(event)">
+                    </div>
+                    <div class="search__suggestion" hidden>
+                        <ul class="search__suggestion--list"></ul>
+                    </div>
+                </div>
+
+                string folder_id = Request.QueryString["folder_id"];
+
+                <input name="folder_id" type="text" value="@(folder_id)" hidden />
+
+                <div class="submit">
+                    <input id="btnSearch" type="button" class="submit-button" hidden>
+                </div>
+            }
         </div>
     </nav>
-    
+
     <div class="container-fluid body-content">
         <div class="row">
             <div id="sideNav" class="col-lg-1">
-                <div class="main-nav d-flex align-items-center justify-content-center">
+                <div class="main-nav d-flex justify-content-center">
                     <ul class="main-nav__list navbar-secondary">
-                        <li class="main-nav__item">
-                            <a href="#" class="main-nav__link">
-                                <i class="fas fa-home fa-3x"></i>
+                        <li class="main-nav__item" onclick="mainNavLink(event)">
+                            <a href="/File/FileManager" class="main-nav__link">
+                                <i class="fas fa-home fa-3x main-nav__icon"></i>
                             </a>
                         </li>
-                        <li class="main-nav__item">
-                            <a href="#" class="main-nav__link">
-                                <i class="fas fa-address-card fa-3x"></i>
+                        <li class="main-nav__item" onclick="mainNavLink(event)">
+                            <a href="/Employee/Index" class="main-nav__link">
+                                <i class="fas fa-address-card fa-3x main-nav__icon"></i>
                             </a>
                         </li>
-                        <li class="main-nav__item">
-                            <a href="#" class="main-nav__link">
-                                <i class="fas fa-cloud-upload-alt fa-3x"></i>
+                        <li onclick="toggleUpload()" class="main-nav__item" onclick="mainNavLink(event)">
+                            <a href="#" class="main-nav__link upload-link">
+                                <i class="fas fa-cloud-upload-alt fa-3x main-nav__icon"></i>
                             </a>
                         </li>
-                        <li class="main-nav__item">
-                            <a href="#" class="main-nav__link">
-                                <i class="fas fa-cog fa-3x"></i>
+                        <li class="main-nav__item" onclick="mainNavLink(event)">
+                            <a href="/Administrator/Setting/Index" class="main-nav__link">
+                                <i class="fas fa-cog fa-3x main-nav__icon"></i>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-11">@RenderBody()</div>
+            <div class="col-lg-11 Main-Content">@RenderBody()</div>
         </div>
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - DDT KONSTRACT, INC.</p>
         </footer>
     </div>
-    
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    
+
     @* Bootstrap Script from CDN *@
     @Scripts.Render("~/bundles/jquery331CDN")
     @Scripts.Render("~/bundles/popperCDN")
     @Scripts.Render("~/bundles/bootstrapCDN")
-    
+
     @* Import Fine Uploader Script *@
     @Scripts.Render("~/bundles/fineUploader")
-    
+
     @* Import Custom Script *@
     @Scripts.Render("~/bundles/custom")
-    
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

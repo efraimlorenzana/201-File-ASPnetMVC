@@ -26,6 +26,12 @@
     opacity: 1;
     transform: translate(0); } }
 
+@keyframes toggleLeft {
+  0% {
+    transform: translateX(0); }
+  100% {
+    transform: scale(1.1); } }
+
 *,
 *::before,
 *::after {
@@ -41,6 +47,9 @@ h5,
 h6 {
   text-transform: uppercase;
   letter-spacing: 3px; }
+
+hr {
+  border: 1px solid #00ff7f; }
 
 .header-title-primary {
   color: #ffffff;
@@ -281,25 +290,31 @@ h6 {
     transform: translate(-50%, -50%);
     text-align: center; }
 
+.bg-light {
+  background-color: #ffffff !important; }
+
 .main-nav {
   text-align: center;
-  padding: 5px;
-  background-color: #f6f6f6;
+  padding: 5px 0;
+  background-color: #ffffff;
   min-height: 100%; }
   .main-nav__list {
-    padding: 0 !important; }
+    padding: 0 !important;
+    width: 100%; }
   .main-nav__item {
     list-style: none;
-    cursor: pointer;
-    padding: 10px 5px; }
+    cursor: pointer; }
     .main-nav__item:hover {
-      background-color: black; }
+      background-color: #1e3030;
+      animation: toggleLeft .3s ease-out forwards; }
   .main-nav__link {
     display: block;
     height: 100%;
-    width: 100%; }
+    width: 100%;
+    padding: 10px 5px;
+    color: #15ffa0; }
     .main-nav__link:hover {
-      color: #15ffa0; }
+      color: #f6f6f6; }
 
 @media (max-width: 1800px) {
   .navbar-primary {
@@ -320,6 +335,32 @@ h6 {
 #sideNav {
   margin: 0 !important;
   padding: 0 !important; }
+
+.main-logo {
+  height: 80px; }
+  @media (max-width: 600px) {
+    .main-logo {
+      height: 60px; } }
+  @media (max-width: 400px) {
+    .main-logo {
+      height: 40px; } }
+
+.Main-Content {
+  background-image: linear-gradient(to bottom right, #f6f6f6, #15ffa0, #00e000);
+  overflow-y: scroll;
+  max-height: 70vh;
+  padding: 20px 15px; }
+  @media (max-width: 600px) {
+    .Main-Content {
+      min-height: 100vh; } }
+
+@media (max-width: 400px) {
+  .navbar {
+    padding: 4px 8px !important; } }
+
+.active-nav {
+  background-color: #000000;
+  color: #15ffa0; }
 
 .navigation__checkbox {
   display: none; }
@@ -426,18 +467,61 @@ h6 {
 
 .search {
   display: inline-block;
-  margin: 0 auto; }
+  margin: 0 auto;
+  position: relative; }
   .search__bar {
-    border: 2px solid black;
+    border: 2px solid #15ffa0;
     border-radius: 100px;
-    padding: 5px 15px; }
+    padding: 5px 15px;
+    width: 600px; }
+    @media (max-width: 600px) {
+      .search__bar {
+        width: 350px; } }
+    @media (max-width: 400px) {
+      .search__bar {
+        width: 300px; } }
     .search__bar--icon {
-      margin: 15px; }
+      margin: 15px;
+      color: #15ffa0; }
     .search__bar--text {
       margin-right: 15px;
       padding: 5px 10px;
       outline: none;
-      border: none; }
+      border: none;
+      width: 500px !important; }
+      @media (max-width: 600px) {
+        .search__bar--text {
+          width: 230px !important; } }
+      @media (max-width: 400px) {
+        .search__bar--text {
+          width: 190px !important; } }
+  .search__suggestion {
+    position: absolute;
+    border: 1px solid #15ffa0;
+    width: 555px;
+    left: 24px;
+    z-index: 1000;
+    background-color: #ffffff;
+    max-height: 200px;
+    overflow-y: hidden; }
+    @media (max-width: 600px) {
+      .search__suggestion {
+        width: 350px; } }
+    @media (max-width: 400px) {
+      .search__suggestion {
+        width: 300px; } }
+    .search__suggestion--list {
+      padding: 0;
+      margin: 0; }
+    .search__suggestion--item {
+      list-style: none;
+      padding: 5px 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      cursor: pointer; }
+      .search__suggestion--item:hover {
+        background-color: #000000;
+        color: #15ffa0; }
 
 .profile {
   position: relative;
@@ -446,29 +530,54 @@ h6 {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 3px;
-    font-size: 40px;
+    font-size: 30px;
     display: inline-block;
-    margin: 10px; }
+    margin: 5px; }
+    @media (max-width: 600px) {
+      .profile__name {
+        font-size: 20px;
+        text-align: center; } }
   .profile__position {
     margin-left: 20px;
-    font-size: 30px;
+    font-size: 20px;
     letter-spacing: 3px; }
+    @media (max-width: 600px) {
+      .profile__position {
+        text-align: center; } }
   .profile__jobcategory {
     margin-left: 20px;
     font-size: 20px;
-    letter-spacing: 3px;
     font-weight: 400; }
-  .profile__details--doj {
-    margin-left: 10px;
-    color: orangered; }
+    @media (max-width: 600px) {
+      .profile__jobcategory {
+        text-align: center; } }
+  .profile__details {
+    display: inline-block;
+    padding: 5px 20px;
+    background-color: rgba(0, 224, 0, 0.3);
+    border-radius: 100px;
+    margin-bottom: 5px; }
+    @media (max-width: 600px) {
+      .profile__details {
+        width: 100%;
+        text-align: center; } }
+    .profile__details--doj {
+      margin-left: 10px;
+      color: orangered; }
   .profile__picture {
     position: absolute;
-    top: 60px;
+    top: 10px;
     right: 10px;
-    width: 200px; }
+    width: 180px; }
     .profile__picture-data {
       border-radius: 50%;
       width: 100%; }
+    @media (max-width: 600px) {
+      .profile__picture {
+        position: static;
+        text-align: center;
+        width: 100%;
+        padding: 10px 50px; } }
   .profile__content {
     min-height: 45vh;
     max-height: 45vh;
@@ -476,11 +585,18 @@ h6 {
     overflow-y: scroll; }
 
 .active {
-  background-color: #f6f6f6 !important; }
+  text-decoration: none;
+  background-color: #f6f6f6 !important;
+  color: #15ffa0 !important;
+  border-radius: 0 !important;
+  font-weight: 600; }
 
 @media (max-width: 900px) {
   .employee-nav {
     display: block; } }
+
+.sub-nav-link {
+  font-size: 12px; }
 
 .section__file {
   min-height: 60vh;
@@ -538,11 +654,6 @@ h6 {
 
 /* Set padding to keep content from hitting the edges */
 /* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-  max-width: 280px; }
-
 /* styles for validation helpers */
 .field-validation-error {
   color: #b94a48; }

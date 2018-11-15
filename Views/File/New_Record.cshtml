@@ -44,18 +44,18 @@
         <div class="row">
             <div class="col-lg-8">
                 <!-- <h2>New Record</h2> -->
-                <a id="btnBack" href="@Url.Action("FileManager", "File")" 
+                @*<a id="btnBack" href="@Url.Action("FileManager", "File")" 
                 class="c_btn c_btn--green mr-2">
                     <i class="fas fa-arrow-left"></i>
-                </a>
-                <h4 class="c_display-ib d-flex align-items-center">
+                </a>*@
+                <h4 class="c_display-ib d-flex align-items-center mb-2">
                     <!-- <i class="fas fa-folder text-success"></i> -->
                     <i class="icon icon-basic-folder icon-size--medium mr-1 ml-2 text-success"></i>
                     @ViewBag.Folder
                 </h4>
             </div>
             <div class="col-lg-4">
-                <div class="input-group mb-3">
+                @*<div class="input-group mb-3">
                     <!-- Search Field -->
                     @using (Html.BeginForm("New_Record", "File", FormMethod.Get))
                     {
@@ -77,7 +77,7 @@
                             <input type="submit" class="submit-button" hidden>
                         </div>
                     }
-                </div>
+                </div>*@
             </div>
         </div>
     </div>

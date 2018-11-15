@@ -19,6 +19,10 @@
 // bigScreen
 
 @mixin respond($device) {
+    @if $device == smallphone {
+        @media(max-width: 400px) {@content};
+    }
+
     @if $device == phone {
         @media(max-width: 600px) {@content};
     }
