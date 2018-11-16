@@ -42,13 +42,14 @@ namespace hr_201_file
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
 
-            // Import Custom Script
-            bundles.Add(new ScriptBundle("~/bundles/custom").Include(
-                       "~/Scripts/Custom.js"));
 
             // Import Fine Uploader Script
             bundles.Add(new ScriptBundle("~/bundles/fineUploader").Include(
                         "~/Scripts/jquery.fineuploader-3.1.min.js"));
+
+            // Import Custom Script
+            bundles.Add(new ScriptBundle("~/bundles/custom")
+                    .IncludeDirectory("~/Scripts/MyScript","*.js", true));
 
             BundleTable.EnableOptimizations = true;
         }

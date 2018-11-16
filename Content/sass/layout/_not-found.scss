@@ -1,0 +1,31 @@
+.notfound {
+    padding: 25px;
+
+    &__title {
+
+        &--text {
+            color: red;
+        }
+    }
+
+    &__body {
+        margin: 50px 0;
+    }
+
+    &__message {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+
+        &--details {
+            color: blue;
+            font-size: 20px;
+        }
+    }
+
+    &__command {
+        text-align: center;
+        &--ok {
+
+        }
+    }
+}

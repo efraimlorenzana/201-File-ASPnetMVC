@@ -8,6 +8,10 @@ using PagedList;
 using PagedList.Mvc;
 using System.IO;
 using hr_201_file.Common;
+using Spire.Pdf;
+using Spire.Pdf.Graphics;
+using Spire.PdfViewer;
+using System.Drawing;
 
 namespace hr_201_file.Controllers
 {
@@ -19,17 +23,7 @@ namespace hr_201_file.Controllers
         // GET: /File/
         public ActionResult FileManager()
         {
-            /// Empty UPLOADED Folder
-            string pending_file_path = Server.MapPath(Constant.UPLOADED_FILES_DIRECTORY);
-            string[] Files = Directory.GetFiles(pending_file_path);
-
-            if (Files.Count() > 0)
-            {
-                foreach (string file in Files)
-                {
-                    System.IO.File.Delete(file);
-                }
-            }
+            
 
             List<Folder> folders = new List<Folder>();
             foreach (FileCategory fileCategory in db.FileCategories.ToList())
@@ -72,13 +66,31 @@ namespace hr_201_file.Controllers
             return View(employees.ToPagedList(page ?? 1, 100));
         }
 
-        public JsonResult AutoComplete(string term)
+        public ActionResult View(int id)
         {
-            List<string> Names = db.Employees.Where(emp => emp.FullName.Contains(term))
-                                   .OrderBy(x => x.FullName)
-                                   .Select(y => y.FullName).ToList();
+            FileContents file = db.FileContents.Single(x => x.id == id);
 
-            return Json(Names, JsonRequestBehavior.AllowGet);
+            string file_ext = Path.GetExtension(file.file_path);
+
+            string filename = "View-" + DateTime.Now.ToShortDateString().Replace("/", "") + "-" +
+                              DateTime.Now.ToShortTimeString().Replace(":", "")
+                                                              .Replace(" ", "") + ".jpg";
+
+            switch (file_ext)
+            {
+                case ".PDF":
+                    PdfDocument pdf_file = new PdfDocument();
+                    pdf_file.LoadFromFile(file.file_path);
+                    Image pdf_to_img = pdf_file.SaveAsImage(0, PdfImageType.Bitmap);
+                    pdf_to_img.Save(Path.Combine(Server.MapPath(Constant.UPLOADED_FILES_DIRECTORY), filename));
+
+                    @ViewBag.pdf = Path.Combine(Constant.VIEW_UPLOADED_FILES_DIRECTORY, filename);
+
+                    break;
+                default: break;
+            }
+
+            return View();
         }
     }
 

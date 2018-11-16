@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Not Found";
+}
+
+
+<div class="notfound">
+    <div class="notfound__title">
+            <h2 class="notfound__title--text">Employee Not Found</h2>
+    </div>
+    <div class="notfound__body">
+        <p class="notfound__message">
+            <span class="notfound__message--details">
+                    @ViewBag.Name
+            </span>
+
+             not found in our database. please check if you type the Name or Employee Number correctly.
+        </p>
+
+        <div class="notfound__command">
+            <a href="/Employee/Index" 
+            class="notfound__command--ok c_btn c_btn--white"
+            >
+                I understad, go back
+            </a>
+        </div>
+    </div>
+</div>

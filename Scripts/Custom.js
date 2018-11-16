@@ -44,10 +44,8 @@ showSuggestion = (e) => {
     let list = "";
     let arr_list = [];
     
-    if(txtSearch.value.length > 2) {
+    if(txtSearch.value.length >= 3) {
         suggestion.hidden = false;
-    } else {
-        suggestion.hidden = true;
     }
     
     txtSearch.onblur = () => {
@@ -57,15 +55,19 @@ showSuggestion = (e) => {
     $.get('/Employee/autocomplete', {
         term : e.target.value
     }, data => {
-        
+        console.log(data);
         data.forEach(item => {
             if(!NameExist(item)) {
-                list = list + `<li class="search__suggestion--item">${item}</li>`
+                list = list + `<li class="search__suggestion--item"
+                                   onclick="returnToSearch(event)">
+                                    ${item}
+                               </li>`
                 arr_list.push(item);
             }
         });
         
         document.querySelector('.search__suggestion--list').innerHTML = list;
+        document.querySelector('.search__suggestion').style.overflowY = "scroll";
     });
     
     NameExist = (name) => {
@@ -77,9 +79,13 @@ showSuggestion = (e) => {
 
         return isExist;
     }
+
+    returnToSearch = (e) => {
+        document.querySelector('.search__bar--text').value = e.target.textContent;
+    }
 }
 
-set_DOM_on_page_load = () => {
+modify_DOM_on_page_load = () => {
     let current_page = location.href;
     let btnSearch = document.querySelector('#btnSearch');
     
@@ -88,4 +94,4 @@ set_DOM_on_page_load = () => {
     }
 }
 
-set_DOM_on_page_load();
+modify_DOM_on_page_load();

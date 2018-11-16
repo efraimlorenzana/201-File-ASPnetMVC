@@ -20,6 +20,14 @@
         &--icon {
             margin: 15px;
             color: $color-green-2;
+            cursor: pointer;
+            display: inline !important;
+
+            &:hover {
+                font-size: 20px;
+                margin-left: 10px;
+                color: $color-green-3;
+            }
         }
 
         &--text {
@@ -70,8 +78,8 @@
             cursor: pointer;
 
             &:hover {
-                background-color: #000000;
-                color: $color-green-2;
+                background-color: $color-green-2;
+                color: $color-white-2;
             }
         }
     }

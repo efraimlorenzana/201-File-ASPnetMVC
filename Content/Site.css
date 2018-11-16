@@ -465,6 +465,21 @@ hr {
   font-size: 20px;
   text-transform: uppercase; }
 
+.notfound {
+  padding: 25px; }
+  .notfound__title--text {
+    color: red; }
+  .notfound__body {
+    margin: 50px 0; }
+  .notfound__message {
+    text-transform: uppercase;
+    letter-spacing: 2px; }
+    .notfound__message--details {
+      color: blue;
+      font-size: 20px; }
+  .notfound__command {
+    text-align: center; }
+
 .search {
   display: inline-block;
   margin: 0 auto;
@@ -482,7 +497,13 @@ hr {
         width: 300px; } }
     .search__bar--icon {
       margin: 15px;
-      color: #15ffa0; }
+      color: #15ffa0;
+      cursor: pointer;
+      display: inline !important; }
+      .search__bar--icon:hover {
+        font-size: 20px;
+        margin-left: 10px;
+        color: #00e000; }
     .search__bar--text {
       margin-right: 15px;
       padding: 5px 10px;
@@ -520,8 +541,8 @@ hr {
       letter-spacing: 2px;
       cursor: pointer; }
       .search__suggestion--item:hover {
-        background-color: #000000;
-        color: #15ffa0; }
+        background-color: #15ffa0;
+        color: #f6f6f6; }
 
 .profile {
   position: relative;
@@ -568,8 +589,11 @@ hr {
     position: absolute;
     top: 10px;
     right: 10px;
-    width: 180px; }
+    width: 180px;
+    height: 180px;
+    overflow: hidden; }
     .profile__picture-data {
+      border: 3px solid #15ffa0;
       border-radius: 50%;
       width: 100%; }
     @media (max-width: 600px) {
@@ -597,6 +621,16 @@ hr {
 
 .sub-nav-link {
   font-size: 12px; }
+
+.no_record_found {
+  font-weight: 700;
+  font-size: 50px;
+  text-transform: uppercase;
+  display: block;
+  text-align: center;
+  line-height: 4; }
+  .no_record_found:hover {
+    color: red; }
 
 .section__file {
   min-height: 60vh;
