@@ -58,11 +58,11 @@
         overflow-y: hidden;
 
         @include respond(phone) {
-            width: 350px;
+            width: 300px;
         }
 
         @include respond(smallphone) {
-            width: 300px;
+            width: 250px;
         }
 
         &--list {

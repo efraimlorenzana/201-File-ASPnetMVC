@@ -14,13 +14,17 @@
 @import "components/text-box";
 
 // @import "layout/folder-gallery";
+@import "layout/confirmation";
 @import "layout/fine-uploader";
+@import "layout/footer";
 @import "layout/header";
 @import "layout/main";
 @import "layout/navigation";
 @import "layout/not-found";
+@import "layout/preview";
 @import "layout/search";
 
+@import "pages/delete";
 @import "pages/employee";
 @import "pages/file";
 @import "pages/home";

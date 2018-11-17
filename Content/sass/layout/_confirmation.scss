@@ -1,0 +1,55 @@
+.confirmation {
+    @include respond(phone) {
+        padding: 10px !important;
+    }
+
+    @include respond(smallphone) {
+        padding: 5px !important;
+    }
+
+    &-container {
+        width: 75%;
+        margin: 0 auto;
+
+        @include respond(phone) {
+            width: 90% !important;
+        }
+
+        @include respond(smallphone) {
+            width: 100% !important;
+        }
+    }
+
+    &__column {
+        @include respond(phone) {
+            text-align: center;
+        }
+
+        &--1 {}
+
+        &--2 {}
+
+        &--3 {}
+
+        &--name {}
+
+        &--folder {}
+
+        &--message {}
+
+        &--card {
+            @include respond(tabland) {
+                margin-top: 15px;
+                width: 100% !important;
+            }
+
+            &-header {
+                @include respond(tabland) {
+                    padding: 5px 10px;
+                }
+            }
+
+            &-list {}
+        }
+    }
+}

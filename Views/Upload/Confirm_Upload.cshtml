@@ -5,28 +5,27 @@
 }
 
 
-<h2 class="u-mb-medium">Confirmation</h2>
-<div class="container w-75 mx-auto">
-    <div class="row bg-dark p-5 mb-5">
-        <div class="col-lg-6 text-white">
-            <div class="mb-4">
+<div class="container confirmation-container">
+    <div class="row bg-dark p-5 my-4 confirmation">
+        <div class="col-lg-6 text-white confirmation__column confirmation__column--1">
+            <div class="mb-4 confirmation__column--name">
                 <div class="text-warning">Employee Name</div>
                 <h6>@Model.Fullname</h6>
             </div>
-            <div class="mb-5">
+            <div class="mb-5 confirmation__column--folder">
                 <div class="text-warning">Folder</div>
                 <h6>@Model.Folder</h6>
             </div>
-            <div>
-                <h6 class="text-success">@Model.Files.Count() Files Successfully Saved</h6>
+            <div class="confirmation__column--message">
+                <h6 class="text-success">@Model.Files.Count() File(s) Successfully Saved</h6>
             </div>
         </div>
-        <div class="col-lg-6">
-            <div class="card mx-auto" style="width: 18rem;">
-                <div class="card-header">
+        <div class="col-lg-6 confirmation__column confirmation__column--2">
+            <div class="card mx-auto confirmation__column--card" style="width: 18rem;">
+                <div class="card-header confirmation__column--card-header">
                     UPLOADED FILES
                 </div>
-                <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush confirmation__column--card-list">
                     @foreach (var file in Model.Filenames(Model.Files))
                     {
                         <li class="list-group-item">@file</li>
@@ -35,10 +34,13 @@
             </div>
         </div>
 
-        <div class="col-lg-12">
-            <div class="mt-4 text-center">
-                @Html.ActionLink("Continue", "New_Record", "File", 
-                new { folder_id = @ViewBag.folder_id }, 
+        <div class="col-lg-12 confirmation__column confirmation__column--3">
+            <div class="mt-4 text-center confirmation__column--btn">
+                @Html.ActionLink("Continue","Index", "Employee", 
+                new { 
+                    folder_id = @ViewBag.folder_id,
+                    search = @Model.Fullname
+                }, 
                 new { @class = "c_btn c_btn--white" })
             </div>
         </div>

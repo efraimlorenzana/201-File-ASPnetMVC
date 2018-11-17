@@ -6,30 +6,30 @@
     }
     
     <section class="section__file">
-        <div class="u-mb-small d-flex align-items-center d-inline-block">
+        <!-- <div class="u-mb-small d-flex align-items-center d-inline-block">
             <i class="d-inline-block icon-basic-archive-full icon-size--big icon-color--green mr-3"></i>
             <span class="header-text d-inline-block text--green text--medium">
                 File Manager
             </span>
-        </div>
+        </div> -->
         
-        <table class="table table-hover">
+        <table class="table table-hover table-dark">
             @foreach (var item in Model)
             {
                 <tr>
-                    <td class="ls-1 d-flex align-items-center">
+                    <td class="ls-1 d-flex align-items-center; min-width: 300px">
                         <!-- <i class="fas fa-folder text-success fa-2x"></i> -->
                         <i class="icon icon-basic-folder icon-size--medium mr-2"></i>
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
-                    <td>
-                        <a name="btn_link" href="/Employee/Index" class="c_btn c_btn--green">
+                    <td style="text-align: right; width: 300px">
+                        <!-- <a name="btn_link" href="/Employee/Index" class="c_btn c_btn--green">
                             View
-                        </a>
-
-                        <!-- <a name="btn_link" href="/File/New_Record?folder_id=@(item.Code)" class="mr-4 c_btn c_btn--green">
-                            Insert
                         </a> -->
+
+                        <a name="btn_link" href="/File/New_Record?folder_id=@(item.Code)" class="mr-4 c_btn c_btn--green">
+                            Insert New Record
+                        </a>
                     </td>
                 </tr>
             }

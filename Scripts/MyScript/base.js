@@ -7,7 +7,7 @@
         btnSearch.type = "submit";
     }
 
-    if(current_page.includes("Employee/Index")) {
+    if(current_page.includes("Employee/Index") || current_page.includes("/Employee")) {
         btnSearch.type = "submit";
 
         formSearchBox.action = "/Employee/Index";

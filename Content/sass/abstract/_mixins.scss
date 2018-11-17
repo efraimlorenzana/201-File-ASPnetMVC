@@ -32,6 +32,10 @@
     }
 
     @if $device == tabland {
+        @media (max-width: 1000px) {@content};
+    }
+
+    @if $device == desktop {
         @media (max-width: 1200px) {@content};
     }
 

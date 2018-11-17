@@ -59,7 +59,7 @@ namespace hr_201_file.Controllers
 
             if (System.IO.File.Exists(userImage))
             {
-                ViewBag.Picture = Path.Combine(Constant.EMPLOYEE_PICTURE_DIRECTORY, emp.EmpNo + ".jpg");
+                ViewBag.Picture = Path.Combine(Constant.EMPLOYEE_PICTURE_DIRECTORY, emp.EmpNo + ".jpg").Replace("~", "");
             }
             else
             {

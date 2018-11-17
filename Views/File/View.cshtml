@@ -1,10 +1,35 @@
-﻿
+﻿@model hr_201_file.Models.Employee
+
 @{
     ViewBag.Title = "View";
 }
 
 <div class="file-view text-center">
+    <div class="file-view__menu--employee">
+        @Model.FullName
+    </div>
+    <div class="file-view__menu">
 
-    <img class="file-view__preview w-75" src="@ViewBag.pdf" alt="Alternate Text" />
+        <a href="/Employee/Index?search=@Model.FullName" class="file-view__menu--back c_btn c_btn--green px-3 py-2">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+
+        <div class="mt-2">
+            <button onclick="previewZoom(true)" class="file-view__menu--back c_btn c_btn--green px-3 py-2">
+                <i class="fas fa-search-plus"></i>
+            </button>
+        </div>
+
+        <div class="mt-2">
+            <button onclick="previewZoom(false)" class="file-view__menu--back c_btn c_btn--green px-3 py-2">
+                <i class="fas fa-search-minus"></i>
+            </button>
+        </div>
+    </div>
+
+    @foreach (var page in ViewBag.pages)
+    {
+        <img class="file-view__preview" src="@page" alt="Alternate Text" />
+    }
 </div>
 

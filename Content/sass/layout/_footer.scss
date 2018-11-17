@@ -1,0 +1,29 @@
+.footer {
+    padding: 20px;
+    float: left;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
+    &__content {
+        font-size: 12px;
+        letter-spacing: 3px;
+        background-image: linear-gradient(to right, $color-green-2, $color-green-3);
+        -webkit-background-clip: text;
+        color: transparent;
+
+        &--line1 {
+            @include respond(phone) {
+                display: block;
+                font-size: 10px;
+            }
+        }
+        
+        &--line2 {
+            @include respond(phone) {
+                display: block;
+                font-size: 10px;
+            }
+        }
+    }
+}

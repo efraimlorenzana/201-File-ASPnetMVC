@@ -1213,6 +1213,7 @@
     <Content Include="Scripts\jquery.fineuploader-3.1.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\MyScript\employee.js" />
+    <Content Include="Scripts\MyScript\preview.js" />
     <Content Include="Scripts\MyScript\search.js" />
     <Content Include="Scripts\MyScript\setting.js" />
     <Content Include="Scripts\respond.js" />
@@ -1243,6 +1244,7 @@
     <Content Include="Views\Employee\Employee_Records.cshtml" />
     <Content Include="Views\Employee\NotFound.cshtml" />
     <Content Include="Views\File\View.cshtml" />
+    <Content Include="Views\File\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

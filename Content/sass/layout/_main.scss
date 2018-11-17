@@ -40,7 +40,7 @@
         display: none;
     }
 
-    @include respond(tabport) {
+    @include respond(tabland) {
         display: block;
     }
 }
@@ -50,7 +50,7 @@
         display: block;
     }
 
-    @include respond(tabport) {
+    @include respond(tabland) {
         display: none;
     }
 }
@@ -73,13 +73,28 @@
 }
 
 .Main-Content {
-    background-image: linear-gradient(to bottom right, $color-white-2, $color-green-2, $color-green-3);
+    background-image: linear-gradient(to bottom right, 
+                        rgba($color-white-2,1), 
+                        rgba($color-green-2,.9), 
+                        rgba($color-green-3,1)), 
+                        url("../Images/logo-2018.png");
+    background-size: cover;
+    background-position: center;
+
     overflow-y: scroll;
-    max-height: 70vh;
-    padding: 20px 15px;
+    min-height: 80vh;
+    max-height: 80vh;
+    margin-bottom: 15px;
+    border: 2px solid $color-green-2;
+    
+    &::-webkit-scrollbar {
+        width: 1px;
+    }
 
     @include respond(phone) {
         min-height: 100vh;
+        overflow-x: scroll;
+        margin-bottom: 0;
     }
 }
 

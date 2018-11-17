@@ -19,7 +19,16 @@
         <span class="profile__details--doj">@Model.JoiningDate</span>
     </span>
     <div class="profile__position">@Model.JobPosition.Description</div>
-    <div class="profile__jobcategory">@ViewBag.jobCategory</div>
+    <div class="profile__jobcategory">
+        @ViewBag.jobCategory
+        <span class="profile__empno">(Employee Number: @Model.EmpNo)</span>
+    </div>
+    <div class="profile__empno-sm">
+        <div class="profile__empno-sm--label">EMPNO</div>
+        <div>
+            <span class="profile__empno-sm--value">@Model.EmpNo</span>
+        </div>
+    </div>
     <div class="profile__picture">
         <img class="profile__picture-data" src="@ViewBag.Picture" alt="User Picture">
     </div>

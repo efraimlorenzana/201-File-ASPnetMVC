@@ -23,7 +23,7 @@ namespace hr_201_file.Controllers
         // GET: /File/
         public ActionResult FileManager()
         {
-            
+
 
             List<Folder> folders = new List<Folder>();
             foreach (FileCategory fileCategory in db.FileCategories.ToList())
@@ -70,6 +70,8 @@ namespace hr_201_file.Controllers
         {
             FileContents file = db.FileContents.Single(x => x.id == id);
 
+            Employee emp = db.Employees.Single(e => e.EmpNo == file.employee_number);
+
             string file_ext = Path.GetExtension(file.file_path);
 
             string filename = "View-" + DateTime.Now.ToShortDateString().Replace("/", "") + "-" +
@@ -79,18 +81,52 @@ namespace hr_201_file.Controllers
             switch (file_ext)
             {
                 case ".PDF":
+                    List<string> pdf_pages = new List<string>();
                     PdfDocument pdf_file = new PdfDocument();
                     pdf_file.LoadFromFile(file.file_path);
-                    Image pdf_to_img = pdf_file.SaveAsImage(0, PdfImageType.Bitmap);
-                    pdf_to_img.Save(Path.Combine(Server.MapPath(Constant.UPLOADED_FILES_DIRECTORY), filename));
 
-                    @ViewBag.pdf = Path.Combine(Constant.VIEW_UPLOADED_FILES_DIRECTORY, filename);
+                    int pages = pdf_file.Pages.Count > 10 ? 10 : pdf_file.Pages.Count;
+
+                    for (int i = 0; i < pages; i++)
+                    {
+                        string new_filename = "page_" + i.ToString() + "-" + filename;
+
+                        Image pdf_to_img = pdf_file.SaveAsImage(0, PdfImageType.Bitmap);
+                        pdf_to_img.Save(Path.Combine(Server.MapPath(Constant.UPLOADED_FILES_DIRECTORY), new_filename));
+
+                        pdf_pages.Add(Path.Combine(Constant.VIEW_UPLOADED_FILES_DIRECTORY, new_filename));
+                    }
+
+                    ViewBag.pages = pdf_pages;
 
                     break;
                 default: break;
             }
 
-            return View();
+
+            return View(emp);
+        }
+
+        [HttpGet, ActionName("Delete")]
+        public ActionResult GET_Delete(int id)
+        {
+            return View(db.FileContents.Single(f => f.id == id));
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public ActionResult POST_Delete(int id)
+        {
+            FileContents file = db.FileContents.Single(f => f.id == id);
+
+            if (System.IO.File.Exists(file.file_path))
+            {
+                System.IO.File.Delete(file.file_path);
+            }
+
+            db.FileContents.Remove(file);
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "Employee", new { search = file.employee_name });
         }
     }
 

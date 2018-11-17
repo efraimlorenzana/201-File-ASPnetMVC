@@ -79,7 +79,9 @@ namespace FineUploader
                     new_file.File201_FileCategory_id = category.id;
                     new_file.file_name = filename
                                         .Substring(filename.LastIndexOf("-") + 1, (filename.LastIndexOf(".") - filename.LastIndexOf("-")) - 1)
-                                        .Replace("%20", " ").ToUpper();
+                                        .Replace("%20", " ")
+                                        .Replace("%26", "AND")
+                                        .ToUpper();
                     new_file.file_path = destination.ToUpper();
                     new_file.timestamp = DateTime.Now;
 
