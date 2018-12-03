@@ -1,4 +1,4 @@
-﻿@model IEnumerable<hr_201_file.Models.FileContents>
+﻿@model hr_201_file.Models.EmployeeModel
 
 @{
     ViewBag.Title = "Employee Records";
@@ -6,19 +6,18 @@
 }
 
 <div class="records">
+    @*@{Html.RenderPartial("_PersonalDetail", Model.employee);}*@
+    @Html.Partial("_PersonalDetail", Model.employee)
+
     <table class="table table-hover table-dark">
-        <!-- <caption>201 File Records</caption> -->
-        @if (Model.Count() > 0)
+        @if (Model.files.Count() > 0)
         {
-            foreach (var item in Model)
+            foreach (var item in Model.files)
             {
                 <tr>
                     <td style="min-width: 300px">
                         @Html.DisplayFor(modelItem => item.file_name)
                     </td>
-                    <!-- <td>
-                        @Html.DisplayFor(modelItem => item.file_path)
-                    </td> -->
                     <td style="min-width: 200px;text-align: center;">
                         @Html.DisplayFor(modelItem => item.timestamp)
                     </td>
@@ -31,12 +30,12 @@
                         }, 
                         null) |
 
-                        @Html.ActionLink("Download", "Download", 
+                        @Html.ActionLink("Download", "Download", "File", 
                         new { 
                             id = item.id
-                        }) |
+                        }, null) |
 
-                        @Html.ActionLink("Delete", "Delete","File", new { id = item.id }, null)
+                        @Html.ActionLink("Delete", "Delete", "File", new { id = item.id }, null)
                     </td>
                 </tr>
             }

@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+    <title>@ViewBag.Title</title>
+
+    @Styles.Render("~/Content/imported")
+    @Styles.Render("~/Content/bootstrapCDN")
+    @Styles.Render("~/Content/font-awesomeCDN")
+    @Styles.Render("~/Content/GoogleFonts")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body onload="pageLoaded()">
+    @RenderBody()
+
+    <div class="loading">
+        <div class="loading__file">
+            <img src="~/Images/loading2.gif" alt="Loading . . ." />
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @* Bootstrap Script from CDN *@
+    @Scripts.Render("~/bundles/jquery331CDN")
+    @Scripts.Render("~/bundles/popperCDN")
+    @Scripts.Render("~/bundles/bootstrapCDN")
+
+    @* Import Fine Uploader Script *@
+    @Scripts.Render("~/bundles/fineUploader")
+
+    @* Import Custom Script *@
+    @Scripts.Render("~/bundles/custom")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

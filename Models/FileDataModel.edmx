@@ -144,6 +144,25 @@
           <Property Name="File_Extns" Type="varchar" MaxLength="255" />
           <Property Name="isAccepted" Type="bit" Nullable="false" />
         </EntityType>
+        <EntityType Name="File201_Superuser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_type_id" Type="int" />
+          <Property Name="user_ADID" Type="varchar" MaxLength="255" />
+          <Property Name="created_by" Type="varchar" MaxLength="255" />
+          <Property Name="updated_by" Type="varchar" MaxLength="255" />
+          <Property Name="created" Type="datetime" />
+          <Property Name="updated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="File201_UserType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="255" />
+        </EntityType>
         <EntityType Name="JobCategories">
           <Key>
             <PropertyRef Name="JobCategoryId" />
@@ -166,7 +185,19 @@
           <Property Name="UserTrailTrack" Type="varchar" MaxLength="50" />
           <Property Name="UserLogStamp" Type="varchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__File201_C__File2__2BD46C74">
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="ADID" Type="varchar" MaxLength="20" />
+          <Property Name="UserGroupID" Type="int" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="UserTrailTrack" Type="varchar" MaxLength="50" />
+          <Property Name="UserLogStamp" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__File201_C__File2__12149A71">
           <End Role="File201_FileCategory" Type="Self.File201_FileCategory" Multiplicity="0..1" />
           <End Role="File201_Contents" Type="Self.File201_Contents" Multiplicity="*" />
           <ReferentialConstraint>
@@ -175,6 +206,18 @@
             </Principal>
             <Dependent Role="File201_Contents">
               <PropertyRef Name="File201_FileCategory_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__File201_S__user___1AA9E072">
+          <End Role="File201_UserType" Type="Self.File201_UserType" Multiplicity="0..1" />
+          <End Role="File201_Superuser" Type="Self.File201_Superuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File201_UserType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="File201_Superuser">
+              <PropertyRef Name="user_type_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -197,11 +240,18 @@
           <EntitySet Name="File201_Contents" EntityType="Self.File201_Contents" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="File201_FileCategory" EntityType="Self.File201_FileCategory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="File201_FileExtension" EntityType="Self.File201_FileExtension" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="File201_Superuser" EntityType="Self.File201_Superuser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="File201_UserType" EntityType="Self.File201_UserType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="JobCategories" EntityType="Self.JobCategories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="JobPositions" EntityType="Self.JobPositions" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__File201_C__File2__2BD46C74" Association="Self.FK__File201_C__File2__2BD46C74">
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__File201_C__File2__12149A71" Association="Self.FK__File201_C__File2__12149A71">
             <End Role="File201_FileCategory" EntitySet="File201_FileCategory" />
             <End Role="File201_Contents" EntitySet="File201_Contents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__File201_S__user___1AA9E072" Association="Self.FK__File201_S__user___1AA9E072">
+            <End Role="File201_UserType" EntitySet="File201_UserType" />
+            <End Role="File201_Superuser" EntitySet="File201_Superuser" />
           </AssociationSet>
           <AssociationSet Name="FK_Employees_JobPositions" Association="Self.FK_Employees_JobPositions">
             <End Role="JobPositions" EntitySet="JobPositions" />
@@ -261,6 +311,13 @@
             <End Role="Employee" EntitySet="Employees" />
           </AssociationSet>
           <EntitySet Name="JobCategories" EntityType="Models.JobCategory" />
+          <EntitySet Name="Users" EntityType="Models.User" />
+          <EntitySet Name="Superusers" EntityType="Models.Superuser" />
+          <EntitySet Name="UserTypes" EntityType="Models.UserType" />
+          <AssociationSet Name="FK__File201_S__user___00B50445" Association="Models.FK__File201_S__user___00B50445">
+            <End Role="File201_UserType" EntitySet="UserTypes" />
+            <End Role="File201_Superuser" EntitySet="Superusers" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Employee">
           <Key>
@@ -419,6 +476,51 @@
           <Property Name="UserTrailTrack" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="UserLogStamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ADID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserGroupID" Type="Int32" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="UserTrailTrack" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserLogStamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Superuser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_type_id" Type="Int32" />
+          <Property Name="user_ADID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="created_by" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="updated_by" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="created" Type="DateTime" Precision="3" />
+          <Property Name="updated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="UserType" Relationship="Models.FK__File201_S__user___00B50445" FromRole="File201_Superuser" ToRole="File201_UserType" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Superuser" Relationship="Models.FK__File201_S__user___00B50445" FromRole="File201_UserType" ToRole="File201_Superuser" />
+        </EntityType>
+        <Association Name="FK__File201_S__user___00B50445">
+          <End Type="Models.UserType" Role="File201_UserType" Multiplicity="0..1" />
+          <End Type="Models.Superuser" Role="File201_Superuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File201_UserType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="File201_Superuser">
+              <PropertyRef Name="user_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -589,6 +691,40 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
                 <ScalarProperty Name="JobCategoryId" ColumnName="JobCategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Models.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserLogStamp" ColumnName="UserLogStamp" />
+                <ScalarProperty Name="UserTrailTrack" ColumnName="UserTrailTrack" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="UserGroupID" ColumnName="UserGroupID" />
+                <ScalarProperty Name="ADID" ColumnName="ADID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Superusers">
+            <EntityTypeMapping TypeName="Models.Superuser">
+              <MappingFragment StoreEntitySet="File201_Superuser">
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="user_ADID" ColumnName="user_ADID" />
+                <ScalarProperty Name="user_type_id" ColumnName="user_type_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="Models.UserType">
+              <MappingFragment StoreEntitySet="File201_UserType">
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

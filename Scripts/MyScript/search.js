@@ -1,15 +1,15 @@
 ﻿let suggestion = document.querySelector('.search__suggestion');
 
-toggleUpload = () => {
+function toggleUpload(){
     let btnSearch = document.querySelector('#btnSearch');
     btnSearch.type = "submit";
 }
 
-showSuggestion = (e) => {
-    let suggestion = document.querySelector('.search__suggestion');
-    let txtSearch = document.querySelector('.search__bar--text');
-    let list = "";
-    let arr_list = [];
+function showSuggestion(e){
+    var suggestion = document.querySelector('.search__suggestion');
+    var txtSearch = document.querySelector('.search__bar--text');
+    var list = "";
+    var arr_list = [];
     
     if(txtSearch.value.length >= 3) {
         suggestion.hidden = false;
@@ -17,13 +17,14 @@ showSuggestion = (e) => {
 
     $.get('/Employee/autocomplete', {
         term : e.target.value
-    }, data => {
-        data.forEach(item => {
+    }, function (data) {
+        
+        console.log(data);
+        Array.prototype.forEach.call(data, function (item) {
             if(!NameExist(item)) {
-                list = list + `<li class="search__suggestion--item"
-                onclick="returnToSearch(event)">
-                ${item}
-                </li>`
+                list = list + '<li class="search__suggestion--item" onclick="returnToSearch(event)">'
+                + item +
+                '</li>'
                 arr_list.push(item);
             }
         });
@@ -32,9 +33,10 @@ showSuggestion = (e) => {
         document.querySelector('.search__suggestion').style.overflowY = "scroll";
     });
     
-    NameExist = (name) => {
+    function NameExist(name){
         let isExist = false;
-        arr_list.forEach(arr_data => {
+
+        Array.prototype.forEach.call(arr_list, function (arr_data) {
             if(arr_data == name)
             isExist = true;
         });
@@ -42,20 +44,20 @@ showSuggestion = (e) => {
         return isExist;
     }
     
-    returnToSearch = (e) => {
-        let txtSearch = document.querySelector('.search__bar--text');
-        
-        txtSearch.value = e.target.textContent.trim();
-        
-        // txtSearch.focus();
-        focusMethod();
-    }
-    
-    txtSearch.onblur = () => {
-        setTimeout(() => {
+    txtSearch.onblur = function () {
+        setTimeout(function () {
             suggestion.hidden = true;
         }, 500);
     }
+}
+
+function returnToSearch(e) {
+    var txtSearch = document.querySelector('.search__bar--text');
+
+    txtSearch.value = e.target.textContent.trim();
+
+    // txtSearch.focus();
+    focusMethod();
 }
 
 focusMethod = function getFocus() {           

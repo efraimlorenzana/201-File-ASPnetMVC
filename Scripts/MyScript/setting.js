@@ -1,9 +1,9 @@
-﻿include = (id, e) => {
+﻿function include (id, e) {
     
     $.post('/Setting/toggle_extension', {
         isChecked : e.target.checked,
         ext_id : id
-    }, data => {
+    }, function (data) {
         console.log(data);
     })
 }

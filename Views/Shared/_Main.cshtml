@@ -3,15 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    
     <title>@ViewBag.Title</title>
     
     @Styles.Render("~/Content/imported")
     @Styles.Render("~/Content/bootstrapCDN")
     @Styles.Render("~/Content/font-awesomeCDN")
+    @Styles.Render("~/Content/GoogleFonts")
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body onload="pageLoaded()">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">
             <img class="main-logo img-fluid" src="~/Images/ddtkilogo.jpg" alt="DDTKI Logo">
@@ -23,28 +26,40 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav mr-auto navbar-primary text-center">
-                <li class="main-nav__item" onclick="mainNavLink(event)">
-                    <a href="/File/FileManager" class="main-nav__link">
+                <li class="main-nav__item homeNavLink">
+                    <a href="/Home/Dashboard" class="main-nav__link">
                         <!-- <i class="fas fa-home fa-3x main-nav__icon"></i> -->
                         HOME
                     </a>
                 </li>
-                <li class="main-nav__item" onclick="mainNavLink(event)">
+                
+                <li class="main-nav__item fileNavLink">
+                    <a href="/File/FileManager" class="main-nav__link">
+                        FILES
+                    </a>
+                </li>
+                
+                <li class="main-nav__item employeeNavLink">
                     <a href="/Employee/Index" class="main-nav__link">
                         <!-- <i class="fas fa-address-card fa-3x main-nav__icon"></i> -->
                         EMPLOYEE DETAILS
                     </a>
                 </li>
-                <li onclick="toggleUpload()" class="main-nav__item" onclick="mainNavLink(event)">
+                <li onclick="toggleUpload()" class="main-nav__item">
                     <a href="#" class="main-nav__link upload-link2">
                         <!-- <i class="fas fa-cloud-upload-alt fa-3x main-nav__icon"></i> -->
                         UPLOAD FILE
                     </a>
                 </li>
-                <li class="main-nav__item" onclick="mainNavLink(event)">
+                <li class="main-nav__item">
                     <a href="/Administrator/Setting/Index" class="main-nav__link">
                         <!-- <i class="fas fa-cog fa-3x main-nav__icon"></i> -->
                         SETTING / PERMISSION
+                    </a>
+                </li>
+                <li class="main-nav__item">
+                    <a href="/Account/Signout" class="main-nav__link">
+                        Sign Off
                     </a>
                 </li>
             </ul>
@@ -72,6 +87,15 @@
                     <input id="btnSearch" type="button" class="submit-button" hidden>
                 </div>
             }
+            
+            <div class="user">
+                <span class="user__picture">
+                    <i class="fas fa-user-circle"></i>
+                </span>
+                <span class="user__name">
+                    @ViewBag.Name
+                </span>
+            </div>
         </div>
     </nav>
     
@@ -80,30 +104,41 @@
             <div id="sideNav" class="col-lg-1">
                 <div class="main-nav d-flex justify-content-center">
                     <ul class="main-nav__list navbar-secondary">
-                        <li class="main-nav__item" onclick="mainNavLink(event)">
-                            <a href="/File/FileManager" class="main-nav__link">
+                        <li class="main-nav__item homeNavLink">
+                            <a href="/Home/Dashboard" class="main-nav__link">
                                 <i class="fas fa-home fa-3x main-nav__icon"></i>
                             </a>
                         </li>
-                        <li class="main-nav__item" onclick="mainNavLink(event)">
+                        <li class="main-nav__item fileNavLink">
+                            <a href="/File/FileManager" class="main-nav__link">
+                                <i class="fas fa-copy fa-3x main-nav__icon"></i>
+                            </a>
+                        </li>
+                        <li class="main-nav__item employeeNavLink">
                             <a href="/Employee/Index" class="main-nav__link">
                                 <i class="fas fa-address-card fa-3x main-nav__icon"></i>
                             </a>
                         </li>
-                        <li onclick="toggleUpload()" class="main-nav__item" onclick="mainNavLink(event)">
+                        <li onclick="toggleUpload()" class="main-nav__item">
                             <a href="#" class="main-nav__link upload-link">
                                 <i class="fas fa-cloud-upload-alt fa-3x main-nav__icon"></i>
                             </a>
                         </li>
-                        <li class="main-nav__item" onclick="mainNavLink(event)">
+                        <li class="main-nav__item">
                             <a href="/Administrator/Setting/Index" class="main-nav__link">
                                 <i class="fas fa-cog fa-3x main-nav__icon"></i>
+                            </a>
+                        </li>
+                        
+                        <li class="main-nav__item">
+                            <a href="/Account/Signout" class="main-nav__link">
+                                <i class="fas fa-power-off fa-3x main-nav__icon"></i>
                             </a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-11 Main-Content pr-2">@RenderBody()</div>
+            <div class="col-lg-11 Main-Content">@RenderBody()</div>
         </div>
         <!-- <hr /> -->
     </div>
@@ -117,6 +152,12 @@
             </span>
         </p>
     </footer>
+    
+    <div class="loading">
+        <div class="loading__file">
+            <img src="~/Images/loading2.gif" alt="Loading . . ." />
+        </div>
+    </div>
     
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

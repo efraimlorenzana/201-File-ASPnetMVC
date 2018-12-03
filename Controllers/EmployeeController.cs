@@ -14,6 +14,8 @@ namespace hr_201_file.Controllers
         DatabaseContext db = new DatabaseContext();
         //
         // GET: /Employee/
+
+        [Logged_User]
         public ActionResult Index(string search)
         {
             /// Empty UPLOADED Folder
@@ -77,10 +79,17 @@ namespace hr_201_file.Controllers
             return View(emp);
         }
 
-        public ActionResult Employee_Records(int folder_id, int EmpNo)
+        //[ChildActionOnly]
+        public PartialViewResult Employee_Records(int folder_id, int EmpNo)
         {
             List<FileContents> files = db.FileContents.Where(x => x.File201_FileCategory_id == folder_id && x.employee_number == EmpNo).ToList();
-            return View(files);
+            Employee emp = db.Employees.Single(e => e.EmpNo == EmpNo);
+
+            EmployeeModel empModel = new EmployeeModel();
+            empModel.files = files;
+            empModel.employee = emp;
+
+            return PartialView(empModel);
         }
 
         public ActionResult NotFound(string name)
@@ -92,20 +101,28 @@ namespace hr_201_file.Controllers
         public JsonResult autocomplete(string term)
         {
             List<string> Names = new List<string>();
-            int EmpNo;
-            bool isEmpNo = int.TryParse(term, out EmpNo);
 
-            if (isEmpNo)
+            if (!String.IsNullOrEmpty(term)  && term.Length > 2)
             {
-                Names = db.Employees.Where(e => e.EmpNo == EmpNo)
-                                    .OrderBy(y => y.FullName)
-                                    .Select(x => x.FullName).ToList();
+                int EmpNo;
+                bool isEmpNo = int.TryParse(term, out EmpNo);
+
+                if (isEmpNo)
+                {
+                    Names = db.Employees.Where(e => e.EmpNo == EmpNo)
+                                        .OrderBy(y => y.FullName)
+                                        .Select(x => x.FullName).ToList();
+                }
+                else
+                {
+                    Names = db.Employees.Where(e => e.FullName.Contains(term))
+                                        .OrderBy(y => y.FullName)
+                                        .Select(x => x.FullName).ToList();
+                }
             }
             else
             {
-                Names = db.Employees.Where(e => e.FullName.Contains(term))
-                                    .OrderBy(y => y.FullName)
-                                    .Select(x => x.FullName).ToList();
+                Names.Add("No Record Found");
             }
 
             return Json(Names, JsonRequestBehavior.AllowGet);

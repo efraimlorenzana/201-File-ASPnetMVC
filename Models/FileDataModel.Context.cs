@@ -31,5 +31,8 @@ namespace hr_201_file.Models
         public DbSet<FileExtension> FileExtensions { get; set; }
         public DbSet<Position> Positions { get; set; }
         public DbSet<JobCategory> JobCategories { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Superuser> Superusers { get; set; }
+        public DbSet<UserType> UserTypes { get; set; }
     }
 }

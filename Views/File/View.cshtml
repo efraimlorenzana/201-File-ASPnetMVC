@@ -25,6 +25,10 @@
                 <i class="fas fa-search-minus"></i>
             </button>
         </div>
+
+        <a href="/File/Download/@ViewBag.id" class="file-view__menu--back c_btn c_btn--green px-3 py-2 mt-2">
+            <i class="fas fa-download"></i>
+        </a>
     </div>
 
     @foreach (var page in ViewBag.pages)
@@ -32,4 +36,3 @@
         <img class="file-view__preview" src="@page" alt="Alternate Text" />
     }
 </div>
-

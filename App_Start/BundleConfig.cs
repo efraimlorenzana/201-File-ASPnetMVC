@@ -28,6 +28,9 @@ namespace hr_201_file
                       "~/Content/PagedList.css",
                       "~/Content/styles.css"));
 
+            //Import Google Fonts
+            bundles.Add(new StyleBundle("~/Content/GoogleFonts", "https://fonts.googleapis.com/css?family=Allerta+Stencil|Montserrat"));
+
             // Import Bootstrap
             bundles.Add(new StyleBundle("~/Content/bootstrapCDN", "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"));
             bundles.Add(new ScriptBundle("~/bundles/jquery331CDN", "https://code.jquery.com/jquery-3.3.1.min.js"));
@@ -41,6 +44,10 @@ namespace hr_201_file
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            // Import Main2 Style
+            bundles.Add(new StyleBundle("~/Content/css-advance").Include(
+                      "~/Content/style.min.css"));
 
 
             // Import Fine Uploader Script

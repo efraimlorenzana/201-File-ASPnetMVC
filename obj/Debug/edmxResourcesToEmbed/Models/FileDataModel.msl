@@ -168,5 +168,39 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="Models.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserLogStamp" ColumnName="UserLogStamp" />
+          <ScalarProperty Name="UserTrailTrack" ColumnName="UserTrailTrack" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+          <ScalarProperty Name="UserGroupID" ColumnName="UserGroupID" />
+          <ScalarProperty Name="ADID" ColumnName="ADID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Superusers">
+      <EntityTypeMapping TypeName="Models.Superuser">
+        <MappingFragment StoreEntitySet="File201_Superuser">
+          <ScalarProperty Name="updated" ColumnName="updated" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="user_ADID" ColumnName="user_ADID" />
+          <ScalarProperty Name="user_type_id" ColumnName="user_type_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTypes">
+      <EntityTypeMapping TypeName="Models.UserType">
+        <MappingFragment StoreEntitySet="File201_UserType">
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

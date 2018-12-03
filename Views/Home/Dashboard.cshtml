@@ -1,0 +1,44 @@
+﻿@model hr_201_file.Models.Dashboard
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+@section scripts {
+    <script type="text/javascript">
+        homeNavLink();
+        modify_DOM_on_page_load();
+    </script>
+}
+<!-- <h2>Dashboard</h2> -->
+
+<div class="dashboard">
+    <div class="dashboard__card dashboard__card--color-1">
+        <h2 class="text-white">Employees</h2>
+        <div class="dashboard__card--icon">
+            <i class="fas fa-users text-white"></i>
+        </div>
+        <div class="dashboard__card--count text-white">
+            @Model.employeesCount
+        </div>
+    </div>
+    
+    <div class="dashboard__card dashboard__card--color-1">
+        <h2 class="text-white">Files</h2>
+        <div class="dashboard__card--icon">
+            <i class="fas fa-folder-open text-white"></i>
+        </div>
+        <div class="dashboard__card--count text-white">
+            @Model.filesCount
+        </div>
+    </div>
+    
+    <div class="dashboard__card dashboard__card--color-1">
+        <h2 class="text-white">Users</h2>
+        <div class="dashboard__card--icon">
+            <i class="fas fa-user-check text-white"></i>
+        </div>
+        <div class="dashboard__card--count text-white">
+            @Model.userCount
+        </div>
+    </div>
+</div>

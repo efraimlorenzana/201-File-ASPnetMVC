@@ -1,0 +1,51 @@
+﻿@model hr_201_file.Models.Login
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_reference.cshtml";
+}
+<div class="alert alert-danger @ViewBag.Error">
+    <i class="fas fa-exclamation-circle"></i>
+    Invalid Username or Password
+</div>
+    
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="login__background">
+        <img src="~/Images/ddtki-bg.jpg" alt="" class="login__background--img">
+    </div>
+    
+    <div class="login">
+        @Html.ValidationSummary(true)
+        
+        <div class="login__icon">
+            <i class="fas fa-user-circle"></i>
+        </div>
+        
+        <div class="login__field">
+            @Html.LabelFor(model => model.username, new { @class = "login__field--label" })
+            <div class="login__field--input">
+                @Html.TextBoxFor(model => model.username, new { @class="login__field--input-text", placeholder = "Enter Username" })
+                @Html.ValidationMessageFor(model => model.username, "*")
+            </div>
+        </div>
+        
+        <div class="login__field">
+            @Html.LabelFor(model => model.password, new { @class = "login__field--label" })
+            <div class="login__field--input">
+                @Html.PasswordFor(model => model.password, new { @class = "login__field--input-text", placeholder = "Enter Password" })
+                @Html.ValidationMessageFor(model => model.password,"*")
+            </div>
+        </div>
+        
+        <div class="login__field">
+            <div class="login__field--button">
+                <input type="submit" value="Login" class="c_btn c_btn--green" />
+            </div>
+        </div>
+        
+    </div>
+}
+

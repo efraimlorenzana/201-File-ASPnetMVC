@@ -13,6 +13,10 @@
         <EntityTypeShape EntityType="Models.Position" Width="1.5" PointX="2.125" PointY="10.25" />
         <AssociationConnector Association="Models.FK_Employees_JobPositions" />
         <EntityTypeShape EntityType="Models.JobCategory" Width="1.5" PointX="6.375" PointY="0.75" />
+        <EntityTypeShape EntityType="Models.User" Width="1.5" PointX="6.375" PointY="3.75" />
+        <EntityTypeShape EntityType="Models.Superuser" Width="1.5" PointX="8.625" PointY="8" />
+        <EntityTypeShape EntityType="Models.UserType" Width="1.5" PointX="6.375" PointY="8.375" />
+        <AssociationConnector Association="Models.FK__File201_S__user___00B50445" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

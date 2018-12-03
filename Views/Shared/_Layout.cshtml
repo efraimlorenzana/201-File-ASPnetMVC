@@ -3,77 +3,131 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    
     <title>@ViewBag.Title</title>
     
     @Styles.Render("~/Content/imported")
-    @Styles.Render("~/Content/bootstrapCDN")
+    <!-- @Styles.Render("~/Content/bootstrapCDN") -->
     @Styles.Render("~/Content/font-awesomeCDN")
-    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/GoogleFonts")
+    <!-- @Styles.Render("~/Content/css") -->
+    @Styles.Render("~/Content/css-advance")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
-    <!-- <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
+<body onload="pageLoaded()">
+    <header class="header">
+        <a class="header__logo--link" href="#">
+            <img class="header__logo--img" src="~/Images/ddtkilogo.jpg" alt="DDTKI Logo">
+        </a>
+        
+        <!-- Search Field -->
+        @using (Html.BeginForm("New_Record", "File", FormMethod.Get, new { @class = "header__form", id="searchBox" }))
+        {
+            <div class="search">
+                <div class="search__bar">
+                    <label for="btnSearch" class="search__bar--label">
+                        <svg class="search__bar--icon">
+                            <use xlink:href="~/Icons/sprite.svg#icon-magnifying-glass"></use>
+                        </svg>
+                    </label>
+                    
+                    <input name="search" type="text" class="search__bar--text" placeholder="Search Employee Name or Employee Number" autocomplete="off" oninput="showSuggestion(event)">
+                </div>
+                <div class="search__suggestion" hidden=false>
+                    <ul class="search__suggestion--list"></ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+            
+            string folder_id = Request.QueryString["folder_id"];
+            
+            <input name="folder_id" type="text" value="@(folder_id)" hidden />
+            
+            <div class="submit">
+                <input id="btnSearch" type="button" class="submit-button" hidden>
             </div>
+        }
+        
+        <div class="user">
+            <span class="user__picture">
+                <i class="fas fa-user-circle"></i>
+            </span>
+            <span class="user__name">
+                @ViewBag.Name
+            </span>
         </div>
-    </div> -->
+    </header>
     
-    <nav class="navigation">
-        <input id="nav-menu" type="checkbox" class="navigation__checkbox">
-        <label for="nav-menu" class="navigation__button">
-            <span class="navigation__icon"></span>
-        </label>
-        
-        <div class="navigation__background"></div>
-        
-        <div class="navigation__nav">
-            <ul class="navigation__list">
-                <li class="navigation__item">
-                    @Html.ActionLink("File Manager", "FileManager", null, new { @class="navigation__link" })
+    <dKiv class="body-content">
+        <nav id="sideNav" class="sidenav">
+            <ul class="sidenav__list">
+                <li class="sidenav__item homeNavLink">
+                    <a href="/Home/Dashboard" class="sidenav__link">
+                        <i class="fas fa-home fa-3x main-nav__icon"></i>
+                    </a>
                 </li>
-                <li class="navigation__item">
-                    @Html.ActionLink("Setting", "Index","Setting", new { Area = "Administrator" }, new { @class = "navigation__link" })
+                <li class="sidenav__item fileNavLink">
+                    <a href="/File/FileManager" class="sidenav__link">
+                        <i class="fas fa-copy fa-3x main-nav__icon"></i>
+                    </a>
+                </li>
+                <li class="sidenav__item employeeNavLink">
+                    <a href="/Employee/Index" class="sidenav__link">
+                        <i class="fas fa-address-card fa-3x main-nav__icon"></i>
+                    </a>
+                </li>
+                <li onclick="toggleUpload()" class="sidenav__item">
+                    <a href="#" class="sidenav__link upload-link">
+                        <i class="fas fa-cloud-upload-alt fa-3x main-nav__icon"></i>
+                    </a>
+                </li>
+                <li class="sidenav__item">
+                    <a href="/Administrator/Setting/Index" class="sidenav__link">
+                        <i class="fas fa-cog fa-3x main-nav__icon"></i>
+                    </a>
+                </li>
+                
+                <li class="sidenav__item">
+                    <a href="/Account/Signout" class="sidenav__link">
+                        <i class="fas fa-power-off fa-3x main-nav__icon"></i>
+                    </a>
                 </li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+        <main class="Main-Content">@RenderBody()</main>
+    </div>
     
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - DDT KONSTRACT, INC.</p>
-        </footer>
+    <footer class="footer bg-dark text-white">
+        <p class="footer__content text-center">
+            <span class="footer__content--line1">
+                201 FILE MANAGEMENT SYSTEM v1.0
+            </span>
+            <span class="footer__content--line2">
+                &copy; @DateTime.Now.Year - DDT KONSTRACT, INC.
+            </span>
+        </p>
+    </footer>
+    
+    <div class="loading">
+        <div class="loading__file">
+            <img src="~/Images/loading2.gif" alt="Loading . . ." />
+        </div>
     </div>
     
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-
+    
     @* Bootstrap Script from CDN *@
     @Scripts.Render("~/bundles/jquery331CDN")
     @Scripts.Render("~/bundles/popperCDN")
     @Scripts.Render("~/bundles/bootstrapCDN")
-
+    
     @* Import Fine Uploader Script *@
     @Scripts.Render("~/bundles/fineUploader")
-
+    
     @* Import Custom Script *@
     @Scripts.Render("~/bundles/custom")
-
+    
     @RenderSection("scripts", required: false)
 </body>
 </html>

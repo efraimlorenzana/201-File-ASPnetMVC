@@ -12,6 +12,7 @@ using Spire.Pdf;
 using Spire.Pdf.Graphics;
 using Spire.PdfViewer;
 using System.Drawing;
+using System.Net.Mime;
 
 namespace hr_201_file.Controllers
 {
@@ -21,6 +22,8 @@ namespace hr_201_file.Controllers
         DatabaseContext db = new DatabaseContext();
         //
         // GET: /File/
+
+        [Logged_User]
         public ActionResult FileManager()
         {
 
@@ -70,6 +73,8 @@ namespace hr_201_file.Controllers
         {
             FileContents file = db.FileContents.Single(x => x.id == id);
 
+            ViewBag.id = file.id;
+
             Employee emp = db.Employees.Single(e => e.EmpNo == file.employee_number);
 
             string file_ext = Path.GetExtension(file.file_path);
@@ -78,10 +83,11 @@ namespace hr_201_file.Controllers
                               DateTime.Now.ToShortTimeString().Replace(":", "")
                                                               .Replace(" ", "") + ".jpg";
 
+            List<string> pdf_pages = new List<string>();
+
             switch (file_ext)
             {
                 case ".PDF":
-                    List<string> pdf_pages = new List<string>();
                     PdfDocument pdf_file = new PdfDocument();
                     pdf_file.LoadFromFile(file.file_path);
 
@@ -96,13 +102,18 @@ namespace hr_201_file.Controllers
 
                         pdf_pages.Add(Path.Combine(Constant.VIEW_UPLOADED_FILES_DIRECTORY, new_filename));
                     }
-
-                    ViewBag.pages = pdf_pages;
-
                     break;
-                default: break;
+                case ".JPG":
+                    System.IO.File.Copy(file.file_path, Path.Combine(Server.MapPath(Constant.UPLOADED_FILES_DIRECTORY), Path.GetFileName(file.file_path)));
+                    pdf_pages.Add(Path.Combine(Constant.VIEW_UPLOADED_FILES_DIRECTORY, Path.GetFileName(file.file_path)));
+                    break;
+                default:
+                    Response.Write(Custom_Function.CF.Alert("preview not available for this file. the system will start downloading the file"));
+
+                    return RedirectToAction("Download", new { id = file.id });
             }
 
+            ViewBag.pages = pdf_pages;
 
             return View(emp);
         }
@@ -128,7 +139,21 @@ namespace hr_201_file.Controllers
 
             return RedirectToAction("Index", "Employee", new { search = file.employee_name });
         }
+
+        public FileResult Download(int id)
+        {
+            FileContents file = db.FileContents.Single(x => x.id == id);
+
+            //if (System.IO.File.Exists(file.file_path))
+            //{
+            //}
+
+            byte[] filebase = System.IO.File.ReadAllBytes(file.file_path);
+            string filename = Path.GetFileName(file.file_path);
+
+            return File(filebase, MediaTypeNames.Application.Octet, filename);
+
+            //return RedirectToAction("NotFound", "Employee");
+        }
     }
-
-
 }

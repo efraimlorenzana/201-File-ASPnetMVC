@@ -7,6 +7,8 @@ namespace hr_201_file.Common
 {
     public class Constant
     {
+        public static bool DEBUG_MODE = true;
+
 
         public const string UPLOADED_FILES_DIRECTORY = "~/Employee_Data/UPLOADED";
         public const string VIEW_UPLOADED_FILES_DIRECTORY = "../../Employee_Data/UPLOADED";

@@ -7,8 +7,7 @@
 }
 
 body {
-    // padding: 20px !important;
-    // font-size: 16px !important;
+    font-family: 'Montserrat', sans-serif;
 
     &::-webkit-scrollbar {
         width: 3px;
@@ -33,6 +32,7 @@ h5,
 h6 {
     text-transform: uppercase;
     letter-spacing: 3px;
+    font-family: 'Allerta Stencil', sans-serif;
 }
 
 hr {

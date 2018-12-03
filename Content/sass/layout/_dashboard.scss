@@ -1,0 +1,71 @@
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+    
+    &__card {
+        padding: 30px;
+        text-align: center;
+        margin: 15px;
+        min-width: 300px;
+        transition: all .5s;
+        box-shadow: 4px 4px 17px black;
+        // text-shadow: 4px 4px 17px black;
+
+        & > h2 {
+            text-shadow: 4px 4px 17px black;
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+        
+        &--color {
+            &-1 {
+                background-image: linear-gradient(to bottom right,
+                $color-green-1, 
+                $color-green-2);
+                // background-image: linear-gradient(to bottom right,
+                // orange, 
+                // orangered,
+                // red);
+            }
+            
+            &-2 {
+                // background-image: linear-gradient(to bottom right,
+                // lightblue,
+                // skyblue, 
+                // blue);
+
+                background-image: linear-gradient(to bottom right,
+                #00ff00, 
+                #00e000,
+                #00c000);
+            }
+            
+            &-3 {
+                // background-image: linear-gradient(to bottom right,
+                // yellow,
+                // orange, 
+                // red);
+
+                background-image: linear-gradient(to bottom right,
+                #00ff00, 
+                #00e000,
+                #00c000);
+            }
+        }
+        
+        &--icon {
+            font-size: 150px;
+            text-shadow: 4px 4px 17px black;
+        }
+        
+        &--count {
+            font-size: 50px;
+            letter-spacing: 3px;
+            text-shadow: 4px 4px 17px black;
+        }
+    }
+}

@@ -8,9 +8,14 @@
     &__content {
         font-size: 12px;
         letter-spacing: 3px;
-        background-image: linear-gradient(to right, $color-green-2, $color-green-3);
-        -webkit-background-clip: text;
-        color: transparent;
+        // background-image: linear-gradient(to right, $color-green-2, $color-green-3);
+
+        // background-color: black;
+
+        // -webkit-background-clip: text;
+        // -ms-background-clip: text;
+        // background-clip: text;
+        color: $color-green-2;
 
         &--line1 {
             @include respond(phone) {

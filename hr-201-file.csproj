@@ -92,6 +92,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
+    <Reference Include="System.DirectoryServices.Protocols" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Runtime.Serialization" />
@@ -180,7 +183,9 @@
     <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
     <Compile Include="Areas\Administrator\Controllers\HomeController.cs" />
     <Compile Include="Areas\Administrator\Controllers\SettingController.cs" />
+    <Compile Include="Common\Attribute.cs" />
     <Compile Include="Common\Constant.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -191,9 +196,11 @@
     </Compile>
     <Compile Include="Infrastructure\FineUpload.cs" />
     <Compile Include="Infrastructure\FineUploadResult.cs" />
+    <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\Employee.cs">
       <DependentUpon>FileDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EmployeeModel.cs" />
     <Compile Include="Models\FileCategory.cs">
       <DependentUpon>FileDataModel.tt</DependentUpon>
     </Compile>
@@ -221,10 +228,20 @@
     </Compile>
     <Compile Include="Models\FileExtensionModel.cs" />
     <Compile Include="Models\FileManager.cs" />
+    <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\JobCategory.cs">
       <DependentUpon>FileDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Position.cs">
+      <DependentUpon>FileDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Superuser.cs">
+      <DependentUpon>FileDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>FileDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserType.cs">
       <DependentUpon>FileDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -252,14 +269,44 @@
     <Content Include="Content\images\ui-icons_ffd27a_256x240.png" />
     <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\style.min.css" />
     <Content Include="Content\styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Icons\demo.html" />
+    <Content Include="Icons\sprite.svg" />
+    <Content Include="Icons\SVG\add-user.svg" />
+    <Content Include="Icons\SVG\cabinet.svg" />
+    <Content Include="Icons\SVG\check.svg" />
+    <Content Include="Icons\SVG\chevron-small-down.svg" />
+    <Content Include="Icons\SVG\chevron-small-left.svg" />
+    <Content Include="Icons\SVG\chevron-small-right.svg" />
+    <Content Include="Icons\SVG\chevron-small-up.svg" />
+    <Content Include="Icons\SVG\circle-with-cross.svg" />
+    <Content Include="Icons\SVG\circle-with-minus.svg" />
+    <Content Include="Icons\SVG\circle-with-plus.svg" />
+    <Content Include="Icons\SVG\cog.svg" />
+    <Content Include="Icons\SVG\enter.svg" />
+    <Content Include="Icons\SVG\exit.svg" />
+    <Content Include="Icons\SVG\files-empty.svg" />
+    <Content Include="Icons\SVG\folder-download.svg" />
+    <Content Include="Icons\SVG\folder-minus.svg" />
+    <Content Include="Icons\SVG\folder-open.svg" />
+    <Content Include="Icons\SVG\folder-plus.svg" />
+    <Content Include="Icons\SVG\folder-upload.svg" />
+    <Content Include="Icons\SVG\magnifying-glass.svg" />
+    <Content Include="Icons\SVG\profile.svg" />
+    <Content Include="Icons\SVG\upload-to-cloud.svg" />
+    <Content Include="Icons\SVG\upload.svg" />
+    <Content Include="Icons\SVG\user-check.svg" />
+    <Content Include="Icons\SVG\users.svg" />
+    <Content Include="Images\ddtki-bg.jpg" />
     <Content Include="Images\ddtkilogo.jpg" />
     <Content Include="Images\female.png" />
     <Content Include="Images\file.jpg" />
+    <Content Include="Images\loading2.gif" />
     <Content Include="Images\logo-2018.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\male.png" />
@@ -1245,6 +1292,11 @@
     <Content Include="Views\Employee\NotFound.cshtml" />
     <Content Include="Views\File\View.cshtml" />
     <Content Include="Views\File\Delete.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\Shared\_reference.cshtml" />
+    <Content Include="Views\Employee\_PersonalDetail.cshtml" />
+    <Content Include="Views\Employee\_EmploymentDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -1274,7 +1326,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>20951</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:5699/</IISUrl>
+          <IISUrl>http://localhost:20951/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

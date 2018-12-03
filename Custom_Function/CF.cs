@@ -9,8 +9,8 @@ namespace hr_201_file.Custom_Function
     {
         public static string Alert(string Message)
         {
-            return "<sript>" +
-                    Message +
+            return "<script>" +
+                    "alert(" + Message + ")" +
                    "</script>";
         }
     }

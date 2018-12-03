@@ -4,6 +4,13 @@
         ViewBag.Title = "File Manager | DDTKI";
         <!-- Layout = "~/Views/Shared/_Setting.cshtml"; -->
     }
+
+    @section scripts {
+        <script type="text/javascript">
+            fileNavLink();
+            modify_DOM_on_page_load();
+        </script>
+    }
     
     <section class="section__file">
         <!-- <div class="u-mb-small d-flex align-items-center d-inline-block">
@@ -17,12 +24,12 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td class="ls-1 d-flex align-items-center; min-width: 300px">
+                    <td style="min-width: 300px">
                         <!-- <i class="fas fa-folder text-success fa-2x"></i> -->
                         <i class="icon icon-basic-folder icon-size--medium mr-2"></i>
                         @Html.DisplayFor(modelItem => item.Name)
                     </td>
-                    <td style="text-align: right; width: 300px">
+                    <td style="min-width: 300px; text-align: right">
                         <!-- <a name="btn_link" href="/Employee/Index" class="c_btn c_btn--green">
                             View
                         </a> -->

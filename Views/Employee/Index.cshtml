@@ -6,14 +6,16 @@
 
 @section scripts {
     <script type="text/javascript">
-        loadEmployeeDetails();
+        employeeNavLink();
+        modify_DOM_on_page_load();
     </script>
 }
 
 <div class="profile">
-    <span class="profile__name">
+    <h6 class="profile__empno">@Model.EmpNo</h6>
+    <h6 class="profile__name">
         @Model.FullName
-    </span>
+    </h6>
     <span class="profile__details">
         Joined:
         <span class="profile__details--doj">@Model.JoiningDate</span>
@@ -21,14 +23,13 @@
     <div class="profile__position">@Model.JobPosition.Description</div>
     <div class="profile__jobcategory">
         @ViewBag.jobCategory
-        <span class="profile__empno">(Employee Number: @Model.EmpNo)</span>
     </div>
-    <div class="profile__empno-sm">
+    <!-- <div class="profile__empno-sm">
         <div class="profile__empno-sm--label">EMPNO</div>
         <div>
             <span class="profile__empno-sm--value">@Model.EmpNo</span>
         </div>
-    </div>
+    </div> -->
     <div class="profile__picture">
         <img class="profile__picture-data" src="@ViewBag.Picture" alt="User Picture">
     </div>

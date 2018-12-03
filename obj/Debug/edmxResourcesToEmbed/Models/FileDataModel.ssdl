@@ -139,6 +139,25 @@
     <Property Name="File_Extns" Type="varchar" MaxLength="255" />
     <Property Name="isAccepted" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="File201_Superuser">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_type_id" Type="int" />
+    <Property Name="user_ADID" Type="varchar" MaxLength="255" />
+    <Property Name="created_by" Type="varchar" MaxLength="255" />
+    <Property Name="updated_by" Type="varchar" MaxLength="255" />
+    <Property Name="created" Type="datetime" />
+    <Property Name="updated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="File201_UserType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="255" />
+  </EntityType>
   <EntityType Name="JobCategories">
     <Key>
       <PropertyRef Name="JobCategoryId" />
@@ -161,7 +180,19 @@
     <Property Name="UserTrailTrack" Type="varchar" MaxLength="50" />
     <Property Name="UserLogStamp" Type="varchar" MaxLength="50" />
   </EntityType>
-  <Association Name="FK__File201_C__File2__2BD46C74">
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="ADID" Type="varchar" MaxLength="20" />
+    <Property Name="UserGroupID" Type="int" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="UserTrailTrack" Type="varchar" MaxLength="50" />
+    <Property Name="UserLogStamp" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__File201_C__File2__12149A71">
     <End Role="File201_FileCategory" Type="Self.File201_FileCategory" Multiplicity="0..1" />
     <End Role="File201_Contents" Type="Self.File201_Contents" Multiplicity="*" />
     <ReferentialConstraint>
@@ -170,6 +201,18 @@
       </Principal>
       <Dependent Role="File201_Contents">
         <PropertyRef Name="File201_FileCategory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__File201_S__user___1AA9E072">
+    <End Role="File201_UserType" Type="Self.File201_UserType" Multiplicity="0..1" />
+    <End Role="File201_Superuser" Type="Self.File201_Superuser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="File201_UserType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="File201_Superuser">
+        <PropertyRef Name="user_type_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -192,11 +235,18 @@
     <EntitySet Name="File201_Contents" EntityType="Self.File201_Contents" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="File201_FileCategory" EntityType="Self.File201_FileCategory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="File201_FileExtension" EntityType="Self.File201_FileExtension" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="File201_Superuser" EntityType="Self.File201_Superuser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="File201_UserType" EntityType="Self.File201_UserType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JobCategories" EntityType="Self.JobCategories" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="JobPositions" EntityType="Self.JobPositions" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__File201_C__File2__2BD46C74" Association="Self.FK__File201_C__File2__2BD46C74">
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__File201_C__File2__12149A71" Association="Self.FK__File201_C__File2__12149A71">
       <End Role="File201_FileCategory" EntitySet="File201_FileCategory" />
       <End Role="File201_Contents" EntitySet="File201_Contents" />
+    </AssociationSet>
+    <AssociationSet Name="FK__File201_S__user___1AA9E072" Association="Self.FK__File201_S__user___1AA9E072">
+      <End Role="File201_UserType" EntitySet="File201_UserType" />
+      <End Role="File201_Superuser" EntitySet="File201_Superuser" />
     </AssociationSet>
     <AssociationSet Name="FK_Employees_JobPositions" Association="Self.FK_Employees_JobPositions">
       <End Role="JobPositions" EntitySet="JobPositions" />
