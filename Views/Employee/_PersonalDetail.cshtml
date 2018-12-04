@@ -4,10 +4,13 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
+    <div>
         @Html.ValidationSummary(true)
-
-        <section class="personal">
+        
+        <h4 data-title="personal" class="section-title" onclick="accordionToggle(event)">
+            Personal Details
+        </h4>
+        <section data-title="section-personal" class="emp personal">
             <div class="form-group personal">
                 @Html.LabelFor(model => model.LastName, new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -46,14 +49,14 @@
             <div class="form-group personal">
                 @Html.LabelFor(model => model.Address, new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html(model => model.Address)
+                    @Html.TextAreaFor(model => model.Address)
                     @Html.ValidationMessageFor(model => model.Address)
                 </div>
             </div>
             <div class="form-group personal">
                 @Html.LabelFor(model => model.ProvAddress, new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.ProvAddress)
+                    @Html.TextAreaFor(model => model.ProvAddress)
                     @Html.ValidationMessageFor(model => model.ProvAddress)
                 </div>
             </div>
@@ -114,8 +117,11 @@
                 </div>
             </div>
         </section>
-
-        <section class="government">
+        
+        <h4 data-title="government" class="section-title" onclick="accordionToggle(event)">
+            Government Number
+        </h4>
+        <section data-title="section-government" class="emp government">
             <div class="form-group government">
                 @Html.LabelFor(model => model.SSSNo, new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -166,8 +172,9 @@
                 </div>
             </div>
         </section>
-
-        <section class="contact">
+        
+        <section class="emp contact">
+            <h6 class="section-title">Contact Details</h6>
             <div class="form-group contact">
                 @Html.LabelFor(model => model.Email, new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -190,22 +197,10 @@
                 </div>
             </div>
         </section>
-
-        <section class="family">
-            <div class="form-group family">
-                @Html.LabelFor(model => model.RelativeContactNo, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.RelativeContactNo)
-                    @Html.ValidationMessageFor(model => model.RelativeContactNo)
-                </div>
-            </div>
-            <div class="form-group family">
-                @Html.LabelFor(model => model.RelativeAddress, new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.RelativeAddress)
-                    @Html.ValidationMessageFor(model => model.RelativeAddress)
-                </div>
-            </div>
+        
+        <section class="emp family">
+            <h6 class="section-title">Family Details</h6>
+            
             <div class="form-group family">
                 @Html.LabelFor(model => model.Father, new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -332,9 +327,25 @@
                     @Html.ValidationMessageFor(model => model.SpouseCompany)
                 </div>
             </div>
+            
+            <div class="form-group family">
+                @Html.LabelFor(model => model.RelativeContactNo, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RelativeContactNo)
+                    @Html.ValidationMessageFor(model => model.RelativeContactNo)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.RelativeAddress, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RelativeAddress)
+                    @Html.ValidationMessageFor(model => model.RelativeAddress)
+                </div>
+            </div>
         </section>
-
-        <section class="education">
+        
+        <section class="emp education">
+            <h6 class="section-title">Educational Attainment</h6>
             <div class="form-group education">
                 @Html.LabelFor(model => model.PrimarySchool, new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -427,11 +438,16 @@
                 </div>
             </div>
         </section>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+        
+        <div id="submitEmployeeDetails" class="form-group" hidden>
+            <div class="form-group__submit">
+                <input type="submit" value="Save Changes" class="c_btn c_btn--green" />
+                <button type="button" class="c_btn c_btn--green" onclick="disableFormFields(true)">
+                    Cancel
+                </button>
             </div>
+            <hr>
         </div>
+        
     </div>
 }

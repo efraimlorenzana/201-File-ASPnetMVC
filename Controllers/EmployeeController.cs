@@ -86,8 +86,10 @@ namespace hr_201_file.Controllers
             Employee emp = db.Employees.Single(e => e.EmpNo == EmpNo);
 
             EmployeeModel empModel = new EmployeeModel();
+
             empModel.files = files;
             empModel.employee = emp;
+            empModel.categories = db.FileCategories.ToList();
 
             return PartialView(empModel);
         }

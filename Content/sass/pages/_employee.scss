@@ -16,33 +16,33 @@
             text-align: center;
         }
     }
-
+    
     &__empno {
         color: red;
         font-weight: 700;
         display: inline-block;
         font-size: 25px;
-
+        
         @include respond(smallphone) {
             display: block;
             text-align: center;
         }
-
+        
         &-sm {
             background-color: $color-green-3;
             text-align: center;
             display: none;
-
+            
             @include respond(smallphone) {
                 display: block;
             }
-
+            
             &--label {
                 font-weight: 500;
                 text-transform: uppercase;
                 letter-spacing: 3px;
             }
-
+            
             &--value {
                 font-size: 30px;
                 color: red;
@@ -50,7 +50,7 @@
             }
         }
     }
-
+    
     &__position {
         margin-left: 20px;
         font-size: 20px;
@@ -78,12 +78,12 @@
         border-radius: 100px;
         margin-bottom: 5px;
         transform: translateY(-5px);
-
+        
         @include respond(phone) {
             width: 100%;
             text-align: center;
         }
-
+        
         &--doj {
             margin-left: 10px;
             color: orangered;
@@ -97,12 +97,13 @@
         width: 180px;
         height: 180px;
         overflow: hidden;
-
+        z-index: 10000;
+        
         @include respond(tabport) {
             top: 80px;
             right: 80px;
         }
-
+        
         @include respond(phone) {
             top: 160px;
             right: 5px;
@@ -132,21 +133,21 @@
         overflow-y: scroll;
         margin-bottom: 20px;
         margin: 0 20px;
-
+        
         &::-webkit-scrollbar {
             width: 5px;
             background-color: transparent;
         }
-    
+        
         &::-webkit-scrollbar-thumb {
             background-color: $color-green-2;
         }
-    
+        
         &::-webkit-scrollbar-track {
             -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
             background-color: $color-white-2;
         }
-
+        
         @include respond(phone) {
             overflow-x: scroll;
             max-height: none;
@@ -157,7 +158,7 @@
 
 .records {
     padding: 20px;
-
+    
     @include respond(phone) {
         overflow-x: scroll;
     }
@@ -180,59 +181,194 @@
     @include respond(tabport) {
         display: block;
     }
-
+    
     // @include respond(phone) {
-    //     padding-top: 20px;
-    // }
-
-    @include respond(smallphone) {
-        margin-top: 86px;
+        //     padding-top: 20px;
+        // }
+        
+        @include respond(smallphone) {
+            margin-top: 86px;
+            text-align: center;
+            padding-top: 0;
+        }
+    }
+    
+    .sub-nav-link {
+        font-size: 12px;
+    }
+    
+    .no_record_found {
+        font-weight: 700;
+        font-size: 50px;
+        text-transform: uppercase;
+        display: block;
         text-align: center;
-        padding-top: 0;
+        line-height: 4;
+        
+        @include respond(phone) {
+            font-size: 30px;
+        }
+        
+        @include respond(smallphone) {
+            font-size: 20px;
+        }
+        
+        &:hover {
+            color: red;
+        }
     }
-}
-
-.sub-nav-link {
-    font-size: 12px;
-}
-
-.no_record_found {
-    font-weight: 700;
-    font-size: 50px;
-    text-transform: uppercase;
-    display: block;
-    text-align: center;
-    line-height: 4;
-
-    @include respond(phone) {
-        font-size: 30px;
+    
+    section.personal,
+    section.government,
+    section.contact,
+    section.family,
+    section.education,
+    section.employment,
+    section.medical,
+    section.benefits,
+    section.others,
+    section.document {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        // border-bottom: 1px solid $color-green-2;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+        
+        opacity: 0;
+        visibility: hidden;
+        // transform: scale(0);
+        // transition: all 1s;
+        height: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 1px solid $color-green-2;
     }
+    
+    .section-title {
+        width: 100%;
+        text-align: center;
+        // margin-bottom: 10px;
+        padding: 10px;
+        margin: 0;
+        color: $color-green-2;
+        letter-spacing: 3px;
+        transition: all 1s;
+        border: 1px solid $color-green-2;
+        cursor: pointer;
+        background-color: $color-green-2;
+        color: white;
 
-    @include respond(smallphone) {
-        font-size: 20px;
+        &:hover {
+            background-color: $color-green-1;
+        }
+
+        &:last-child {
+            margin-bottom: 20px;
+        }
     }
-
-    &:hover {
-        color: red;
+    
+    .form-group {
+        @include respond(phone) {
+            width: 100%;
+        }
+        
+        &__submit {
+            text-align: center;
+            & > button {
+                margin-left: 20px;
+            }
+        }
+        
+        & label {
+            color: grey;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-align: center;
+            max-width: 100% !important;
+        }
+        
+        & select,
+        & textarea,
+        & input {
+            border: none;
+            border-radius: 100px;
+            text-align: center;
+            outline: none;
+            padding: 5px 10px;
+            // width: 300px;
+            
+            &:focus {
+                border: 1px solid $color-green-2;
+            }
+            
+            @include respond(phone) {
+                width: 100%;
+            }
+        }
+        
+        & input {
+            min-width: 10px;
+        }
+        
+        & textarea {
+            width: 750px;
+            min-height: 35px;
+            max-height: 35px;
+            
+            @include respond(tabport) {
+                width: 500px;
+            }
+        }
+        
+        & select {
+            width: 300px;
+        }
     }
-}
-
-section.personal {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.form-group {
-    & label {
-        color: grey;
-        font-size: 10px;
-        letter-spacing: 2px;
+    
+    .command {
+        position: relative;
+        padding: 10px 4px;
+        
+        &__list {
+            padding: 5px;
+            position: fixed;
+            z-index: 1000;
+        }
+        
+        &__item {
+            list-style: none;
+            opacity: .2;
+            
+            &:not(:last-child) {
+                margin-bottom: 20px;
+            }
+            
+            &:hover {
+                opacity: 1;
+            }
+        }
+        
+        &__link {
+            padding: 8px 10px;
+            background-color:rgba(white, .7);
+            color: $color-green-2;
+            border-radius: 0 10px;
+            transition: all .5s;
+            border: 1px solid $color-green-2;
+            
+            &:hover {
+                background-color: $color-green-2;
+                color: white;
+                box-shadow: 0 20px 40px rgba(black, .3);
+                border: 1px solid white;
+            }
+            
+            &--icon {
+                width: 25px;
+                height: 25px;
+                fill: currentColor;
+            }
+        }
     }
-
-    & input {
-        padding: 5px 10px;
-        border: none;
-        border-radius: 100px;
-    }
-}

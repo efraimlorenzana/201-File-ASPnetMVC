@@ -276,8 +276,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Icons\demo.html" />
-    <Content Include="Icons\sprite.svg" />
     <Content Include="Icons\SVG\add-user.svg" />
+    <Content Include="Icons\SVG\attachment.svg" />
     <Content Include="Icons\SVG\cabinet.svg" />
     <Content Include="Icons\SVG\check.svg" />
     <Content Include="Icons\SVG\chevron-small-down.svg" />
@@ -296,12 +296,17 @@
     <Content Include="Icons\SVG\folder-open.svg" />
     <Content Include="Icons\SVG\folder-plus.svg" />
     <Content Include="Icons\SVG\folder-upload.svg" />
+    <Content Include="Icons\SVG\home.svg" />
+    <Content Include="Icons\SVG\home2.svg" />
+    <Content Include="Icons\SVG\home3.svg" />
     <Content Include="Icons\SVG\magnifying-glass.svg" />
+    <Content Include="Icons\SVG\pencil.svg" />
     <Content Include="Icons\SVG\profile.svg" />
     <Content Include="Icons\SVG\upload-to-cloud.svg" />
     <Content Include="Icons\SVG\upload.svg" />
     <Content Include="Icons\SVG\user-check.svg" />
     <Content Include="Icons\SVG\users.svg" />
+    <Content Include="Icons\symbol-defs.svg" />
     <Content Include="Images\ddtki-bg.jpg" />
     <Content Include="Images\ddtkilogo.jpg" />
     <Content Include="Images\female.png" />

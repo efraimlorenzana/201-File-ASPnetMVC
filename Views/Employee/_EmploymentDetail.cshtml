@@ -6,8 +6,9 @@
     
     <div class="form-horizontal">
         @Html.ValidationSummary(true)
-
-        <section class="employment">
+        
+        <section class="emp employment">
+            <h6 class="section-title">Employment Details</h6>
             <div class="form-group employment">
                 @Html.LabelFor(model => model.EmpNo, new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -214,7 +215,8 @@
             </div>
         </section>
         
-        <section class="medical">
+        <section class="emp medical">
+            <h6 class="section-title">Medical Details</h6>
             <div class="form-group medical">
                 @Html.LabelFor(model => model.Height, new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -252,7 +254,8 @@
             </div>
         </section>
         
-        <section class="benefits">
+        <section class="emp benefits">
+            <h6 class="section-title">Benefits</h6>
             <div class="form-group benefits">
                 @Html.LabelFor(model => model.SLDays, new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -283,7 +286,8 @@
             </div>
         </section>
         
-        <section class="others">
+        <section class="emp others">
+            <h6 class="section-title">Others</h6>
             <div class="form-group others">
                 @Html.LabelFor(model => model.GovExamNature, new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -312,7 +316,7 @@
                     @Html.ValidationMessageFor(model => model.GovExamLicense)
                 </div>
             </div>
-        
+            
             <div class="form-group others">
                 @Html.LabelFor(model => model.Remarks, new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -321,11 +325,12 @@
                 </div>
             </div>
         </section>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+        
+        <div id="submitEmployeeDetails" class="form-group" hidden>
+            <div class="form-group__submit">
+                <input type="submit" value="Save Changes" class="c_btn c_btn--green" />
             </div>
+            <hr>
         </div>
     </div>
 }

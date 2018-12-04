@@ -1,0 +1,13 @@
+.expand {
+    opacity: 1 !important;
+    height: inherit !important;
+    // transform: scale(1) !important;
+    visibility: visible !important;
+    position: static !important;
+    padding-top: 20px;
+}
+
+.collapse {
+    opacity: 0 !important;
+    transform: scale(0);
+}
