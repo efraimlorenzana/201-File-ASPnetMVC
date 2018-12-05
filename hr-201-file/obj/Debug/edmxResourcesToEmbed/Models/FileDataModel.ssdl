@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Departments">
+    <Key>
+      <PropertyRef Name="DeptId" />
+    </Key>
+    <Property Name="DeptId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="UserTrailTrack" Type="varchar" MaxLength="50" />
+    <Property Name="UserLogStamp" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmpId" />
+    </Key>
+    <Property Name="EmpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpNo" Type="int" />
+    <Property Name="DeptId" Type="int" />
+    <Property Name="CostCenterId" Type="int" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="JobPositionId" Type="int" />
+    <Property Name="JobCategoryId" Type="int" />
+    <Property Name="RankCategoryId" Type="int" />
+    <Property Name="EmpTypeId" Type="int" />
+    <Property Name="FullName" Type="varchar" MaxLength="150" />
+    <Property Name="LastName" Type="varchar" MaxLength="150" />
+    <Property Name="FirstName" Type="varchar" MaxLength="150" />
+    <Property Name="MiddleName" Type="varchar" MaxLength="150" />
+    <Property Name="NickName" Type="varchar" MaxLength="150" />
+    <Property Name="ExtensionName" Type="varchar" MaxLength="150" />
+    <Property Name="Address" Type="varchar" MaxLength="200" />
+    <Property Name="ProvAddress" Type="varchar" MaxLength="200" />
+    <Property Name="Email" Type="varchar" MaxLength="150" />
+    <Property Name="PhoneNo" Type="varchar" MaxLength="50" />
+    <Property Name="Region" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" />
+    <Property Name="BirthDate" Type="varchar" MaxLength="50" />
+    <Property Name="BirthPlace" Type="varchar" MaxLength="200" />
+    <Property Name="Height" Type="varchar" MaxLength="10" />
+    <Property Name="Weight" Type="varchar" MaxLength="10" />
+    <Property Name="BloodType" Type="varchar" MaxLength="50" />
+    <Property Name="Religion" Type="varchar" MaxLength="50" />
+    <Property Name="Citizenship" Type="varchar" MaxLength="50" />
+    <Property Name="MobileNo" Type="varchar" MaxLength="50" />
+    <Property Name="ShiftNo" Type="int" />
+    <Property Name="JoiningDate" Type="varchar" MaxLength="50" />
+    <Property Name="SeparationDate" Type="varchar" MaxLength="50" />
+    <Property Name="ReasonOfSeparation" Type="varchar" MaxLength="200" />
+    <Property Name="CasualExpiryDate" Type="varchar" MaxLength="50" />
+    <Property Name="ProbationExpiryDate" Type="varchar" MaxLength="50" />
+    <Property Name="RegularizationDate" Type="varchar" MaxLength="50" />
+    <Property Name="SSSNo" Type="varchar" MaxLength="50" />
+    <Property Name="PagibigNo" Type="varchar" MaxLength="50" />
+    <Property Name="TINNo" Type="varchar" MaxLength="50" />
+    <Property Name="BankAcctNo" Type="varchar" MaxLength="50" />
+    <Property Name="PhilHealthNo" Type="varchar" MaxLength="50" />
+    <Property Name="MaritalStatus" Type="varchar" MaxLength="50" />
+    <Property Name="TaxTypeId" Type="int" />
+    <Property Name="PayrollTypeId" Type="int" />
+    <Property Name="SSSElig" Type="bit" />
+    <Property Name="PagibigElig" Type="bit" />
+    <Property Name="TaxElig" Type="bit" />
+    <Property Name="MediElig" Type="bit" />
+    <Property Name="PayRestday" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DaysPerYear" Type="int" />
+    <Property Name="DeductAllowance" Type="bit" />
+    <Property Name="SLDays" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="VLDays" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="SILDays" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="PaternityDays" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="RelativeContactNo" Type="varchar" MaxLength="50" />
+    <Property Name="RelativeAddress" Type="varchar" MaxLength="200" />
+    <Property Name="DriverseLicence" Type="varchar" MaxLength="50" />
+    <Property Name="PrimarySchool" Type="varchar" MaxLength="150" />
+    <Property Name="PrimaryPeriod" Type="varchar" MaxLength="50" />
+    <Property Name="SecondarySchool" Type="varchar" MaxLength="150" />
+    <Property Name="SecondaryPeriod" Type="varchar" MaxLength="50" />
+    <Property Name="TertiarySchool" Type="varchar" MaxLength="150" />
+    <Property Name="TertiaryPeriod" Type="varchar" MaxLength="50" />
+    <Property Name="TertiaryCourse" Type="varchar" MaxLength="150" />
+    <Property Name="VocationalSchool" Type="varchar" MaxLength="150" />
+    <Property Name="VocationaSchool1" Type="varchar" MaxLength="150" />
+    <Property Name="VocationalCourse" Type="varchar" MaxLength="150" />
+    <Property Name="PostGraduateSchool" Type="varchar" MaxLength="150" />
+    <Property Name="PostGraduatePeriod" Type="varchar" MaxLength="50" />
+    <Property Name="PostGraduateCourse" Type="varchar" MaxLength="150" />
+    <Property Name="GovExamNature" Type="varchar" MaxLength="150" />
+    <Property Name="GovExamDate" Type="varchar" MaxLength="50" />
+    <Property Name="GovExamRating" Type="varchar" MaxLength="50" />
+    <Property Name="GovExamLicense" Type="varchar" MaxLength="50" />
+    <Property Name="Father" Type="varchar" MaxLength="150" />
+    <Property Name="FatherBirthDate" Type="varchar" MaxLength="50" />
+    <Property Name="FatherContactNo" Type="varchar" MaxLength="50" />
+    <Property Name="FatherEducAttainment" Type="varchar" MaxLength="150" />
+    <Property Name="FatherOccupation" Type="varchar" MaxLength="50" />
+    <Property Name="FatherCompany" Type="varchar" MaxLength="150" />
+    <Property Name="Mother" Type="varchar" MaxLength="150" />
+    <Property Name="MotherBirthDate" Type="varchar" MaxLength="150" />
+    <Property Name="MotherContactNo" Type="varchar" MaxLength="150" />
+    <Property Name="MotherEducAttainment" Type="varchar" MaxLength="150" />
+    <Property Name="MotherOccupation" Type="varchar" MaxLength="150" />
+    <Property Name="MotherCompany" Type="varchar" MaxLength="150" />
+    <Property Name="Spouse" Type="varchar" MaxLength="150" />
+    <Property Name="SpouseBirthDate" Type="varchar" MaxLength="150" />
+    <Property Name="SpouseContactNo" Type="varchar" MaxLength="150" />
+    <Property Name="SpouseEducAttainment" Type="varchar" MaxLength="150" />
+    <Property Name="SpouseOccupation" Type="varchar" MaxLength="150" />
+    <Property Name="SpouseCompany" Type="varchar" MaxLength="150" />
+    <Property Name="DateTransferToStaff" Type="varchar" MaxLength="50" />
+    <Property Name="DateOfTransfer" Type="varchar" MaxLength="50" />
+    <Property Name="ContractStart" Type="varchar" MaxLength="50" />
+    <Property Name="ContractEnd" Type="varchar" MaxLength="50" />
+    <Property Name="SalaryRemarks" Type="varchar(max)" />
+    <Property Name="MedicalStatus" Type="varchar" MaxLength="150" />
+    <Property Name="Remarks" Type="varchar" MaxLength="200" />
+    <Property Name="EmploymentStatusId" Type="int" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="UserTrailTrack" Type="varchar" MaxLength="50" />
+    <Property Name="UserLogStamp" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="File201_Contents">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="employee_number" Type="int" />
+    <Property Name="employee_name" Type="varchar" MaxLength="255" />
+    <Property Name="File201_FileCategory_id" Type="int" />
+    <Property Name="file_name" Type="varchar" MaxLength="255" />
+    <Property Name="file_path" Type="varchar" MaxLength="255" />
+    <Property Name="timestamp" Type="datetime" />
+  </EntityType>
+  <EntityType Name="File201_FileCategory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category_name" Type="varchar" MaxLength="255" />
+    <Property Name="location" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="File201_FileExtension">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="File_Type" Type="varchar" MaxLength="255" />
+    <Property Name="File_Extns" Type="varchar" MaxLength="255" />
+    <Property Name="isAccepted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="File201_Superuser">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_type_id" Type="int" />
+    <Property Name="user_ADID" Type="varchar" MaxLength="255" />
+    <Property Name="created_by" Type="varchar" MaxLength="255" />
+    <Property Name="updated_by" Type="varchar" MaxLength="255" />
+    <Property Name="created" Type="datetime" />
+    <Property Name="updated" Type="datetime" />
+  </EntityType>
+  <EntityType Name="File201_UserType">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="JobCategories">
+    <Key>
+      <PropertyRef Name="JobCategoryId" />
+    </Key>
+    <Property Name="JobCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="UserTrailTrack" Type="varchar" MaxLength="50" />
+    <Property Name="UserLogStamp" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="JobPositions">
+    <Key>
+      <PropertyRef Name="JobPositionId" />
+    </Key>
+    <Property Name="JobPositionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar" MaxLength="20" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="UserTrailTrack" Type="varchar" MaxLength="50" />
+    <Property Name="UserLogStamp" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="50" />
+    <Property Name="ADID" Type="varchar" MaxLength="20" />
+    <Property Name="UserGroupID" Type="int" />
+    <Property Name="Active" Type="bit" />
+    <Property Name="UserTrailTrack" Type="varchar" MaxLength="50" />
+    <Property Name="UserLogStamp" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__File201_C__File2__12149A71">
+    <End Role="File201_FileCategory" Type="Self.File201_FileCategory" Multiplicity="0..1" />
+    <End Role="File201_Contents" Type="Self.File201_Contents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="File201_FileCategory">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="File201_Contents">
+        <PropertyRef Name="File201_FileCategory_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__File201_S__user___1AA9E072">
+    <End Role="File201_UserType" Type="Self.File201_UserType" Multiplicity="0..1" />
+    <End Role="File201_Superuser" Type="Self.File201_Superuser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="File201_UserType">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="File201_Superuser">
+        <PropertyRef Name="user_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_JobPositions">
+    <End Role="JobPositions" Type="Self.JobPositions" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="JobPositions">
+        <PropertyRef Name="JobPositionId" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="JobPositionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelsStoreContainer">
+    <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="File201_Contents" EntityType="Self.File201_Contents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="File201_FileCategory" EntityType="Self.File201_FileCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="File201_FileExtension" EntityType="Self.File201_FileExtension" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="File201_Superuser" EntityType="Self.File201_Superuser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="File201_UserType" EntityType="Self.File201_UserType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobCategories" EntityType="Self.JobCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JobPositions" EntityType="Self.JobPositions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__File201_C__File2__12149A71" Association="Self.FK__File201_C__File2__12149A71">
+      <End Role="File201_FileCategory" EntitySet="File201_FileCategory" />
+      <End Role="File201_Contents" EntitySet="File201_Contents" />
+    </AssociationSet>
+    <AssociationSet Name="FK__File201_S__user___1AA9E072" Association="Self.FK__File201_S__user___1AA9E072">
+      <End Role="File201_UserType" EntitySet="File201_UserType" />
+      <End Role="File201_Superuser" EntitySet="File201_Superuser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_JobPositions" Association="Self.FK_Employees_JobPositions">
+      <End Role="JobPositions" EntitySet="JobPositions" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

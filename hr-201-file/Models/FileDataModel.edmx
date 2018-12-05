@@ -1,0 +1,790 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Departments">
+          <Key>
+            <PropertyRef Name="DeptId" />
+          </Key>
+          <Property Name="DeptId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="20" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="UserTrailTrack" Type="varchar" MaxLength="50" />
+          <Property Name="UserLogStamp" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmpNo" Type="int" />
+          <Property Name="DeptId" Type="int" />
+          <Property Name="CostCenterId" Type="int" />
+          <Property Name="BranchId" Type="int" />
+          <Property Name="CompanyId" Type="int" />
+          <Property Name="JobPositionId" Type="int" />
+          <Property Name="JobCategoryId" Type="int" />
+          <Property Name="RankCategoryId" Type="int" />
+          <Property Name="EmpTypeId" Type="int" />
+          <Property Name="FullName" Type="varchar" MaxLength="150" />
+          <Property Name="LastName" Type="varchar" MaxLength="150" />
+          <Property Name="FirstName" Type="varchar" MaxLength="150" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="150" />
+          <Property Name="NickName" Type="varchar" MaxLength="150" />
+          <Property Name="ExtensionName" Type="varchar" MaxLength="150" />
+          <Property Name="Address" Type="varchar" MaxLength="200" />
+          <Property Name="ProvAddress" Type="varchar" MaxLength="200" />
+          <Property Name="Email" Type="varchar" MaxLength="150" />
+          <Property Name="PhoneNo" Type="varchar" MaxLength="50" />
+          <Property Name="Region" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+          <Property Name="BirthDate" Type="varchar" MaxLength="50" />
+          <Property Name="BirthPlace" Type="varchar" MaxLength="200" />
+          <Property Name="Height" Type="varchar" MaxLength="10" />
+          <Property Name="Weight" Type="varchar" MaxLength="10" />
+          <Property Name="BloodType" Type="varchar" MaxLength="50" />
+          <Property Name="Religion" Type="varchar" MaxLength="50" />
+          <Property Name="Citizenship" Type="varchar" MaxLength="50" />
+          <Property Name="MobileNo" Type="varchar" MaxLength="50" />
+          <Property Name="ShiftNo" Type="int" />
+          <Property Name="JoiningDate" Type="varchar" MaxLength="50" />
+          <Property Name="SeparationDate" Type="varchar" MaxLength="50" />
+          <Property Name="ReasonOfSeparation" Type="varchar" MaxLength="200" />
+          <Property Name="CasualExpiryDate" Type="varchar" MaxLength="50" />
+          <Property Name="ProbationExpiryDate" Type="varchar" MaxLength="50" />
+          <Property Name="RegularizationDate" Type="varchar" MaxLength="50" />
+          <Property Name="SSSNo" Type="varchar" MaxLength="50" />
+          <Property Name="PagibigNo" Type="varchar" MaxLength="50" />
+          <Property Name="TINNo" Type="varchar" MaxLength="50" />
+          <Property Name="BankAcctNo" Type="varchar" MaxLength="50" />
+          <Property Name="PhilHealthNo" Type="varchar" MaxLength="50" />
+          <Property Name="MaritalStatus" Type="varchar" MaxLength="50" />
+          <Property Name="TaxTypeId" Type="int" />
+          <Property Name="PayrollTypeId" Type="int" />
+          <Property Name="SSSElig" Type="bit" />
+          <Property Name="PagibigElig" Type="bit" />
+          <Property Name="TaxElig" Type="bit" />
+          <Property Name="MediElig" Type="bit" />
+          <Property Name="PayRestday" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="DaysPerYear" Type="int" />
+          <Property Name="DeductAllowance" Type="bit" />
+          <Property Name="SLDays" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="VLDays" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SILDays" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="PaternityDays" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="RelativeContactNo" Type="varchar" MaxLength="50" />
+          <Property Name="RelativeAddress" Type="varchar" MaxLength="200" />
+          <Property Name="DriverseLicence" Type="varchar" MaxLength="50" />
+          <Property Name="PrimarySchool" Type="varchar" MaxLength="150" />
+          <Property Name="PrimaryPeriod" Type="varchar" MaxLength="50" />
+          <Property Name="SecondarySchool" Type="varchar" MaxLength="150" />
+          <Property Name="SecondaryPeriod" Type="varchar" MaxLength="50" />
+          <Property Name="TertiarySchool" Type="varchar" MaxLength="150" />
+          <Property Name="TertiaryPeriod" Type="varchar" MaxLength="50" />
+          <Property Name="TertiaryCourse" Type="varchar" MaxLength="150" />
+          <Property Name="VocationalSchool" Type="varchar" MaxLength="150" />
+          <Property Name="VocationaSchool1" Type="varchar" MaxLength="150" />
+          <Property Name="VocationalCourse" Type="varchar" MaxLength="150" />
+          <Property Name="PostGraduateSchool" Type="varchar" MaxLength="150" />
+          <Property Name="PostGraduatePeriod" Type="varchar" MaxLength="50" />
+          <Property Name="PostGraduateCourse" Type="varchar" MaxLength="150" />
+          <Property Name="GovExamNature" Type="varchar" MaxLength="150" />
+          <Property Name="GovExamDate" Type="varchar" MaxLength="50" />
+          <Property Name="GovExamRating" Type="varchar" MaxLength="50" />
+          <Property Name="GovExamLicense" Type="varchar" MaxLength="50" />
+          <Property Name="Father" Type="varchar" MaxLength="150" />
+          <Property Name="FatherBirthDate" Type="varchar" MaxLength="50" />
+          <Property Name="FatherContactNo" Type="varchar" MaxLength="50" />
+          <Property Name="FatherEducAttainment" Type="varchar" MaxLength="150" />
+          <Property Name="FatherOccupation" Type="varchar" MaxLength="50" />
+          <Property Name="FatherCompany" Type="varchar" MaxLength="150" />
+          <Property Name="Mother" Type="varchar" MaxLength="150" />
+          <Property Name="MotherBirthDate" Type="varchar" MaxLength="150" />
+          <Property Name="MotherContactNo" Type="varchar" MaxLength="150" />
+          <Property Name="MotherEducAttainment" Type="varchar" MaxLength="150" />
+          <Property Name="MotherOccupation" Type="varchar" MaxLength="150" />
+          <Property Name="MotherCompany" Type="varchar" MaxLength="150" />
+          <Property Name="Spouse" Type="varchar" MaxLength="150" />
+          <Property Name="SpouseBirthDate" Type="varchar" MaxLength="150" />
+          <Property Name="SpouseContactNo" Type="varchar" MaxLength="150" />
+          <Property Name="SpouseEducAttainment" Type="varchar" MaxLength="150" />
+          <Property Name="SpouseOccupation" Type="varchar" MaxLength="150" />
+          <Property Name="SpouseCompany" Type="varchar" MaxLength="150" />
+          <Property Name="DateTransferToStaff" Type="varchar" MaxLength="50" />
+          <Property Name="DateOfTransfer" Type="varchar" MaxLength="50" />
+          <Property Name="ContractStart" Type="varchar" MaxLength="50" />
+          <Property Name="ContractEnd" Type="varchar" MaxLength="50" />
+          <Property Name="SalaryRemarks" Type="varchar(max)" />
+          <Property Name="MedicalStatus" Type="varchar" MaxLength="150" />
+          <Property Name="Remarks" Type="varchar" MaxLength="200" />
+          <Property Name="EmploymentStatusId" Type="int" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="UserTrailTrack" Type="varchar" MaxLength="50" />
+          <Property Name="UserLogStamp" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="File201_Contents">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="employee_number" Type="int" />
+          <Property Name="employee_name" Type="varchar" MaxLength="255" />
+          <Property Name="File201_FileCategory_id" Type="int" />
+          <Property Name="file_name" Type="varchar" MaxLength="255" />
+          <Property Name="file_path" Type="varchar" MaxLength="255" />
+          <Property Name="timestamp" Type="datetime" />
+        </EntityType>
+        <EntityType Name="File201_FileCategory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="category_name" Type="varchar" MaxLength="255" />
+          <Property Name="location" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="File201_FileExtension">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="File_Type" Type="varchar" MaxLength="255" />
+          <Property Name="File_Extns" Type="varchar" MaxLength="255" />
+          <Property Name="isAccepted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="File201_Superuser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="user_type_id" Type="int" />
+          <Property Name="user_ADID" Type="varchar" MaxLength="255" />
+          <Property Name="created_by" Type="varchar" MaxLength="255" />
+          <Property Name="updated_by" Type="varchar" MaxLength="255" />
+          <Property Name="created" Type="datetime" />
+          <Property Name="updated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="File201_UserType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="title" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="JobCategories">
+          <Key>
+            <PropertyRef Name="JobCategoryId" />
+          </Key>
+          <Property Name="JobCategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="20" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="UserTrailTrack" Type="varchar" MaxLength="50" />
+          <Property Name="UserLogStamp" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="JobPositions">
+          <Key>
+            <PropertyRef Name="JobPositionId" />
+          </Key>
+          <Property Name="JobPositionId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="varchar" MaxLength="20" />
+          <Property Name="Description" Type="varchar" MaxLength="100" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="UserTrailTrack" Type="varchar" MaxLength="50" />
+          <Property Name="UserLogStamp" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="50" />
+          <Property Name="ADID" Type="varchar" MaxLength="20" />
+          <Property Name="UserGroupID" Type="int" />
+          <Property Name="Active" Type="bit" />
+          <Property Name="UserTrailTrack" Type="varchar" MaxLength="50" />
+          <Property Name="UserLogStamp" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__File201_C__File2__12149A71">
+          <End Role="File201_FileCategory" Type="Self.File201_FileCategory" Multiplicity="0..1" />
+          <End Role="File201_Contents" Type="Self.File201_Contents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File201_FileCategory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="File201_Contents">
+              <PropertyRef Name="File201_FileCategory_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__File201_S__user___1AA9E072">
+          <End Role="File201_UserType" Type="Self.File201_UserType" Multiplicity="0..1" />
+          <End Role="File201_Superuser" Type="Self.File201_Superuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File201_UserType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="File201_Superuser">
+              <PropertyRef Name="user_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_JobPositions">
+          <End Role="JobPositions" Type="Self.JobPositions" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobPositions">
+              <PropertyRef Name="JobPositionId" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="JobPositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelsStoreContainer">
+          <EntitySet Name="Departments" EntityType="Self.Departments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="File201_Contents" EntityType="Self.File201_Contents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="File201_FileCategory" EntityType="Self.File201_FileCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="File201_FileExtension" EntityType="Self.File201_FileExtension" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="File201_Superuser" EntityType="Self.File201_Superuser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="File201_UserType" EntityType="Self.File201_UserType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobCategories" EntityType="Self.JobCategories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JobPositions" EntityType="Self.JobPositions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__File201_C__File2__12149A71" Association="Self.FK__File201_C__File2__12149A71">
+            <End Role="File201_FileCategory" EntitySet="File201_FileCategory" />
+            <End Role="File201_Contents" EntitySet="File201_Contents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__File201_S__user___1AA9E072" Association="Self.FK__File201_S__user___1AA9E072">
+            <End Role="File201_UserType" EntitySet="File201_UserType" />
+            <End Role="File201_Superuser" EntitySet="File201_Superuser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_JobPositions" Association="Self.FK_Employees_JobPositions">
+            <End Role="JobPositions" EntitySet="JobPositions" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Models" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="FileContents">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="employee_number" Type="Int32" />
+          <Property Name="employee_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="File201_FileCategory_id" Type="Int32" />
+          <Property Name="file_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="file_path" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="timestamp" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="File201_FileCategory" Relationship="Self.FK__File201_C__File2__2BD46C74" FromRole="File201_Contents" ToRole="File201_FileCategory" />
+        </EntityType>
+        <EntityType Name="FileCategory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="category_name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="location" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="File201_Contents" Relationship="Self.FK__File201_C__File2__2BD46C74" FromRole="File201_FileCategory" ToRole="File201_Contents" />
+        </EntityType>
+        <Association Name="FK__File201_C__File2__2BD46C74">
+          <End Role="File201_FileCategory" Type="Models.FileCategory" Multiplicity="0..1" />
+          <End Role="File201_Contents" Type="Models.FileContents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File201_FileCategory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="File201_Contents">
+              <PropertyRef Name="File201_FileCategory_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatabaseContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="FileContents" EntityType="Models.FileContents" />
+          <EntitySet Name="FileCategories" EntityType="Models.FileCategory" />
+          <AssociationSet Name="FK__File201_C__File2__2BD46C74" Association="Self.FK__File201_C__File2__2BD46C74">
+            <End Role="File201_FileCategory" EntitySet="FileCategories" />
+            <End Role="File201_Contents" EntitySet="FileContents" />
+          </AssociationSet>
+          <EntitySet Name="Employees" EntityType="Models.Employee" />
+          <EntitySet Name="FileExtensions" EntityType="Models.FileExtension" />
+          <EntitySet Name="Positions" EntityType="Models.Position" />
+          <AssociationSet Name="FK_Employees_JobPositions" Association="Models.FK_Employees_JobPositions">
+            <End Role="JobPosition" EntitySet="Positions" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <EntitySet Name="JobCategories" EntityType="Models.JobCategory" />
+          <EntitySet Name="Users" EntityType="Models.User" />
+          <EntitySet Name="Superusers" EntityType="Models.Superuser" />
+          <EntitySet Name="UserTypes" EntityType="Models.UserType" />
+          <AssociationSet Name="FK__File201_S__user___00B50445" Association="Models.FK__File201_S__user___00B50445">
+            <End Role="File201_UserType" EntitySet="UserTypes" />
+            <End Role="File201_Superuser" EntitySet="Superusers" />
+          </AssociationSet>
+          <EntitySet Name="Departments" EntityType="Models.Department" />
+        </EntityContainer>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmpId" />
+          </Key>
+          <Property Name="EmpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmpNo" Type="Int32" />
+          <Property Name="DeptId" Type="Int32" />
+          <Property Name="CostCenterId" Type="Int32" />
+          <Property Name="BranchId" Type="Int32" />
+          <Property Name="CompanyId" Type="Int32" />
+          <Property Name="JobPositionId" Type="Int32" />
+          <Property Name="JobCategoryId" Type="Int32" />
+          <Property Name="RankCategoryId" Type="Int32" />
+          <Property Name="EmpTypeId" Type="Int32" />
+          <Property Name="FullName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="NickName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ExtensionName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ProvAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Region" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BirthDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BirthPlace" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Height" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Weight" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BloodType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Religion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Citizenship" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShiftNo" Type="Int32" />
+          <Property Name="JoiningDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SeparationDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReasonOfSeparation" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CasualExpiryDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProbationExpiryDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RegularizationDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SSSNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PagibigNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TINNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BankAcctNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhilHealthNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MaritalStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TaxTypeId" Type="Int32" />
+          <Property Name="PayrollTypeId" Type="Int32" />
+          <Property Name="SSSElig" Type="Boolean" />
+          <Property Name="PagibigElig" Type="Boolean" />
+          <Property Name="TaxElig" Type="Boolean" />
+          <Property Name="MediElig" Type="Boolean" />
+          <Property Name="PayRestday" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="DaysPerYear" Type="Int32" />
+          <Property Name="DeductAllowance" Type="Boolean" />
+          <Property Name="SLDays" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="VLDays" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SILDays" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="PaternityDays" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="RelativeContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RelativeAddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DriverseLicence" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PrimarySchool" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="PrimaryPeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SecondarySchool" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SecondaryPeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TertiarySchool" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="TertiaryPeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TertiaryCourse" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="VocationalSchool" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="VocationaSchool1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="VocationalCourse" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="PostGraduateSchool" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="PostGraduatePeriod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PostGraduateCourse" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="GovExamNature" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="GovExamDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GovExamRating" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GovExamLicense" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Father" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="FatherBirthDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FatherContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FatherEducAttainment" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="FatherOccupation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FatherCompany" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Mother" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MotherBirthDate" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MotherContactNo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MotherEducAttainment" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MotherOccupation" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="MotherCompany" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Spouse" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SpouseBirthDate" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SpouseContactNo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SpouseEducAttainment" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SpouseOccupation" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="SpouseCompany" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="DateTransferToStaff" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateOfTransfer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContractStart" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ContractEnd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SalaryRemarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MedicalStatus" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="EmploymentStatusId" Type="Int32" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="UserTrailTrack" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserLogStamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="JobPosition" Relationship="Models.FK_Employees_JobPositions" FromRole="Employee" ToRole="JobPosition" />
+        </EntityType>
+        <EntityType Name="FileExtension">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="File_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="File_Extns" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="isAccepted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="JobPositionId" />
+          </Key>
+          <Property Name="JobPositionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="UserTrailTrack" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserLogStamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Employees" Relationship="Models.FK_Employees_JobPositions" FromRole="JobPosition" ToRole="Employee" />
+        </EntityType>
+        <Association Name="FK_Employees_JobPositions">
+          <End Type="Models.Position" Role="JobPosition" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Models.Employee" Role="Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JobPosition">
+              <PropertyRef Name="JobPositionId" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="JobPositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="JobCategory">
+          <Key>
+            <PropertyRef Name="JobCategoryId" />
+          </Key>
+          <Property Name="JobCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="UserTrailTrack" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserLogStamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ADID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="UserGroupID" Type="Int32" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="UserTrailTrack" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserLogStamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Superuser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="user_type_id" Type="Int32" />
+          <Property Name="user_ADID" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="created_by" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="updated_by" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="created" Type="DateTime" Precision="3" />
+          <Property Name="updated" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="UserType" Relationship="Models.FK__File201_S__user___00B50445" FromRole="File201_Superuser" ToRole="File201_UserType" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Superuser" Relationship="Models.FK__File201_S__user___00B50445" FromRole="File201_UserType" ToRole="File201_Superuser" />
+        </EntityType>
+        <Association Name="FK__File201_S__user___00B50445">
+          <End Type="Models.UserType" Role="File201_UserType" Multiplicity="0..1" />
+          <End Type="Models.Superuser" Role="File201_Superuser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="File201_UserType">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="File201_Superuser">
+              <PropertyRef Name="user_type_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Department">
+          <Key>
+            <PropertyRef Name="DeptId" />
+          </Key>
+          <Property Name="DeptId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Active" Type="Boolean" />
+          <Property Name="UserTrailTrack" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UserLogStamp" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="DatabaseContext">
+          <EntitySetMapping Name="FileContents">
+            <EntityTypeMapping TypeName="Models.FileContents">
+              <MappingFragment StoreEntitySet="File201_Contents">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="employee_number" ColumnName="employee_number" />
+                <ScalarProperty Name="employee_name" ColumnName="employee_name" />
+                <ScalarProperty Name="File201_FileCategory_id" ColumnName="File201_FileCategory_id" />
+                <ScalarProperty Name="file_name" ColumnName="file_name" />
+                <ScalarProperty Name="file_path" ColumnName="file_path" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileCategories">
+            <EntityTypeMapping TypeName="Models.FileCategory">
+              <MappingFragment StoreEntitySet="File201_FileCategory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="category_name" ColumnName="category_name" />
+                <ScalarProperty Name="location" ColumnName="location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="Models.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="UserLogStamp" ColumnName="UserLogStamp" />
+                <ScalarProperty Name="UserTrailTrack" ColumnName="UserTrailTrack" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="EmploymentStatusId" ColumnName="EmploymentStatusId" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="MedicalStatus" ColumnName="MedicalStatus" />
+                <ScalarProperty Name="SalaryRemarks" ColumnName="SalaryRemarks" />
+                <ScalarProperty Name="ContractEnd" ColumnName="ContractEnd" />
+                <ScalarProperty Name="ContractStart" ColumnName="ContractStart" />
+                <ScalarProperty Name="DateOfTransfer" ColumnName="DateOfTransfer" />
+                <ScalarProperty Name="DateTransferToStaff" ColumnName="DateTransferToStaff" />
+                <ScalarProperty Name="SpouseCompany" ColumnName="SpouseCompany" />
+                <ScalarProperty Name="SpouseOccupation" ColumnName="SpouseOccupation" />
+                <ScalarProperty Name="SpouseEducAttainment" ColumnName="SpouseEducAttainment" />
+                <ScalarProperty Name="SpouseContactNo" ColumnName="SpouseContactNo" />
+                <ScalarProperty Name="SpouseBirthDate" ColumnName="SpouseBirthDate" />
+                <ScalarProperty Name="Spouse" ColumnName="Spouse" />
+                <ScalarProperty Name="MotherCompany" ColumnName="MotherCompany" />
+                <ScalarProperty Name="MotherOccupation" ColumnName="MotherOccupation" />
+                <ScalarProperty Name="MotherEducAttainment" ColumnName="MotherEducAttainment" />
+                <ScalarProperty Name="MotherContactNo" ColumnName="MotherContactNo" />
+                <ScalarProperty Name="MotherBirthDate" ColumnName="MotherBirthDate" />
+                <ScalarProperty Name="Mother" ColumnName="Mother" />
+                <ScalarProperty Name="FatherCompany" ColumnName="FatherCompany" />
+                <ScalarProperty Name="FatherOccupation" ColumnName="FatherOccupation" />
+                <ScalarProperty Name="FatherEducAttainment" ColumnName="FatherEducAttainment" />
+                <ScalarProperty Name="FatherContactNo" ColumnName="FatherContactNo" />
+                <ScalarProperty Name="FatherBirthDate" ColumnName="FatherBirthDate" />
+                <ScalarProperty Name="Father" ColumnName="Father" />
+                <ScalarProperty Name="GovExamLicense" ColumnName="GovExamLicense" />
+                <ScalarProperty Name="GovExamRating" ColumnName="GovExamRating" />
+                <ScalarProperty Name="GovExamDate" ColumnName="GovExamDate" />
+                <ScalarProperty Name="GovExamNature" ColumnName="GovExamNature" />
+                <ScalarProperty Name="PostGraduateCourse" ColumnName="PostGraduateCourse" />
+                <ScalarProperty Name="PostGraduatePeriod" ColumnName="PostGraduatePeriod" />
+                <ScalarProperty Name="PostGraduateSchool" ColumnName="PostGraduateSchool" />
+                <ScalarProperty Name="VocationalCourse" ColumnName="VocationalCourse" />
+                <ScalarProperty Name="VocationaSchool1" ColumnName="VocationaSchool1" />
+                <ScalarProperty Name="VocationalSchool" ColumnName="VocationalSchool" />
+                <ScalarProperty Name="TertiaryCourse" ColumnName="TertiaryCourse" />
+                <ScalarProperty Name="TertiaryPeriod" ColumnName="TertiaryPeriod" />
+                <ScalarProperty Name="TertiarySchool" ColumnName="TertiarySchool" />
+                <ScalarProperty Name="SecondaryPeriod" ColumnName="SecondaryPeriod" />
+                <ScalarProperty Name="SecondarySchool" ColumnName="SecondarySchool" />
+                <ScalarProperty Name="PrimaryPeriod" ColumnName="PrimaryPeriod" />
+                <ScalarProperty Name="PrimarySchool" ColumnName="PrimarySchool" />
+                <ScalarProperty Name="DriverseLicence" ColumnName="DriverseLicence" />
+                <ScalarProperty Name="RelativeAddress" ColumnName="RelativeAddress" />
+                <ScalarProperty Name="RelativeContactNo" ColumnName="RelativeContactNo" />
+                <ScalarProperty Name="PaternityDays" ColumnName="PaternityDays" />
+                <ScalarProperty Name="SILDays" ColumnName="SILDays" />
+                <ScalarProperty Name="VLDays" ColumnName="VLDays" />
+                <ScalarProperty Name="SLDays" ColumnName="SLDays" />
+                <ScalarProperty Name="DeductAllowance" ColumnName="DeductAllowance" />
+                <ScalarProperty Name="DaysPerYear" ColumnName="DaysPerYear" />
+                <ScalarProperty Name="PayRestday" ColumnName="PayRestday" />
+                <ScalarProperty Name="MediElig" ColumnName="MediElig" />
+                <ScalarProperty Name="TaxElig" ColumnName="TaxElig" />
+                <ScalarProperty Name="PagibigElig" ColumnName="PagibigElig" />
+                <ScalarProperty Name="SSSElig" ColumnName="SSSElig" />
+                <ScalarProperty Name="PayrollTypeId" ColumnName="PayrollTypeId" />
+                <ScalarProperty Name="TaxTypeId" ColumnName="TaxTypeId" />
+                <ScalarProperty Name="MaritalStatus" ColumnName="MaritalStatus" />
+                <ScalarProperty Name="PhilHealthNo" ColumnName="PhilHealthNo" />
+                <ScalarProperty Name="BankAcctNo" ColumnName="BankAcctNo" />
+                <ScalarProperty Name="TINNo" ColumnName="TINNo" />
+                <ScalarProperty Name="PagibigNo" ColumnName="PagibigNo" />
+                <ScalarProperty Name="SSSNo" ColumnName="SSSNo" />
+                <ScalarProperty Name="RegularizationDate" ColumnName="RegularizationDate" />
+                <ScalarProperty Name="ProbationExpiryDate" ColumnName="ProbationExpiryDate" />
+                <ScalarProperty Name="CasualExpiryDate" ColumnName="CasualExpiryDate" />
+                <ScalarProperty Name="ReasonOfSeparation" ColumnName="ReasonOfSeparation" />
+                <ScalarProperty Name="SeparationDate" ColumnName="SeparationDate" />
+                <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+                <ScalarProperty Name="ShiftNo" ColumnName="ShiftNo" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+                <ScalarProperty Name="Citizenship" ColumnName="Citizenship" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="BloodType" ColumnName="BloodType" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="BirthPlace" ColumnName="BirthPlace" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ProvAddress" ColumnName="ProvAddress" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="ExtensionName" ColumnName="ExtensionName" />
+                <ScalarProperty Name="NickName" ColumnName="NickName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="EmpTypeId" ColumnName="EmpTypeId" />
+                <ScalarProperty Name="RankCategoryId" ColumnName="RankCategoryId" />
+                <ScalarProperty Name="JobCategoryId" ColumnName="JobCategoryId" />
+                <ScalarProperty Name="JobPositionId" ColumnName="JobPositionId" />
+                <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+                <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+                <ScalarProperty Name="CostCenterId" ColumnName="CostCenterId" />
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="EmpNo" ColumnName="EmpNo" />
+                <ScalarProperty Name="EmpId" ColumnName="EmpId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileExtensions">
+            <EntityTypeMapping TypeName="Models.FileExtension">
+              <MappingFragment StoreEntitySet="File201_FileExtension">
+                <ScalarProperty Name="isAccepted" ColumnName="isAccepted" />
+                <ScalarProperty Name="File_Extns" ColumnName="File_Extns" />
+                <ScalarProperty Name="File_Type" ColumnName="File_Type" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="Models.Position">
+              <MappingFragment StoreEntitySet="JobPositions">
+                <ScalarProperty Name="UserLogStamp" ColumnName="UserLogStamp" />
+                <ScalarProperty Name="UserTrailTrack" ColumnName="UserTrailTrack" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="JobPositionId" ColumnName="JobPositionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JobCategories">
+            <EntityTypeMapping TypeName="Models.JobCategory">
+              <MappingFragment StoreEntitySet="JobCategories">
+                <ScalarProperty Name="UserLogStamp" ColumnName="UserLogStamp" />
+                <ScalarProperty Name="UserTrailTrack" ColumnName="UserTrailTrack" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="JobCategoryId" ColumnName="JobCategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Models.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="UserLogStamp" ColumnName="UserLogStamp" />
+                <ScalarProperty Name="UserTrailTrack" ColumnName="UserTrailTrack" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="UserGroupID" ColumnName="UserGroupID" />
+                <ScalarProperty Name="ADID" ColumnName="ADID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Superusers">
+            <EntityTypeMapping TypeName="Models.Superuser">
+              <MappingFragment StoreEntitySet="File201_Superuser">
+                <ScalarProperty Name="updated" ColumnName="updated" />
+                <ScalarProperty Name="created" ColumnName="created" />
+                <ScalarProperty Name="updated_by" ColumnName="updated_by" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="user_ADID" ColumnName="user_ADID" />
+                <ScalarProperty Name="user_type_id" ColumnName="user_type_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="Models.UserType">
+              <MappingFragment StoreEntitySet="File201_UserType">
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departments">
+            <EntityTypeMapping TypeName="Models.Department">
+              <MappingFragment StoreEntitySet="Departments">
+                <ScalarProperty Name="UserLogStamp" ColumnName="UserLogStamp" />
+                <ScalarProperty Name="UserTrailTrack" ColumnName="UserTrailTrack" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

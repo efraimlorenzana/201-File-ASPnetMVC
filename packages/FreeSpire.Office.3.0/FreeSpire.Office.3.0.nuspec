@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>FreeSpire.Office</id>
+    <version>3.0</version>
+    <title>Free Spire.Office</title>
+    <authors>win7x64</authors>
+    <owners>win7x64</owners>
+    <licenseUrl>https://www.e-iceblue.com/Tutorials/Licensing/License-Agreement.html</licenseUrl>
+    <projectUrl>https://www.e-iceblue.com/Introduce/spire-office-for-net-free.html</projectUrl>
+    <iconUrl>https://www.e-iceblue.com/images/product_logo/product_buy/officenetfree.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>With Free Spire.Office for .NET, developers can create a wide range of applications. It enables developers to open, create, modify, convert, print, View MS Word, Excel, PowerPoint and PDF documents. Furthermore, it allows users to export data to popular files such as MS Word/Excel/RTF/Access, PowerPoint, PDF, XPS, HTML, XML, Text, CSV, DBF, Clipboard, SYLK, etc.
+As an independent Office .NET component, Free Spire.Office doesn't need Microsoft Office to be installed on neither the development nor target systems. 
+Friendly reminder:
+Free Spire.Office has no any warning message but it has page limitation for the Word, Excel, PowerPoint and PDF documents. When reading and writing word documents, it is limited to 500 paragraphs and 25 tables. When converting word documents to PDF and XPS files, you can only get the first 3 page of PDF file. When reading and writing Excel files, it is limited to 5 sheets per workbook and 200 rows per sheet. When reading and writing PowerPoint documents, it is limited to 10 presentation slides. When loading and editing PDF files, it is limited to 10 pages of PDF.
+Free Spire.Doc for .NET
+Developers can use it to generate, read, write, save, print and convert documents on any .NET applications. The featured function, conversion allows converting Word documents (Word 97-2003, Word 2007, Word 2010, word 2013) to commonly used file format, such as XML, RTF, TXT, PDF, XPS, EPUB, HTML and Image etc.
+Free Spire.DocViewer for .NET
+Free Spire.DocViewer for .NET can help developers quickly open Word 97-2003, Word 2007, Word 2010 and Word 2013. When Printing Word Documents, print pages can be set up or be odd number, even number or a custom number scale. In addition, developers can view documents in reading or printing mode and display documents with page up/down, and zoom in/out.
+Free Spire.XLS for .NET
+Free Spire.XLS for .NET enables developers to generate Excel workbook from scratch, or load a workbook from either folder or file stream.</description>
+    <summary>Free Spire.Office includes Free Spire.Doc, Free Spire.DocViewer, Free Spire XLS, Free Spire.Presentation, Free Spire.PDF, Free Spire.PDFViewer, Free Spire.DataExport and Free Spire.Barcode.</summary>
+    <releaseNotes />
+    <copyright>Copyright © 2018 e-iceblue. All Rights Reserved.</copyright>
+    <language>en-US</language>
+    <tags>Free Spire.Doc Spire.PDF Excel Barcode</tags>
+  </metadata>
+</package>

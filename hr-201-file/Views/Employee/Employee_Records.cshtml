@@ -1,0 +1,103 @@
+﻿@model hr_201_file.Models.EmployeeModel
+
+@{
+    ViewBag.Title = "Employee Records";
+    Layout = "";
+    int folder_id = int.Parse(Request["folder_id"]);
+    int EmpNo = int.Parse(Request["EmpNo"]);
+}
+<div class="command">
+    <ul class="command__list">
+        <li class="command__item">
+            <a id="upload-link" href="#" class="command__link" onclick="disableFormFields(false)">
+                <svg class="command__link--icon">
+                    ">
+                    <use xlink:href="~/Icons/symbol-defs.svg#icon-pencil"></use>
+                </svg>
+                <span class="command__link--text">Edit</span>
+            </a>
+        </li>
+        <li class="command__item">
+            <a id="upload-link" href="/File/New_Record?folder_id=@folder_id&search=@EmpNo" class="command__link">
+                <svg class="command__link--icon">
+                    ">
+                    <use xlink:href="~/Icons/symbol-defs.svg#icon-filter"></use>
+                </svg>
+                <span class="command__link--text">Filter</span>
+            </a>
+        </li>
+        <li class="command__item">
+            <a id="upload-link" href="/File/New_Record?folder_id=@folder_id&search=@EmpNo" class="command__link">
+                <svg class="command__link--icon">
+                    ">
+                    <use xlink:href="~/Icons/symbol-defs.svg#icon-attachment"></use>
+                </svg>
+                <span class="command__link--text">Attachment</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="records">
+    @switch (Request["folder_id"])
+    {
+        case "1":
+        { Html.RenderPartial("_PersonalDetail", Model.employeeInfo); }
+        break;
+        case "2":
+        { Html.RenderPartial("_EmploymentDetail", Model.employeeInfo); }
+        break;
+        default: break;
+    }
+    
+    <h4 data-title="document" class="section-title" onclick="accordionToggle(event)">
+        Available Document(s)
+    </h4>
+    <section data-title="section-document" class="emp document">
+        <table class="table table-hover table-dark">
+            @if (Model.files.Count() > 0)
+            {
+                foreach (var item in Model.files)
+                {
+                    <tr>
+                        <td style="min-width: 300px">
+                            @Html.DisplayFor(modelItem => item.file_name)
+                        </td>
+                        <td style="min-width: 200px;text-align: center;">
+                            @Html.DisplayFor(modelItem => item.timestamp)
+                        </td>
+                        <td style="min-width: 300px;text-align: center;">
+                            @Html.ActionLink("View", "View", "File",
+                            new
+                            {
+                                id = item.id,
+                                folder_id = Request["folder_id"],
+                                search = Request["search"]
+                            },
+                            null) |
+                            
+                            @Html.ActionLink("Download", "Download", "File",
+                            new
+                            {
+                                id = item.id
+                            }, null) |
+                            
+                            @Html.ActionLink("Delete", "Delete", "File", new { id = item.id }, null)
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3">
+                        <span class="no_record_found">
+                            No Record Found
+                        </span>
+                    </td>
+                </tr>
+            }
+            
+        </table>
+    </section>
+</div>

@@ -1,0 +1,460 @@
+﻿@model hr_201_file.Models.EmployeeInfo
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div>
+        @Html.ValidationSummary(true)
+        
+        <h4 data-title="personal" class="section-title" onclick="accordionToggle(event)">
+            Personal Details
+        </h4>
+        <section data-title="section-personal" class="emp personal">
+            <div class="form-group personal">
+                @Html.LabelFor(model => model.employee.LastName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.LastName)
+                    @Html.ValidationMessageFor(model => model.employee.LastName)
+                </div>
+            </div>
+            <div class="form-group personal">
+                @Html.LabelFor(model => model.employee.FirstName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.FirstName)
+                    @Html.ValidationMessageFor(model => model.employee.FirstName)
+                </div>
+            </div>
+            <div class="form-group personal">
+                @Html.LabelFor(model => model.employee.MiddleName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.MiddleName)
+                    @Html.ValidationMessageFor(model => model.employee.MiddleName)
+                </div>
+            </div>
+            <div class="form-group personal">
+                @Html.LabelFor(model => model.employee.NickName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.NickName)
+                    @Html.ValidationMessageFor(model => model.employee.NickName)
+                </div>
+            </div>
+            <div class="form-group personal">
+                @Html.LabelFor(model => model.employee.ExtensionName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.ExtensionName)
+                    @Html.ValidationMessageFor(model => model.employee.ExtensionName)
+                </div>
+            </div>
+            <div class="form-group personal">
+                @Html.LabelFor(model => model.employee.Address, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.employee.Address)
+                    @Html.ValidationMessageFor(model => model.employee.Address)
+                </div>
+            </div>
+            <div class="form-group personal">
+                @Html.LabelFor(model => model.employee.ProvAddress, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.employee.ProvAddress)
+                    @Html.ValidationMessageFor(model => model.employee.ProvAddress)
+                </div>
+            </div>
+            <div class="form-group personal">
+                @Html.LabelFor(model => model.employee.Region, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.Region)
+                    @Html.ValidationMessageFor(model => model.employee.Region)
+                </div>
+            </div>
+            <div class="form-group personal">
+                @Html.LabelFor(model => model.employee.Gender, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.Gender)
+                    @Html.ValidationMessageFor(model => model.employee.Gender)
+                </div>
+            </div>
+            <div class="form-group personal">
+                @Html.LabelFor(model => model.employee.BirthDate, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.BirthDate)
+                    @Html.ValidationMessageFor(model => model.employee.BirthDate)
+                </div>
+            </div>
+            <div class="form-group personal">
+                @Html.LabelFor(model => model.employee.BirthPlace, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.BirthPlace)
+                    @Html.ValidationMessageFor(model => model.employee.BirthPlace)
+                </div>
+            </div>
+            <div class="form-group personal">
+                @Html.LabelFor(model => model.employee.Religion, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.Religion)
+                    @Html.ValidationMessageFor(model => model.employee.Religion)
+                </div>
+            </div>
+            <div class="form-group personal">
+                @Html.LabelFor(model => model.employee.Citizenship, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.Citizenship)
+                    @Html.ValidationMessageFor(model => model.employee.Citizenship)
+                </div>
+            </div>
+            <div class="form-group personal">
+                @Html.LabelFor(model => model.employee.MaritalStatus, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.MaritalStatus)
+                    @Html.ValidationMessageFor(model => model.employee.MaritalStatus)
+                </div>
+            </div>
+            <div class="form-group personal">
+                @Html.LabelFor(model => model.employee.DriverseLicence, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.DriverseLicence)
+                    @Html.ValidationMessageFor(model => model.employee.DriverseLicence)
+                </div>
+            </div>
+        </section>
+        
+        <h4 data-title="government" class="section-title" onclick="accordionToggle(event)">
+            Government Number
+        </h4>
+        <section data-title="section-government" class="emp government">
+            <div class="form-group government">
+                @Html.LabelFor(model => model.employee.SSSNo, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.SSSNo)
+                    @Html.ValidationMessageFor(model => model.employee.SSSNo)
+                </div>
+            </div>
+            <div class="form-group government">
+                @Html.LabelFor(model => model.employee.PagibigNo, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.PagibigNo)
+                    @Html.ValidationMessageFor(model => model.employee.PagibigNo)
+                </div>
+            </div>
+            <div class="form-group government">
+                @Html.LabelFor(model => model.employee.TINNo, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.TINNo)
+                    @Html.ValidationMessageFor(model => model.employee.TINNo)
+                </div>
+            </div>
+            <div class="form-group government">
+                @Html.LabelFor(model => model.employee.PhilHealthNo, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.PhilHealthNo)
+                    @Html.ValidationMessageFor(model => model.employee.PhilHealthNo)
+                </div>
+            </div>
+            <div class="form-group government">
+                @Html.LabelFor(model => model.employee.SSSElig, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.SSSElig)
+                    @Html.ValidationMessageFor(model => model.employee.SSSElig)
+                </div>
+            </div>
+            <div class="form-group government">
+                @Html.LabelFor(model => model.employee.PagibigElig, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.PagibigElig)
+                    @Html.ValidationMessageFor(model => model.employee.PagibigElig)
+                </div>
+            </div>
+            <div class="form-group government">
+                @Html.LabelFor(model => model.employee.TaxElig, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.TaxElig)
+                    @Html.ValidationMessageFor(model => model.employee.TaxElig)
+                </div>
+            </div>
+        </section>
+        
+        <h4 data-title="contact" class="section-title" onclick="accordionToggle(event)">
+            Contact Details
+        </h4>
+        <section data-title="section-contact" class="emp contact">
+            <div class="form-group contact">
+                @Html.LabelFor(model => model.employee.Email, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.Email)
+                    @Html.ValidationMessageFor(model => model.employee.Email)
+                </div>
+            </div>
+            <div class="form-group contact">
+                @Html.LabelFor(model => model.employee.PhoneNo, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.PhoneNo)
+                    @Html.ValidationMessageFor(model => model.employee.PhoneNo)
+                </div>
+            </div>
+            <div class="form-group contact">
+                @Html.LabelFor(model => model.employee.MobileNo, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.MobileNo)
+                    @Html.ValidationMessageFor(model => model.employee.MobileNo)
+                </div>
+            </div>
+        </section>
+        
+        <h4 data-title="family" class="section-title" onclick="accordionToggle(event)">
+            Family Details
+        </h4>
+        <section data-title="section-family" class="emp family">
+            
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.Father, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.Father)
+                    @Html.ValidationMessageFor(model => model.employee.Father)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.FatherBirthDate, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.FatherBirthDate)
+                    @Html.ValidationMessageFor(model => model.employee.FatherBirthDate)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.FatherContactNo, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.FatherContactNo)
+                    @Html.ValidationMessageFor(model => model.employee.FatherContactNo)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.FatherEducAttainment, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.FatherEducAttainment)
+                    @Html.ValidationMessageFor(model => model.employee.FatherEducAttainment)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.FatherOccupation, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.FatherOccupation)
+                    @Html.ValidationMessageFor(model => model.employee.FatherOccupation)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.FatherCompany, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.FatherCompany)
+                    @Html.ValidationMessageFor(model => model.employee.FatherCompany)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.Mother, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.Mother)
+                    @Html.ValidationMessageFor(model => model.employee.Mother)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.MotherBirthDate, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.MotherBirthDate)
+                    @Html.ValidationMessageFor(model => model.employee.MotherBirthDate)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.MotherContactNo, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.MotherContactNo)
+                    @Html.ValidationMessageFor(model => model.employee.MotherContactNo)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.MotherEducAttainment, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.MotherEducAttainment)
+                    @Html.ValidationMessageFor(model => model.employee.MotherEducAttainment)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.MotherOccupation, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.MotherOccupation)
+                    @Html.ValidationMessageFor(model => model.employee.MotherOccupation)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.MotherCompany, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.MotherCompany)
+                    @Html.ValidationMessageFor(model => model.employee.MotherCompany)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.Spouse, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.Spouse)
+                    @Html.ValidationMessageFor(model => model.employee.Spouse)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.SpouseBirthDate, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.SpouseBirthDate)
+                    @Html.ValidationMessageFor(model => model.employee.SpouseBirthDate)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.SpouseContactNo, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.SpouseContactNo)
+                    @Html.ValidationMessageFor(model => model.employee.SpouseContactNo)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.SpouseEducAttainment, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.SpouseEducAttainment)
+                    @Html.ValidationMessageFor(model => model.employee.SpouseEducAttainment)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.SpouseOccupation, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.SpouseOccupation)
+                    @Html.ValidationMessageFor(model => model.employee.SpouseOccupation)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.SpouseCompany, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.SpouseCompany)
+                    @Html.ValidationMessageFor(model => model.employee.SpouseCompany)
+                </div>
+            </div>
+            
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.RelativeContactNo, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.RelativeContactNo)
+                    @Html.ValidationMessageFor(model => model.employee.RelativeContactNo)
+                </div>
+            </div>
+            <div class="form-group family">
+                @Html.LabelFor(model => model.employee.RelativeAddress, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.RelativeAddress)
+                    @Html.ValidationMessageFor(model => model.employee.RelativeAddress)
+                </div>
+            </div>
+        </section>
+        
+        <h4 data-title="education" class="section-title" onclick="accordionToggle(event)">
+            Educational Attainment
+        </h4>
+        <section data-title="section-education" class="emp education">
+            <div class="form-group education">
+                @Html.LabelFor(model => model.employee.PrimarySchool, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.PrimarySchool)
+                    @Html.ValidationMessageFor(model => model.employee.PrimarySchool)
+                </div>
+            </div>
+            <div class="form-group education">
+                @Html.LabelFor(model => model.employee.PrimaryPeriod, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.PrimaryPeriod)
+                    @Html.ValidationMessageFor(model => model.employee.PrimaryPeriod)
+                </div>
+            </div>
+            <div class="form-group education">
+                @Html.LabelFor(model => model.employee.SecondarySchool, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.SecondarySchool)
+                    @Html.ValidationMessageFor(model => model.employee.SecondarySchool)
+                </div>
+            </div>
+            <div class="form-group education">
+                @Html.LabelFor(model => model.employee.SecondaryPeriod, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.SecondaryPeriod)
+                    @Html.ValidationMessageFor(model => model.employee.SecondaryPeriod)
+                </div>
+            </div>
+            <div class="form-group education">
+                @Html.LabelFor(model => model.employee.TertiarySchool, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.TertiarySchool)
+                    @Html.ValidationMessageFor(model => model.employee.TertiarySchool)
+                </div>
+            </div>
+            <div class="form-group education">
+                @Html.LabelFor(model => model.employee.TertiaryPeriod, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.TertiaryPeriod)
+                    @Html.ValidationMessageFor(model => model.employee.TertiaryPeriod)
+                </div>
+            </div>
+            <div class="form-group education">
+                @Html.LabelFor(model => model.employee.TertiaryCourse, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.TertiaryCourse)
+                    @Html.ValidationMessageFor(model => model.employee.TertiaryCourse)
+                </div>
+            </div>
+            <div class="form-group education">
+                @Html.LabelFor(model => model.employee.VocationalSchool, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.VocationalSchool)
+                    @Html.ValidationMessageFor(model => model.employee.VocationalSchool)
+                </div>
+            </div>
+            <div class="form-group education">
+                @Html.LabelFor(model => model.employee.VocationaSchool1, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.VocationaSchool1)
+                    @Html.ValidationMessageFor(model => model.employee.VocationaSchool1)
+                </div>
+            </div>
+            <div class="form-group education">
+                @Html.LabelFor(model => model.employee.VocationalCourse, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.VocationalCourse)
+                    @Html.ValidationMessageFor(model => model.employee.VocationalCourse)
+                </div>
+            </div>
+            <div class="form-group education">
+                @Html.LabelFor(model => model.employee.PostGraduateSchool, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.PostGraduateSchool)
+                    @Html.ValidationMessageFor(model => model.employee.PostGraduateSchool)
+                </div>
+            </div>
+            <div class="form-group education">
+                @Html.LabelFor(model => model.employee.PostGraduatePeriod, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.PostGraduatePeriod)
+                    @Html.ValidationMessageFor(model => model.employee.PostGraduatePeriod)
+                </div>
+            </div>
+            <div class="form-group education">
+                @Html.LabelFor(model => model.employee.PostGraduateCourse, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.employee.PostGraduateCourse)
+                    @Html.ValidationMessageFor(model => model.employee.PostGraduateCourse)
+                </div>
+            </div>
+        </section>
+        
+        <div id="submitEmployeeDetails" class="form-group" hidden>
+            <div class="form-group__submit">
+                <button data-empid="@model.employee.EmpId" type="button" class="employee__info--savechanges c_btn c_btn--green">
+                    Save Changes
+                </button>
+                <button type="button" class="c_btn c_btn--green" onclick="disableFormFields(true)">
+                    Cancel
+                </button>
+            </div>
+            <hr>
+        </div>
+    </div>
+}
